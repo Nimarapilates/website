@@ -1,0 +1,625 @@
+# ============================================================
+# RE:CONNECT REFORMER PILATES — BRAND IDENTITY
+# ============================================================
+# This file is the single source of truth for all brand,
+# visual, and tone-of-voice guidelines. It is structured
+# for consumption by AI agents generating marketing material.
+# ============================================================
+
+company:
+  legal_name: "Re:Connect Reformer Pilates S.L."
+  trading_name: "Re:Connect"
+  display_name: "RE:CONNECT"
+  tagline: "Reconnect with yourself."
+  secondary_taglines:
+    - "Move. Breathe. Reconnect."
+    - "Your body. Your practice."
+  description: >
+    Re:Connect is a premium Reformer Pilates studio in the heart
+    of Palma de Mallorca's Son Espanyolet neighbourhood. We offer
+    an intimate, design-led studio experience with world-class
+    Balanced Body equipment, expert instructors, and a philosophy
+    rooted in mindful movement and personal connection.
+  founded_location: "Palma de Mallorca, Spain"
+  website: "https://reconnectpilates.es"
+  email: "hello@reconnectpilates.es"
+
+  address:
+    street: "C/ Joan Crespi, 45"
+    city: "Palma de Mallorca"
+    region: "Illes Balears"
+    postcode: "07014"
+    country: "Spain"
+    neighbourhood: "Son Espanyolet"
+    google_maps: "https://maps.google.com/?q=C/+Joan+Crespi+45+Palma+de+Mallorca"
+
+  social:
+    instagram: "https://instagram.com/reconnect.pilates"
+    instagram_handle: "@reconnect.pilates"
+    tiktok: "https://tiktok.com/@reconnect.pilates"
+    tiktok_handle: "@reconnect.pilates"
+
+  languages:
+    primary: "en"
+    secondary: "es"
+    note: >
+      All client-facing material should be bilingual. English is
+      the lead language (targeting international residents and expats),
+      with full Spanish translation available. Social media posts
+      alternate or include both languages.
+
+# ============================================================
+# BRAND STORY & POSITIONING
+# ============================================================
+
+brand_story:
+  name_origin: >
+    The colon in Re:Connect is intentional — it signals a restart,
+    a return to something essential. In a world of noise and
+    distraction, the studio is a place to reconnect: with your
+    body, your breath, and yourself.
+  ethos: >
+    We believe Pilates is not a workout — it is a practice. Every
+    session is an opportunity to move with intention, build strength
+    from the inside out, and leave feeling more aligned than when
+    you arrived.
+  positioning: >
+    Re:Connect is positioned as the premium Reformer Pilates
+    experience in Palma de Mallorca. We are not a fitness chain,
+    not a budget studio, and not a trend. We are a considered,
+    design-led space for people who value quality, expertise,
+    and a moment of calm in their day.
+
+  differentiators:
+    - "Intimate classes: maximum 8 clients per session on Balanced Body Allegro 2 Reformers."
+    - "Design-led studio: warm oak, natural stone, Calke Green accents, curated B&W Mallorcan photography."
+    - "Expert instruction: qualified, experienced instructors who know every client by name."
+    - "Son Espanyolet location: a quiet, residential setting away from the tourist bustle."
+    - "Bilingual: seamless English and Spanish service for Palma's international community."
+
+  target_audience:
+    primary: >
+      Affluent residents of Son Espanyolet, Santa Catalina, and
+      surrounding areas aged 30-60. International expats (particularly
+      Scandinavian, British, German) and design-conscious locals.
+      Health-aware, time-poor professionals and retirees who value
+      quality over price.
+    secondary: >
+      Visitors and seasonal residents staying in premium accommodation
+      in Palma. Wellness-focused travellers looking for a single
+      drop-in or short-term class pack.
+
+# ============================================================
+# SERVICES & CLASSES
+# ============================================================
+
+services:
+  equipment:
+    reformers: "Balanced Body Allegro 2"
+    quantity: 8
+    note: "Industry-leading equipment, maintained to the highest standard."
+
+  classes:
+    - name: "Reformer Fundamentals"
+      slug: "fundamentals"
+      duration: 50
+      capacity: 8
+      summary: >
+        A foundational class for those new to Reformer Pilates or
+        returning after a break. Focus on alignment, breath, and
+        the core principles of the method.
+
+    - name: "Reformer Flow"
+      slug: "flow"
+      duration: 50
+      capacity: 8
+      summary: >
+        A dynamic, flowing class connecting movements with breath.
+        Builds strength, flexibility, and body awareness through
+        continuous, intentional sequences.
+
+    - name: "Reformer Sculpt"
+      slug: "sculpt"
+      duration: 50
+      capacity: 8
+      summary: >
+        An athletic, strength-focused class using the full range
+        of the Reformer. Targeted work for glutes, core, arms,
+        and back with controlled intensity.
+
+    - name: "Reformer Restore"
+      slug: "restore"
+      duration: 50
+      capacity: 8
+      summary: >
+        A slower, deeper practice emphasising mobility, stretch,
+        and release. Ideal for recovery days or as a complement
+        to more intense training.
+
+    - name: "Private Session"
+      slug: "private"
+      duration: 55
+      capacity: 1
+      summary: >
+        One-to-one instruction tailored entirely to your goals,
+        body, and experience level. The most personalised way
+        to practise.
+
+    - name: "Duet Session"
+      slug: "duet"
+      duration: 55
+      capacity: 2
+      summary: >
+        Semi-private instruction for two. Share the session with
+        a partner, friend, or colleague while receiving focused,
+        personalised guidance.
+
+  pricing:
+    note: >
+      Pricing is positioned above local competitors to reflect
+      the premium experience. Founding member rates offer a
+      meaningful discount to early adopters.
+    drop_in: { price: 38, currency: "EUR", note: "Single class" }
+    pack_5: { price: 170, currency: "EUR", per_class: 34, validity: "2 months" }
+    pack_10: { price: 300, currency: "EUR", per_class: 30, validity: "3 months" }
+    monthly_4: { price: 140, currency: "EUR", per_class: 35, note: "4 classes/month" }
+    monthly_8: { price: 250, currency: "EUR", per_class: 31.25, note: "8 classes/month" }
+    unlimited: { price: 320, currency: "EUR", note: "Unlimited classes" }
+    private_session: { price: 75, currency: "EUR" }
+    duet_session: { price: 95, currency: "EUR", note: "Total, not per person" }
+
+    founding_member:
+      note: "Limited availability. Available during pre-launch and first month of opening."
+      monthly_unlimited: { price: 260, currency: "EUR", note: "Locked rate for 12 months" }
+      annual_unlimited: { price: 2600, currency: "EUR", note: "Pay upfront, save 2 months" }
+
+# ============================================================
+# VISUAL IDENTITY
+# ============================================================
+
+logos:
+  primary_light:
+    file: "logos/reconnect-dark.svg"
+    description: "Full wordmark 'RE:CONNECT' in warm charcoal, for use on light/sand backgrounds."
+    usage: "Default logo on all light backgrounds."
+
+  primary_dark:
+    file: "logos/reconnect-light.svg"
+    description: "Full wordmark 'RE:CONNECT' in cream/white, for use on dark or green backgrounds."
+    usage: "Use on dark backgrounds and Calke Green surfaces."
+
+  icon:
+    file: "logos/reconnect-icon.svg"
+    description: "Monogram mark (R:C ligature or abstract colon motif). For favicons, app icons, social avatars."
+    usage: "Use when full wordmark won't fit."
+
+  subline:
+    text: "Studio Pilates"
+    note: "Appears below the wordmark on the storefront and select print materials. Optional on digital."
+
+  clear_space: "Minimum clear space around logo equals the height of the colon in RE:CONNECT."
+  minimum_size: "Do not reproduce the full wordmark smaller than 100px wide on screen or 25mm in print."
+
+  style_notes: >
+    The wordmark uses a refined, medium-weight sans-serif with generous letter-spacing.
+    The colon is a distinctive brand element — it should always be present (RE:CONNECT,
+    not RECONNECT or RE CONNECT). On the physical storefront, the space between RE and
+    CONNECT may be used for stylistic effect, but digitally the colon is mandatory.
+
+colours:
+  palette:
+    - name: "Dune"
+      role: "Warm neutral — primary background for light sections, card backgrounds"
+      hex: "#C2A77D"
+      rgb: "194, 167, 125"
+      tailwind: "dune"
+
+    - name: "Sand"
+      role: "Light neutral — page background, spacious breathing room"
+      hex: "#F5F0E8"
+      rgb: "245, 240, 232"
+      tailwind: "sand"
+
+    - name: "Calke Green"
+      role: "Primary accent — buttons, highlights, feature elements, brand moments"
+      hex: "#5B7553"
+      rgb: "91, 117, 83"
+      tailwind: "green"
+
+    - name: "Sage"
+      role: "Soft green — hover states, secondary accents, muted green contexts"
+      hex: "#8A9E82"
+      rgb: "138, 158, 130"
+      tailwind: "sage"
+
+    - name: "Warm Charcoal"
+      role: "Primary text colour, dark backgrounds, headings"
+      hex: "#2C2C2C"
+      rgb: "44, 44, 44"
+      tailwind: "charcoal"
+
+    - name: "Oak"
+      role: "Warm mid-tone — decorative accents, borders, referencing timber materiality"
+      hex: "#B08D57"
+      rgb: "176, 141, 87"
+      tailwind: "oak"
+
+    - name: "Cream"
+      role: "Lightest tone — text on dark backgrounds, clean white alternative"
+      hex: "#FAF8F4"
+      rgb: "250, 248, 244"
+      tailwind: "cream"
+
+    - name: "Stone"
+      role: "Mid-neutral — secondary text, captions, muted body copy"
+      hex: "#8C8577"
+      rgb: "140, 133, 119"
+      tailwind: "stone"
+
+  usage_rules:
+    - "The brand is light-first. Primary surfaces use Sand or Cream."
+    - "Calke Green is the hero accent — use for CTAs, key highlights, and brand moments. It is not a background colour for large areas."
+    - "Dune is used for warm card backgrounds, section accents, and the reception/retail area feel."
+    - "Warm Charcoal for all headings and primary text. Never pure black (#000)."
+    - "Stone for body copy and secondary text on light backgrounds."
+    - "Oak is used sparingly as a decorative border/accent referencing the studio's timber materiality."
+    - "Borders and dividers: Charcoal at 10-15% opacity on light backgrounds."
+    - "Dark sections (e.g. footer, special features) may use Charcoal background with Cream text."
+
+  gradients:
+    - name: "Hero overlay"
+      description: "Subtle gradient over hero images to ensure text readability."
+      css: "linear-gradient(to bottom, rgba(245,240,232,0.3), rgba(245,240,232,0.8))"
+
+    - name: "Warm fade"
+      description: "Gentle transition between Sand and Cream sections."
+      css: "linear-gradient(to bottom, #FAF8F4, #F5F0E8)"
+
+typography:
+  heading_font:
+    name: "Cormorant Garamond"
+    source: "Google Fonts"
+    weights: [300, 400, 500, 600]
+    fallbacks: ["Georgia", "serif"]
+    note: >
+      An elegant serif used for headings and display text. Conveys
+      the refined, considered quality of the brand. The light weight
+      (300) is the primary heading weight — sophisticated, not heavy.
+
+  body_font:
+    name: "DM Sans"
+    source: "Google Fonts"
+    weights: [300, 400, 500, 600]
+    fallbacks: ["system-ui", "sans-serif"]
+    note: >
+      A clean, geometric sans-serif for body text, navigation, labels,
+      and UI elements. Highly readable at all sizes. Pairs beautifully
+      with Cormorant Garamond.
+
+  scale:
+    hero_heading: "text-5xl sm:text-6xl lg:text-7xl — Cormorant Garamond, font-light (300)"
+    section_heading: "text-3xl sm:text-4xl — Cormorant Garamond, font-light (300)"
+    section_label: "text-xs uppercase tracking-[0.2em] font-medium (500) — DM Sans, Calke Green"
+    body: "text-base or text-lg — DM Sans, font-normal (400), Stone colour"
+    small: "text-sm — DM Sans, font-normal (400)"
+    caption: "text-xs — DM Sans, font-normal (400), Stone colour"
+    nav: "text-sm — DM Sans, font-medium (500), uppercase, tracking-wide"
+    price: "text-2xl — DM Sans, font-medium (500), Charcoal"
+
+  rules:
+    - "Headings always use Cormorant Garamond at font-light (300). Never bold for headings."
+    - "Section labels are DM Sans, uppercase, tracked-out, medium weight, Calke Green."
+    - "Body text uses Stone colour on light backgrounds, Cream on dark backgrounds."
+    - "Line height: relaxed (1.7) for body copy. Tight (1.1) for hero headings."
+    - "The colon in RE:CONNECT is always present in the wordmark. In running text, write 'Re:Connect'."
+
+# ============================================================
+# LAYOUT & COMPONENTS
+# ============================================================
+
+layout:
+  max_width: "max-w-6xl (72rem / 1152px)"
+  padding: "px-6 sm:px-8 lg:px-12"
+  section_spacing: "py-20 sm:py-28"
+  hero_spacing: "py-32 sm:py-44"
+  grid: "CSS Grid, 1-col mobile, 2-col desktop. Generous gaps (gap-8 to gap-16)."
+
+  patterns:
+    - name: "Hero section"
+      description: >
+        Full-width, Sand or Cream background, with large atmospheric
+        studio photograph at low opacity or as a side panel. Centred or
+        left-aligned heading in Cormorant Garamond light, tagline in
+        Stone, single CTA button in Calke Green.
+
+    - name: "Content section"
+      description: >
+        Sand background, generous vertical padding. Section label in
+        green above heading. Content in a comfortable max-width container.
+
+    - name: "Split section"
+      description: >
+        Two-column layout: one side full-bleed image (studio interior
+        or B&W Mallorcan photography), other side padded text content.
+        Image always bleeds to the edge. Alternates left/right.
+
+    - name: "Class card"
+      description: >
+        Cream background, subtle border (charcoal at 10% opacity),
+        rounded corners. Class name in Cormorant Garamond, duration
+        badge, short description in Stone, 'Book' CTA in Calke Green.
+
+    - name: "Pricing card"
+      description: >
+        Sand background with a Calke Green top border (3px). Price
+        prominently displayed in DM Sans medium. Features listed below.
+        Featured/recommended tier gets a Calke Green background with
+        Cream text.
+
+    - name: "Instructor card"
+      description: >
+        Portrait photo (warm, natural light, not studio-shot), name
+        in Cormorant Garamond, credentials in small DM Sans, short
+        bio in Stone.
+
+    - name: "Footer"
+      description: >
+        Charcoal background, Cream text. Logo, address, social links,
+        newsletter signup, copyright. Clean, minimal, not cluttered.
+
+  components:
+    - name: "SectionLabel"
+      description: "DM Sans, text-xs, uppercase, tracking-[0.2em], font-medium, Calke Green. Above headings."
+
+    - name: "ButtonPrimary"
+      description: "bg-green (Calke Green), text-cream, font-medium, text-sm, px-6 py-3, rounded-sm. Hover: bg-green/90."
+
+    - name: "ButtonOutline"
+      description: "border border-charcoal/30, text-charcoal, font-medium, text-sm, px-6 py-3, rounded-sm. Hover: bg-charcoal/5."
+
+    - name: "Divider"
+      description: "Full-width 1px line, bg-charcoal/10. Subtle section separator."
+
+    - name: "BadgeDuration"
+      description: "Inline badge showing class duration. bg-sand, text-stone, text-xs, rounded-full, px-3 py-1."
+
+# ============================================================
+# TONE OF VOICE
+# ============================================================
+
+tone_of_voice:
+  summary: >
+    Calm, warm, and assured. We speak with the quiet confidence
+    of people who care deeply about what they do but don't need
+    to shout about it. The tone is welcoming without being overly
+    familiar, and refined without being cold.
+
+  principles:
+    - name: "Calm authority"
+      description: >
+        We know our practice inside out. We share that knowledge
+        gently, never condescendingly. 'Your instructor will guide
+        you through every movement' — not 'our world-class trainers
+        will transform your body.'
+
+    - name: "Warmth, not hype"
+      description: >
+        We welcome people in. The studio is a warm, considered
+        space and the copy should feel the same. 'We'd love to
+        see you' — not 'JOIN NOW and CRUSH YOUR GOALS.'
+
+    - name: "Mindful, not preachy"
+      description: >
+        We believe in the practice but we don't evangelise. We
+        let the experience speak. No wellness jargon, no pseudo-
+        spiritual language, no toxic positivity.
+
+    - name: "Specific and real"
+      description: >
+        We describe things concretely. '8 Balanced Body Allegro 2
+        Reformers' — not 'state-of-the-art equipment.' 'Oak floors
+        and natural stone' — not 'a luxurious environment.'
+
+    - name: "Body-positive and inclusive"
+      description: >
+        Pilates is for every body. We never use language that
+        implies a particular body type, weight loss as a goal,
+        or before/after transformations. The benefits are strength,
+        mobility, alignment, and wellbeing.
+
+  do:
+    - "Use 'we' and 'our' — the studio speaks as a team."
+    - "Use sentence case for headings (not Title Case)."
+    - "Write in short, clear sentences. 2-3 sentences per paragraph."
+    - "Describe the feeling and experience, not just the features."
+    - "Use 'practice' not 'workout' when referring to Pilates."
+    - "Include both English and Spanish where possible."
+
+  dont:
+    - "Don't use superlatives (best, leading, world-class, unrivalled)."
+    - "Don't use exclamation marks in brand copy."
+    - "Don't use fitness-culture language (crush, burn, beast mode, no pain no gain)."
+    - "Don't use 'luxury' — let the experience communicate that."
+    - "Don't use weight-loss or body-shaming language."
+    - "Don't use corporate buzzwords (solutions, leverage, synergy)."
+    - "Don't use 'passion' or 'passionate'."
+    - "Don't use pseudo-spiritual language (manifest, vibration, energy healing)."
+
+  examples:
+    good:
+      - "Reconnect with yourself."
+      - "Eight Reformers. Expert guidance. A space designed for focus."
+      - "We keep classes small so your instructor knows your name, your body, and your goals."
+      - "Your first class is an introduction — to the method, the equipment, and us."
+      - "Pilates is not about perfection. It's about practice."
+    bad:
+      - "Experience the ULTIMATE Reformer Pilates journey!"
+      - "Our world-class instructors will transform your body and mind!"
+      - "Burn calories and sculpt your dream body on our luxury Reformers!"
+      - "Align your chakras through the healing power of movement!"
+
+# ============================================================
+# PHOTOGRAPHY & IMAGERY STYLE
+# ============================================================
+
+photography:
+  style: >
+    Warm, natural, editorial. Images should feel calm and considered
+    — morning light through the studio windows, a close-up of hands
+    on the Reformer carriage, the timber and stone textures of the
+    space. Not stock photography, not gym-aesthetic, not overly posed.
+
+  subjects:
+    - "The studio interior: Reformers, reception, materials, details"
+    - "Clients in practice: natural, mid-movement, not posed or performative"
+    - "Instructor guidance: hands-on adjustments, attentive teaching moments"
+    - "Material textures: oak flooring, stone walls, green velvet, timber slats"
+    - "Mallorcan context: B&W coastal landscapes, Bellver Castle, Mediterranean light"
+    - "Post-class moments: the lounge, water, quiet conversation"
+
+  treatment:
+    - "Warm colour grading: soft, natural tones. Never cold or clinical."
+    - "Full-opacity images in split sections. Low opacity (20-40%) with gradient overlay for hero backgrounds."
+    - "B&W Mallorcan photography as a signature element — referencing the studio's wall murals."
+    - "Avoid: gym-aesthetic shots, mirror selfies, before/after imagery, overly filtered or saturated images."
+
+  mural_images:
+    note: >
+      The studio features two large B&W photographic murals: one of
+      figures on a Mediterranean beach and one of Bellver Castle from
+      the coast. These are signature brand elements that can be
+      referenced in marketing material.
+
+# ============================================================
+# MARKETING ASSET FORMATS
+# ============================================================
+
+asset_formats:
+  instagram_square: { width: 1080, height: 1080, format: "PNG" }
+  instagram_story: { width: 1080, height: 1920, format: "PNG" }
+  instagram_portrait: { width: 1080, height: 1350, format: "PNG" }
+  instagram_reel_cover: { width: 1080, height: 1920, format: "PNG" }
+  tiktok: { width: 1080, height: 1920, format: "PNG" }
+  website_og: { width: 1200, height: 630, format: "PNG", note: "Open Graph / social share card" }
+  google_business: { width: 720, height: 720, format: "PNG" }
+
+  design_rules:
+    - "Use light backgrounds from the brand palette (Sand or Cream)."
+    - "Centre-align text for social posts. Left-align for longer-form content."
+    - "Use Cormorant Garamond light for any heading or featured text."
+    - "Use Calke Green for section labels, CTAs, and highlights."
+    - "Include reconnectpilates.es or @reconnect.pilates on every asset."
+    - "A thin green line (2px, Calke Green, ~40px) above headings as a visual marker."
+    - "Generous whitespace. Let the design breathe. One message per asset."
+    - "When using photography, apply a warm, soft overlay to maintain brand warmth."
+
+# ============================================================
+# KEY PHRASES & STRAPLINES
+# ============================================================
+
+key_phrases:
+  primary_tagline: "Reconnect with yourself."
+  secondary_taglines:
+    - "Move. Breathe. Reconnect."
+    - "Your body. Your practice."
+  studio: "Eight Reformers. Expert guidance. Your practice."
+  experience: "Small classes. Personal attention. Real results."
+  location: "Son Espanyolet, Palma de Mallorca."
+  first_class: "Your first class is an introduction — to the method, the equipment, and us."
+  founding_member: "Be one of the first. Founding member rates, limited availability."
+  bilingual: "We speak your language."
+
+# ============================================================
+# SOCIAL MEDIA
+# ============================================================
+
+social_media:
+  platforms:
+    instagram:
+      handle: "@reconnect.pilates"
+      priority: "primary"
+      posting_frequency: "4-5 times per week"
+      content_mix:
+        the_space: 30
+        the_practice: 30
+        the_team: 20
+        the_lifestyle: 20
+
+    tiktok:
+      handle: "@reconnect.pilates"
+      priority: "secondary"
+      posting_frequency: "2-3 times per week"
+      content_focus: "Short-form technique tips, Reformer movements, studio reveals"
+
+    google_business:
+      priority: "critical for local SEO"
+      note: "Keep updated with photos, hours, posts. Encourage Google reviews from day one."
+
+  hashtags:
+    primary:
+      - "#reconnectpilates"
+      - "#reformerpilates"
+      - "#pilatespalma"
+      - "#palmademallorca"
+    secondary:
+      - "#pilatesstudio"
+      - "#reformer"
+      - "#balancedbody"
+      - "#pilateslife"
+      - "#mindfulmovement"
+      - "#sonespanyolet"
+      - "#mallorcalife"
+      - "#pilatesinstructor"
+      - "#pilatesreformer"
+
+  content_pillars:
+    - name: "The Space"
+      percentage: 30
+      description: "Studio beauty shots, design details, materials close-ups, behind-the-scenes of the build."
+      examples:
+        - "Morning light on the oak floor. This is where your practice begins."
+        - "B&W carousel of the studio murals with the story behind each image."
+        - "Reel: time-lapse of the studio build-out from bare walls to opening day."
+
+    - name: "The Practice"
+      percentage: 30
+      description: "Technique tips, Reformer form videos, exercise breakdowns, class previews."
+      examples:
+        - "Footwork fundamentals: three positions your feet should know on the Reformer."
+        - "Reel: 30-second form check on the Hundred."
+        - "What to expect in your first Reformer class (carousel)."
+
+    - name: "The Team"
+      percentage: 20
+      description: "Instructor spotlights, qualifications, teaching philosophy, behind-the-scenes."
+      examples:
+        - "Meet [Name]: 10 years of teaching, a background in physiotherapy, and a love for early morning classes."
+        - "Why I teach: a short interview reel with each instructor."
+
+    - name: "The Lifestyle"
+      percentage: 20
+      description: "Palma neighbourhood, post-class coffee spots, wellness lifestyle, Mallorcan context."
+      examples:
+        - "Post-class coffee at [local cafe]. The perfect Son Espanyolet morning."
+        - "B&W photo of Bellver Castle + studio mural side-by-side."
+        - "Weekend in Palma: where we go after we practise."
+
+# ============================================================
+# CONTACT & LEGAL
+# ============================================================
+
+contact:
+  email: "hello@reconnectpilates.es"
+  phone: "+34 XXX XXX XXX"
+  address: "C/ Joan Crespi, 45, 07014 Palma de Mallorca, Illes Balears, Spain"
+  website: "https://reconnectpilates.es"
+  instagram: "https://instagram.com/reconnect.pilates"
+  booking: "https://reconnectpilates.es/book"
+
+legal:
+  privacy_policy: "https://reconnectpilates.es/privacy"
+  terms: "https://reconnectpilates.es/terms"
+  note: >
+    Spanish data protection (LOPD-GDD) and EU GDPR apply.
+    Cookie consent banner required. Privacy policy must be
+    available in both English and Spanish.
