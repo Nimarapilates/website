@@ -1,26 +1,99 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Deepened palette — richer, more contrast, more differentiated */
+  --color-sand: #EBE4D6;
+  --color-cream: #F2EDE4;
+  --color-dune: #A8906A;
+  --color-green: #3D5A3A;
+  --color-green-light: #4A6B46;
+  --color-sage: #6E8668;
+  --color-charcoal: #1A1A1A;
+  --color-oak: #9A7B45;
+  --color-stone: #706B60;
+  --color-warm-black: #0F0E0C;
+
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-dm-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-sand);
+  color: var(--color-charcoal);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--color-green);
+  color: var(--color-cream);
+}
+
+/* ── Scroll-reveal animation ─────────────────────────── */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: none;
+}
+
+.reveal.revealed {
+  animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered delays for children */
+.reveal-delay-1.revealed { animation-delay: 0.1s; }
+.reveal-delay-2.revealed { animation-delay: 0.2s; }
+.reveal-delay-3.revealed { animation-delay: 0.3s; }
+.reveal-delay-4.revealed { animation-delay: 0.4s; }
+
+/* ── Parallax image container ────────────────────────── */
+.parallax-img {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ── Hero video ──────────────────────────────────────── */
+.hero-video-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 14, 12, 0.25) 0%,
+    rgba(15, 14, 12, 0.35) 40%,
+    rgba(15, 14, 12, 0.6) 100%
+  );
+}
+
+/* ── Image zoom on hover ─────────────────────────────── */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* ── Smooth border transition ────────────────────────── */
+.card-hover {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  border-color: var(--color-green);
+  box-shadow: 0 0 0 1px var(--color-green);
 }

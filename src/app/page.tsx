@@ -1,65 +1,296 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
+import { SectionLabel, ButtonPrimary, ButtonOutline, Divider, AccentLine } from "@/components/ui";
+import ScrollReveal from "@/components/ScrollReveal";
+
+const classes = [
+  {
+    name: "Reformer Fundamentals",
+    description:
+      "A foundational class for those new to Reformer Pilates. Focus on alignment, breath, and the core principles of the method.",
+    image:
+      "https://images.unsplash.com/photo-1717500252709-05a73fc4f1da?w=800&h=600&fit=crop&q=80",
+  },
+  {
+    name: "Reformer Flow",
+    description:
+      "A dynamic, flowing class connecting movements with breath. Builds strength, flexibility, and body awareness.",
+    image:
+      "https://images.unsplash.com/photo-1747240549807-fc3962949818?w=800&h=600&fit=crop&q=80",
+  },
+  {
+    name: "Reformer Sculpt",
+    description:
+      "An athletic, strength-focused class using the full range of the Reformer. Controlled intensity for real results.",
+    image:
+      "https://images.unsplash.com/photo-1754257320382-95b43e9f797c?w=800&h=600&fit=crop&q=80",
+  },
+  {
+    name: "Reformer Restore",
+    description:
+      "A slower, deeper practice emphasising mobility, stretch, and release. Ideal for recovery days.",
+    image:
+      "https://images.unsplash.com/photo-1754257319747-df51c384c0fa?w=800&h=600&fit=crop&q=80",
+  },
+];
+
+const values = [
+  {
+    title: "Small classes",
+    description:
+      "Maximum eight clients per session. Your instructor knows your name, your body, and your goals.",
+    number: "08",
+  },
+  {
+    title: "Expert guidance",
+    description:
+      "Qualified, experienced instructors who teach with precision, care, and personal attention.",
+    number: "50",
+  },
+  {
+    title: "Considered space",
+    description:
+      "Oak floors, natural stone, and warm light. A studio designed for focus and calm, not distraction.",
+    number: "01",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+      {/* ── Video Hero ───────────────────────────────────── */}
+      <section className="relative h-screen min-h-[600px] max-h-[1000px] overflow-hidden">
+        {/* Background video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster="/images/studio/reformers.png"
+        >
+          <source
+            src="https://assets.mixkit.co/videos/48556/48556-1080.mp4"
+            type="video/mp4"
+          />
+        </video>
+
+        {/* Dark overlay */}
+        <div className="absolute inset-0 hero-video-overlay" />
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pb-20 sm:pb-28">
+          <div className="max-w-2xl">
+            <SectionLabel dark>Son Espanyolet, Palma de Mallorca</SectionLabel>
+            <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.05] text-cream mb-6">
+              Reconnect with yourself.
+            </h1>
+            <p className="text-lg sm:text-xl text-cream/60 leading-relaxed mb-10 max-w-lg">
+              Premium Reformer Pilates in an intimate, design-led studio. Eight
+              Reformers. Expert guidance. Your practice.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <ButtonPrimary href="/classes">Book a class</ButtonPrimary>
+              <ButtonOutline href="/studio" light>
+                Explore the studio
+              </ButtonOutline>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+          <div className="w-px h-8 bg-cream/30 animate-pulse" />
+        </div>
+      </section>
+
+      {/* ── Values ───────────────────────────────────────── */}
+      <section className="bg-warm-black py-24 sm:py-32">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+            {values.map((v, i) => (
+              <ScrollReveal key={v.title} delay={i + 1}>
+                <span className="block font-heading text-6xl font-light text-green/50 mb-4">
+                  {v.number}
+                </span>
+                <h3 className="font-heading text-2xl font-light text-cream mb-3">
+                  {v.title}
+                </h3>
+                <p className="text-cream/50 leading-relaxed">
+                  {v.description}
+                </p>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── About split ──────────────────────────────────── */}
+      <section className="bg-sand py-24 sm:py-32">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <ScrollReveal>
+              <div className="aspect-[4/3] rounded-sm overflow-hidden img-zoom">
+                <Image
+                  src="/images/studio/reformers.png"
+                  alt="Re:Connect Pilates studio with Reformer machines"
+                  width={960}
+                  height={720}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal delay={1}>
+              <SectionLabel>The studio</SectionLabel>
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal mb-6 leading-tight">
+                A space designed for your practice
+              </h2>
+              <p className="text-stone leading-relaxed mb-4">
+                Re:Connect is not a gym. It is a considered, calm space where
+                every detail — from the oak flooring to the acoustic ceiling —
+                has been chosen to help you focus.
+              </p>
+              <p className="text-stone leading-relaxed mb-8">
+                Eight Balanced Body Allegro 2 Reformers. Black and white
+                Mallorcan photography on the walls. Natural light, warm
+                materials, and room to breathe.
+              </p>
+              <ButtonOutline href="/studio">Discover the space</ButtonOutline>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Full-bleed image break ───────────────────────── */}
+      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+          src="https://images.unsplash.com/photo-1747239202356-764770773c9a?w=1920&h=800&fit=crop&q=80"
+          alt="Pilates practice in motion"
+          fill
+          className="object-cover"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        <div className="absolute inset-0 bg-warm-black/40" />
+        <div className="relative z-10 flex items-center justify-center h-full">
+          <ScrollReveal className="text-center">
+            <p className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream leading-tight max-w-2xl px-6">
+              Move. Breathe. Reconnect.
+            </p>
+          </ScrollReveal>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* ── Classes preview ──────────────────────────────── */}
+      <section className="bg-cream py-24 sm:py-32">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <SectionLabel>Our classes</SectionLabel>
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal">
+                Find your practice
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {classes.map((c, i) => (
+              <ScrollReveal key={c.name} delay={(i % 2) + 1}>
+                <div className="group bg-sand border border-charcoal/8 rounded-sm overflow-hidden card-hover">
+                  <div className="aspect-[16/9] overflow-hidden">
+                    <Image
+                      src={c.image}
+                      alt={c.name}
+                      width={800}
+                      height={450}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-8">
+                    <div className="flex items-start justify-between gap-4 mb-3">
+                      <h3 className="font-heading text-xl font-light text-charcoal">
+                        {c.name}
+                      </h3>
+                      <span className="shrink-0 text-xs text-stone bg-sand/80 rounded-full px-3 py-1">
+                        50 min
+                      </span>
+                    </div>
+                    <p className="text-stone text-sm leading-relaxed">
+                      {c.description}
+                    </p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal>
+            <div className="text-center mt-12">
+              <ButtonPrimary href="/classes">View all classes</ButtonPrimary>
+            </div>
+          </ScrollReveal>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* ── Mallorca strip ───────────────────────────────── */}
+      <section className="bg-warm-black py-24 sm:py-32">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <ScrollReveal>
+              <SectionLabel dark>The neighbourhood</SectionLabel>
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-6 leading-tight">
+                Son Espanyolet, Palma
+              </h2>
+              <p className="text-cream/50 leading-relaxed mb-4">
+                A quiet, residential neighbourhood just steps from Santa
+                Catalina. Tree-lined streets, independent cafes, and the kind of
+                calm that makes the rest of your morning better.
+              </p>
+              <p className="text-cream/50 leading-relaxed">
+                C/ Joan Crespi, 45. Easy to find, easy to park, and far enough
+                from the bustle to feel like a retreat.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={1}>
+              <div className="aspect-[4/3] rounded-sm overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1566993850067-bb8df9c9807e?w=960&h=720&fit=crop&q=80&sat=-100"
+                  alt="Palma Cathedral, Mallorca"
+                  width={960}
+                  height={720}
+                  className="w-full h-full object-cover grayscale"
+                />
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ──────────────────────────────────────────── */}
+      <section className="relative py-28 sm:py-36 overflow-hidden">
+        <Image
+          src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&h=1080&fit=crop&q=80"
+          alt="Meditation and calm"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-warm-black/70" />
+        <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+          <ScrollReveal>
+            <SectionLabel dark>Begin your practice</SectionLabel>
+            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-6 leading-tight max-w-3xl mx-auto">
+              Your first class is an introduction — to the method, the
+              equipment, and us.
+            </h2>
+            <p className="text-cream/50 text-lg max-w-xl mx-auto mb-10">
+              No experience required. We will guide you through every movement.
+            </p>
+            <ButtonPrimary href="/classes">Book your first class</ButtonPrimary>
+          </ScrollReveal>
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,0 +1,112 @@
+import Link from "next/link";
+
+const navLinks = [
+  { label: "Studio", href: "/studio" },
+  { label: "Classes", href: "/classes" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Instructors", href: "/instructors" },
+  { label: "Contact", href: "/contact" },
+];
+
+export default function Footer() {
+  return (
+    <footer className="bg-warm-black text-cream/50">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <Link href="/" className="inline-block mb-4">
+              <span className="font-heading text-2xl font-light tracking-[0.12em] text-cream">
+                RE:CONNECT
+              </span>
+            </Link>
+            <p className="text-sm leading-relaxed max-w-xs">
+              Premium Reformer Pilates studio in Son Espanyolet, Palma de
+              Mallorca.
+            </p>
+          </div>
+
+          {/* Navigation */}
+          <div>
+            <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-cream/70 mb-4">
+              Studio
+            </h3>
+            <ul className="space-y-2.5">
+              {navLinks.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    className="text-sm transition-colors hover:text-cream"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-cream/70 mb-4">
+              Contact
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>C/ Joan Crespi, 45</li>
+              <li>07014 Palma de Mallorca</li>
+              <li>
+                <a
+                  href="mailto:hello@reconnectpilates.es"
+                  className="transition-colors hover:text-cream"
+                >
+                  hello@reconnectpilates.es
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Social */}
+          <div>
+            <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-cream/70 mb-4">
+              Follow
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <a
+                  href="https://instagram.com/reconnect.pilates"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-cream"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://tiktok.com/@reconnect.pilates"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-cream"
+                >
+                  TikTok
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="mt-14 pt-8 border-t border-cream/8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-cream/30">
+          <p>&copy; {new Date().getFullYear()} Re:Connect Reformer Pilates S.L.</p>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="hover:text-cream/50">
+              Privacy policy
+            </Link>
+            <Link href="/terms" className="hover:text-cream/50">
+              Terms
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
