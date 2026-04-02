@@ -29,7 +29,7 @@ export default function Nav() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between h-16 sm:h-20">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 flex items-center justify-between h-16 sm:h-20">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <span className="font-heading text-2xl sm:text-[1.7rem] font-light tracking-[0.12em] text-cream">

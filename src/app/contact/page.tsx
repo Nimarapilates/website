@@ -36,7 +36,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+      <section className="relative h-[45vh] sm:h-[50vh] min-h-[340px] sm:min-h-[400px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1581271164789-7c97932822d3?w=1920&h=1080&fit=crop&q=80&sat=-100"
           alt="Palma de Mallorca harbour"
@@ -45,7 +45,7 @@ export default function ContactPage() {
           priority
         />
         <div className="absolute inset-0 hero-video-overlay" />
-        <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pb-16 sm:pb-24">
+        <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-24">
           <SectionLabel dark>Contact</SectionLabel>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-cream mb-4 leading-tight max-w-2xl">
             We would love to hear from you
@@ -58,8 +58,8 @@ export default function ContactPage() {
       </section>
 
       {/* Contact content */}
-      <section className="bg-sand py-24 sm:py-32">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <section className="bg-sand py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
             {/* Form */}
             <ScrollReveal>

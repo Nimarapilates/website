@@ -64,7 +64,7 @@ export default function ClassesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[450px] overflow-hidden">
+      <section className="relative h-[50vh] sm:h-[60vh] min-h-[380px] sm:min-h-[450px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1754257320374-cd5fb647cfea?w=1920&h=1080&fit=crop&q=80"
           alt="Reformer Pilates in practice"
@@ -73,7 +73,7 @@ export default function ClassesPage() {
           priority
         />
         <div className="absolute inset-0 hero-video-overlay" />
-        <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pb-16 sm:pb-24">
+        <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-24">
           <SectionLabel dark>Our classes</SectionLabel>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-cream mb-4 leading-tight max-w-2xl">
             Find your practice
@@ -86,8 +86,8 @@ export default function ClassesPage() {
       </section>
 
       {/* Group classes */}
-      <section className="bg-sand py-24 sm:py-32">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <section className="bg-sand py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <SectionLabel>Group classes</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
@@ -131,13 +131,13 @@ export default function ClassesPage() {
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
         <Divider />
       </div>
 
       {/* Private sessions */}
-      <section className="bg-sand py-24 sm:py-32">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <section className="bg-sand py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <SectionLabel>Private instruction</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-12">
@@ -169,8 +169,8 @@ export default function ClassesPage() {
       </section>
 
       {/* What to expect */}
-      <section className="bg-cream py-24 sm:py-32">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <section className="bg-cream py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center mb-12">
               <SectionLabel>Your first visit</SectionLabel>
@@ -224,8 +224,8 @@ export default function ClassesPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-warm-black py-24 sm:py-32">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+      <section className="bg-warm-black py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <ScrollReveal>
             <SectionLabel dark>Ready to begin</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-6 leading-tight max-w-2xl mx-auto">

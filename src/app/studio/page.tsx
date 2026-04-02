@@ -41,7 +41,7 @@ export default function StudioPage() {
   return (
     <>
       {/* Hero with image */}
-      <section className="relative h-[70vh] min-h-[500px] overflow-hidden">
+      <section className="relative h-[55vh] sm:h-[70vh] min-h-[400px] sm:min-h-[500px] overflow-hidden">
         <Image
           src="/images/studio/reformers.png"
           alt="Re:Connect Reformer Pilates studio"
@@ -50,7 +50,7 @@ export default function StudioPage() {
           priority
         />
         <div className="absolute inset-0 hero-video-overlay" />
-        <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pb-16 sm:pb-24">
+        <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-24">
           <SectionLabel dark>The studio</SectionLabel>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-cream mb-4 leading-tight max-w-2xl">
             A space designed for focus and calm
@@ -63,8 +63,8 @@ export default function StudioPage() {
       </section>
 
       {/* Materials */}
-      <section className="bg-sand py-24 sm:py-32">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <section className="bg-sand py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <div className="max-w-xl mb-16">
               <SectionLabel>Materials</SectionLabel>
@@ -105,13 +105,13 @@ export default function StudioPage() {
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
         <Divider />
       </div>
 
       {/* Equipment */}
-      <section className="bg-sand py-24 sm:py-32">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <section className="bg-sand py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <ScrollReveal>
               <SectionLabel>Equipment</SectionLabel>
@@ -146,7 +146,7 @@ export default function StudioPage() {
       </section>
 
       {/* Neighbourhood */}
-      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+      <section className="relative h-[40vh] sm:h-[50vh] min-h-[280px] sm:min-h-[400px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1575444298587-39ff96db2566?w=1920&h=800&fit=crop&q=80"
           alt="Palma de Mallorca Cathedral"
@@ -154,7 +154,7 @@ export default function StudioPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-warm-black/50" />
-        <div className="relative z-10 flex items-center h-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="relative z-10 flex items-center h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <SectionLabel dark>The neighbourhood</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-4 leading-tight max-w-xl">
@@ -170,8 +170,8 @@ export default function StudioPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-warm-black py-24 sm:py-32">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+      <section className="bg-warm-black py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <ScrollReveal>
             <SectionLabel dark>Come and see</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-8 leading-tight max-w-2xl mx-auto">

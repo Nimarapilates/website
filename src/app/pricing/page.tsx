@@ -58,7 +58,7 @@ export default function PricingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+      <section className="relative h-[45vh] sm:h-[50vh] min-h-[340px] sm:min-h-[400px] overflow-hidden">
         <Image
           src="/images/studio/reception.png"
           alt="Re:Connect studio reception"
@@ -67,7 +67,7 @@ export default function PricingPage() {
           priority
         />
         <div className="absolute inset-0 hero-video-overlay" />
-        <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 pb-16 sm:pb-24">
+        <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-24">
           <SectionLabel dark>Pricing</SectionLabel>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-cream mb-4 leading-tight max-w-2xl">
             Simple, transparent pricing
@@ -80,8 +80,8 @@ export default function PricingPage() {
       </section>
 
       {/* Class packs */}
-      <section className="bg-sand py-24 sm:py-32">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <section className="bg-sand py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <SectionLabel>Class packs</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
@@ -123,13 +123,13 @@ export default function PricingPage() {
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
         <Divider />
       </div>
 
       {/* Memberships */}
-      <section className="bg-sand py-24 sm:py-32">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <section className="bg-sand py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <SectionLabel>Memberships</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
@@ -209,8 +209,8 @@ export default function PricingPage() {
       </section>
 
       {/* Private sessions */}
-      <section className="bg-cream py-24 sm:py-32">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <section className="bg-cream py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <SectionLabel>Private instruction</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-12">
@@ -245,7 +245,7 @@ export default function PricingPage() {
       </section>
 
       {/* Founding member */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
+      <section className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&h=1080&fit=crop&q=80"
           alt="Wellness and calm"
@@ -253,7 +253,7 @@ export default function PricingPage() {
           className="object-cover"
         />
         <div className="absolute inset-0 bg-warm-black/80" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center">
               <SectionLabel dark>Limited availability</SectionLabel>
