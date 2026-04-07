@@ -72,7 +72,7 @@ export default function Home() {
           poster="/images/studio/reformers.png"
         >
           <source
-            src="https://assets.mixkit.co/videos/39862/39862-1080.mp4"
+            src="https://assets.mixkit.co/videos/48556/48556-1080.mp4"
             type="video/mp4"
           />
         </video>
