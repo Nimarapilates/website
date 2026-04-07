@@ -326,7 +326,7 @@ export default function PricingPage() {
       <section id="founding" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
         <Image
           src="/images/studio/storefront.png"
-          alt="Re:Connect studio exterior"
+          alt="BE:LiVE studio exterior"
           fill
           className="object-cover"
         />

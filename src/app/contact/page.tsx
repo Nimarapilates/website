@@ -454,7 +454,7 @@ export default function ContactPage() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Re:Connect studio location"
+                    title="BE:LiVE studio location"
                   />
                 </div>
               </div>

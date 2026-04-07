@@ -33,7 +33,7 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <span className="font-heading text-2xl sm:text-[1.7rem] font-light tracking-[0.12em] text-cream">
-            RE:CONNECT
+            BE:LiVE
           </span>
         </Link>
 

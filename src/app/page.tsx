@@ -64,7 +64,7 @@ export default function Home() {
       <section className="relative h-screen min-h-[550px] max-h-[1000px] overflow-hidden">
         <Image
           src="/images/studio/reformers.png"
-          alt="Re:Connect Reformer Pilates studio"
+          alt="BE:LiVE Reformer Pilates studio"
           fill
           className="object-cover"
           priority
@@ -146,7 +146,7 @@ export default function Home() {
                 A space designed for your practice
               </h2>
               <p className="text-stone leading-relaxed mb-3 sm:mb-4">
-                Re:Connect is not a gym. It is a considered, calm space where
+                BE:LiVE is not a gym. It is a considered, calm space where
                 every detail — from the oak flooring to the acoustic ceiling —
                 has been chosen to help you focus.
               </p>
@@ -252,7 +252,7 @@ export default function Home() {
               },
               {
                 quote:
-                  "I've done Pilates in London and Paris. Re:Connect is on a different level — small classes, genuine attention, and you feel it the next day.",
+                  "I've done Pilates in London and Paris. BE:LiVE is on a different level — small classes, genuine attention, and you feel it the next day.",
                 name: "Claire D.",
                 detail: "British expat, Mallorca",
               },
