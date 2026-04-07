@@ -60,22 +60,15 @@ const values = [
 export default function Home() {
   return (
     <>
-      {/* ── Video Hero ───────────────────────────────────── */}
+      {/* ── Hero ─────────────────────────────────────────── */}
       <section className="relative h-screen min-h-[550px] max-h-[1000px] overflow-hidden">
-        {/* Background video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-          poster="/images/studio/reformers.png"
-        >
-          <source
-            src="https://assets.mixkit.co/videos/48556/48556-1080.mp4"
-            type="video/mp4"
-          />
-        </video>
+        <Image
+          src="/images/studio/reformers.png"
+          alt="Re:Connect Reformer Pilates studio"
+          fill
+          className="object-cover"
+          priority
+        />
 
         {/* Dark overlay */}
         <div className="absolute inset-0 hero-video-overlay" />
