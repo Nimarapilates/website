@@ -90,9 +90,27 @@ export default function ClassesPage() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <SectionLabel>Group classes</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
+            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-8">
               Reformer classes for every level
             </h2>
+          </ScrollReveal>
+
+          {/* New here callout */}
+          <ScrollReveal>
+            <div className="bg-green/10 border border-green/20 rounded-sm px-6 py-5 mb-12 flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex-1">
+                <p className="text-green font-medium text-sm mb-1">New to Reformer Pilates?</p>
+                <p className="text-stone text-sm leading-relaxed">
+                  Start with <strong className="text-charcoal font-medium">Reformer Fundamentals</strong> — our entry-level class designed for complete beginners. No experience needed, every movement explained.
+                </p>
+              </div>
+              <a
+                href="/pricing"
+                className="shrink-0 text-sm font-medium text-green border border-green/30 px-5 py-2.5 rounded-sm hover:bg-green hover:text-cream transition-all duration-300"
+              >
+                See pricing →
+              </a>
+            </div>
           </ScrollReveal>
 
           <div className="space-y-8">

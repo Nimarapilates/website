@@ -79,6 +79,22 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* Founding member banner */}
+      <div className="bg-green">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+          <p className="text-cream/80 text-sm flex-1">
+            <span className="font-medium text-cream">Founding member offer — </span>
+            Lock in unlimited classes at &euro;260/month for 12 months. Available pre-launch and first month only.
+          </p>
+          <a
+            href="#founding"
+            className="shrink-0 text-cream text-sm font-medium underline underline-offset-4 hover:text-cream/80 transition-colors"
+          >
+            Learn more →
+          </a>
+        </div>
+      </div>
+
       {/* Class packs */}
       <section className="bg-sand py-16 sm:py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
@@ -244,8 +260,70 @@ export default function PricingPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="bg-sand py-16 sm:py-24 lg:py-32">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12">
+          <ScrollReveal>
+            <SectionLabel>FAQ</SectionLabel>
+            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
+              Questions before you book
+            </h2>
+          </ScrollReveal>
+
+          <div className="space-y-0">
+            {[
+              {
+                q: "Do I need experience?",
+                a: "Not at all. Our Reformer Fundamentals class is designed for complete beginners. Your instructor will guide every movement, every time.",
+              },
+              {
+                q: "What should I bring?",
+                a: "Grip socks are required — bring your own or purchase a pair at the studio. Wear comfortable, fitted clothing. We provide mats and complimentary water.",
+              },
+              {
+                q: "What is the cancellation policy?",
+                a: "You can cancel or reschedule up to 12 hours before your class, free of charge. Late cancellations and no-shows forfeit the session.",
+              },
+              {
+                q: "I have an injury or back pain. Can I still come?",
+                a: "Please mention it when booking and inform your instructor before class. The Reformer is excellent for rehabilitation — but we recommend consulting your GP first.",
+              },
+              {
+                q: "How do I book?",
+                a: "All bookings are made through Bsport, our online booking platform. You will receive an email confirmation immediately.",
+              },
+              {
+                q: "How many people are in a class?",
+                a: "Maximum eight clients per session — always. We never increase this number. You will receive real attention, not just a spot in the room.",
+              },
+              {
+                q: "Can I pause or cancel my membership?",
+                a: "Yes. All memberships can be paused or cancelled with 30 days' notice. No penalties, no difficult conversations.",
+              },
+            ].map((item, i) => (
+              <ScrollReveal key={i} delay={0}>
+                <details className="group border-t border-charcoal/10 py-6 cursor-pointer">
+                  <summary className="flex items-center justify-between gap-4 list-none">
+                    <span className="font-heading text-lg font-light text-charcoal group-open:text-green transition-colors">
+                      {item.q}
+                    </span>
+                    <span className="shrink-0 text-green transition-transform duration-300 group-open:rotate-45 text-2xl leading-none">
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-4 text-stone text-sm leading-relaxed max-w-2xl">
+                    {item.a}
+                  </p>
+                </details>
+              </ScrollReveal>
+            ))}
+            <div className="border-t border-charcoal/10" />
+          </div>
+        </div>
+      </section>
+
       {/* Founding member */}
-      <section className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
+      <section id="founding" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
         <Image
           src="/images/studio/storefront.png"
           alt="Re:Connect studio exterior"

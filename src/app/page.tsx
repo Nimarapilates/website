@@ -237,6 +237,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Testimonials ─────────────────────────────────── */}
+      <section className="bg-sand py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+          <ScrollReveal>
+            <div className="text-center mb-12 sm:mb-16">
+              <SectionLabel>What our clients say</SectionLabel>
+              <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal">
+                Real people. Real results.
+              </h2>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {[
+              {
+                quote:
+                  "I had never tried Reformer before. After two sessions I was completely hooked. The team made me feel safe and guided from the very first movement.",
+                name: "Sophie R.",
+                detail: "Palma resident",
+              },
+              {
+                quote:
+                  "I've done Pilates in London and Paris. Re:Connect is on a different level — small classes, genuine attention, and you feel it the next day.",
+                name: "Claire D.",
+                detail: "British expat, Mallorca",
+              },
+              {
+                quote:
+                  "I came with chronic lower back pain. After six sessions the difference was remarkable. The instructors are knowledgeable and genuinely careful.",
+                name: "Marc P.",
+                detail: "Santa Catalina",
+              },
+            ].map((t, i) => (
+              <ScrollReveal key={t.name} delay={i + 1}>
+                <div className="bg-cream rounded-sm p-8 h-full flex flex-col border border-charcoal/8">
+                  <p className="font-heading text-4xl text-green/30 leading-none mb-4">&ldquo;</p>
+                  <p className="text-stone leading-relaxed text-sm mb-6 flex-1">
+                    {t.quote}
+                  </p>
+                  <div>
+                    <p className="text-charcoal font-medium text-sm">{t.name}</p>
+                    <p className="text-stone text-xs">{t.detail}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Mallorca strip ───────────────────────────────── */}
       <section className="bg-warm-black py-16 sm:py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
@@ -291,7 +341,15 @@ export default function Home() {
             <p className="text-cream/50 text-base sm:text-lg max-w-xl mx-auto mb-8 sm:mb-10">
               No experience required. We will guide you through every movement.
             </p>
-            <ButtonPrimary href="/classes">Book your first class</ButtonPrimary>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <ButtonPrimary href="/pricing">View pricing</ButtonPrimary>
+              <a
+                href="/pricing#founding"
+                className="text-cream/60 hover:text-cream text-sm underline underline-offset-4 transition-colors"
+              >
+                Founding member rates →
+              </a>
+            </div>
           </ScrollReveal>
         </div>
       </section>
