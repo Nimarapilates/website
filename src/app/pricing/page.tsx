@@ -247,8 +247,8 @@ export default function PricingPage() {
       {/* Founding member */}
       <section className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&h=1080&fit=crop&q=80"
-          alt="Wellness and calm"
+          src="/images/pricing-hero.jpg"
+          alt="Woman on pilates reformer in studio"
           fill
           className="object-cover"
         />
