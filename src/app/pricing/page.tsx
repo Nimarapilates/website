@@ -60,8 +60,8 @@ export default function PricingPage() {
       {/* Hero */}
       <section className="relative h-[45vh] sm:h-[50vh] min-h-[340px] sm:min-h-[400px] overflow-hidden">
         <Image
-          src="/images/studio/reception.png"
-          alt="Re:Connect studio reception"
+          src="/images/pricing-hero.jpg"
+          alt="Woman on pilates reformer in studio"
           fill
           className="object-cover"
           priority
