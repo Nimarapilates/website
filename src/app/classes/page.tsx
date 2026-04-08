@@ -3,64 +3,69 @@
 import Image from "next/image";
 import { SectionLabel, ButtonPrimary, BadgeDuration, Divider } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
-
-const groupClasses = [
-  {
-    name: "Reformer Fundamentals",
-    slug: "fundamentals",
-    duration: 50,
-    level: "All levels",
-    description:
-      "A foundational class for those new to Reformer Pilates or returning after a break. We focus on alignment, breath, and the core principles of the method. If this is your first time, start here.",
-    image: "https://images.unsplash.com/photo-1717500252709-05a73fc4f1da?w=800&h=500&fit=crop&q=80",
-  },
-  {
-    name: "Reformer Flow",
-    slug: "flow",
-    duration: 50,
-    level: "All levels",
-    description:
-      "A dynamic, flowing class connecting movements with breath. Builds strength, flexibility, and body awareness through continuous, intentional sequences. Expect to move, and to feel it the next day.",
-    image: "https://images.unsplash.com/photo-1747240549807-fc3962949818?w=800&h=500&fit=crop&q=80",
-  },
-  {
-    name: "Reformer Sculpt",
-    slug: "sculpt",
-    duration: 50,
-    level: "Intermediate",
-    description:
-      "An athletic, strength-focused class using the full range of the Reformer. Targeted work for glutes, core, arms, and back. Controlled intensity — no rushing, no compromise on form.",
-    image: "https://images.unsplash.com/photo-1754257320382-95b43e9f797c?w=800&h=500&fit=crop&q=80",
-  },
-  {
-    name: "Reformer Restore",
-    slug: "restore",
-    duration: 50,
-    level: "All levels",
-    description:
-      "A slower, deeper practice emphasising mobility, stretch, and release. Ideal for recovery days or as a complement to more intense training. Leave feeling longer, looser, and more aligned.",
-    image: "https://images.unsplash.com/photo-1754257319747-df51c384c0fa?w=800&h=500&fit=crop&q=80",
-  },
-];
-
-const privateClasses = [
-  {
-    name: "Private Session",
-    duration: 55,
-    price: 75,
-    description:
-      "One-to-one instruction tailored entirely to your goals, body, and experience level. The most personalised way to practise.",
-  },
-  {
-    name: "Duet Session",
-    duration: 55,
-    price: 95,
-    description:
-      "Semi-private instruction for two. Share the session with a partner, friend, or colleague while receiving focused, personalised guidance.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ClassesPage() {
+  const { t } = useLanguage();
+  const c = t.classes;
+
+  const groupClasses = [
+    {
+      name: c.class1Name,
+      slug: "fundamentals",
+      duration: 50,
+      level: c.allLevels,
+      description: c.class1Desc,
+      image: "https://images.unsplash.com/photo-1717500252709-05a73fc4f1da?w=800&h=500&fit=crop&q=80",
+    },
+    {
+      name: c.class2Name,
+      slug: "flow",
+      duration: 50,
+      level: c.allLevels,
+      description: c.class2Desc,
+      image: "https://images.unsplash.com/photo-1747240549807-fc3962949818?w=800&h=500&fit=crop&q=80",
+    },
+    {
+      name: c.class3Name,
+      slug: "sculpt",
+      duration: 50,
+      level: c.intermediate,
+      description: c.class3Desc,
+      image: "https://images.unsplash.com/photo-1754257320382-95b43e9f797c?w=800&h=500&fit=crop&q=80",
+    },
+    {
+      name: c.class4Name,
+      slug: "restore",
+      duration: 50,
+      level: c.allLevels,
+      description: c.class4Desc,
+      image: "https://images.unsplash.com/photo-1754257319747-df51c384c0fa?w=800&h=500&fit=crop&q=80",
+    },
+  ];
+
+  const privateClasses = [
+    {
+      name: c.privateSession,
+      duration: 55,
+      price: 75,
+      description: c.privateDesc,
+    },
+    {
+      name: c.duetSession,
+      duration: 55,
+      price: 95,
+      description: c.duetDesc,
+    },
+  ];
+
+  const steps = [
+    { step: "01", title: c.step1Title, text: c.step1Text },
+    { step: "02", title: c.step2Title, text: c.step2Text },
+    { step: "03", title: c.step3Title, text: c.step3Text },
+    { step: "04", title: c.step4Title, text: c.step4Text },
+  ];
+
   return (
     <>
       {/* Hero */}
@@ -74,14 +79,11 @@ export default function ClassesPage() {
         />
         <div className="absolute inset-0 hero-video-overlay" />
         <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-24">
-          <SectionLabel dark>Our classes</SectionLabel>
+          <SectionLabel dark>{c.heroLabel}</SectionLabel>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-cream mb-4 leading-tight max-w-2xl">
-            Find your practice
+            {c.heroTitle}
           </h1>
-          <p className="text-cream/60 text-lg leading-relaxed max-w-xl">
-            Every class is led by an experienced instructor, limited to eight
-            clients, and designed to challenge you with precision and care.
-          </p>
+          <p className="text-cream/60 text-lg leading-relaxed max-w-xl">{c.heroSubtitle}</p>
         </div>
       </section>
 
@@ -89,9 +91,9 @@ export default function ClassesPage() {
       <section className="bg-sand py-16 sm:py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel>Group classes</SectionLabel>
+            <SectionLabel>{c.groupLabel}</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-8">
-              Reformer classes for every level
+              {c.groupTitle}
             </h2>
           </ScrollReveal>
 
@@ -99,28 +101,28 @@ export default function ClassesPage() {
           <ScrollReveal>
             <div className="bg-green/10 border border-green/20 rounded-sm px-6 py-5 mb-12 flex flex-col sm:flex-row sm:items-center gap-4">
               <div className="flex-1">
-                <p className="text-green font-medium text-sm mb-1">New to Reformer Pilates?</p>
+                <p className="text-green font-medium text-sm mb-1">{c.newHereTitle}</p>
                 <p className="text-stone text-sm leading-relaxed">
-                  Start with <strong className="text-charcoal font-medium">Reformer Fundamentals</strong> — our entry-level class designed for complete beginners. No experience needed, every movement explained.
+                  {c.newHereText}
                 </p>
               </div>
               <a
                 href="/pricing"
                 className="shrink-0 text-sm font-medium text-green border border-green/30 px-5 py-2.5 rounded-sm hover:bg-green hover:text-cream transition-all duration-300"
               >
-                See pricing →
+                {c.seePricing}
               </a>
             </div>
           </ScrollReveal>
 
           <div className="space-y-8">
-            {groupClasses.map((c, i) => (
-              <ScrollReveal key={c.slug}>
+            {groupClasses.map((cls) => (
+              <ScrollReveal key={cls.slug}>
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 bg-cream border border-charcoal/8 rounded-sm overflow-hidden card-hover">
                   <div className="aspect-[16/9] lg:aspect-auto overflow-hidden">
                     <Image
-                      src={c.image}
-                      alt={c.name}
+                      src={cls.image}
+                      alt={cls.name}
                       width={800}
                       height={500}
                       className="w-full h-full object-cover"
@@ -128,19 +130,15 @@ export default function ClassesPage() {
                   </div>
                   <div className="lg:col-span-2 p-8 sm:p-10 flex flex-col justify-center">
                     <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                      <h3 className="font-heading text-2xl font-light text-charcoal">
-                        {c.name}
-                      </h3>
+                      <h3 className="font-heading text-2xl font-light text-charcoal">{cls.name}</h3>
                       <div className="flex gap-2">
-                        <BadgeDuration minutes={c.duration} />
+                        <BadgeDuration minutes={cls.duration} />
                         <span className="inline-block bg-sand text-stone text-xs rounded-full px-3 py-1">
-                          {c.level}
+                          {cls.level}
                         </span>
                       </div>
                     </div>
-                    <p className="text-stone leading-relaxed max-w-2xl">
-                      {c.description}
-                    </p>
+                    <p className="text-stone leading-relaxed max-w-2xl">{cls.description}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -157,28 +155,22 @@ export default function ClassesPage() {
       <section className="bg-sand py-16 sm:py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel>Private instruction</SectionLabel>
+            <SectionLabel>{c.privateLabel}</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-12">
-              One-to-one and duet sessions
+              {c.privateTitle}
             </h2>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {privateClasses.map((c, i) => (
-              <ScrollReveal key={c.name} delay={i + 1}>
+            {privateClasses.map((cls, i) => (
+              <ScrollReveal key={cls.name} delay={i + 1}>
                 <div className="bg-cream border border-charcoal/8 rounded-sm p-8 sm:p-10 card-hover h-full">
                   <div className="flex items-start justify-between gap-4 mb-2">
-                    <h3 className="font-heading text-2xl font-light text-charcoal">
-                      {c.name}
-                    </h3>
-                    <BadgeDuration minutes={c.duration} />
+                    <h3 className="font-heading text-2xl font-light text-charcoal">{cls.name}</h3>
+                    <BadgeDuration minutes={cls.duration} />
                   </div>
-                  <p className="text-green font-medium text-lg mb-4">
-                    &euro;{c.price}
-                  </p>
-                  <p className="text-stone text-sm leading-relaxed">
-                    {c.description}
-                  </p>
+                  <p className="text-green font-medium text-lg mb-4">&euro;{cls.price}</p>
+                  <p className="text-stone text-sm leading-relaxed">{cls.description}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -191,48 +183,23 @@ export default function ClassesPage() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center mb-12">
-              <SectionLabel>Your first visit</SectionLabel>
+              <SectionLabel>{c.firstVisitLabel}</SectionLabel>
               <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal">
-                What to expect
+                {c.firstVisitTitle}
               </h2>
             </div>
           </ScrollReveal>
 
           <div className="max-w-2xl mx-auto space-y-8">
-            {[
-              {
-                step: "01",
-                title: "Arrive early",
-                text: "Come 10 minutes before your class. We will show you the studio, your Reformer, and answer any questions.",
-              },
-              {
-                step: "02",
-                title: "Dress comfortably",
-                text: "Wear comfortable, fitted clothing and grip socks. We have socks available to purchase if you forget yours.",
-              },
-              {
-                step: "03",
-                title: "Follow your instructor",
-                text: "Every movement will be demonstrated and cued. Your instructor is there for you — ask questions, take breaks, go at your own pace.",
-              },
-              {
-                step: "04",
-                title: "Stay afterwards",
-                text: "Take a moment in the reception area. Water is on us. There is no rush.",
-              },
-            ].map((s, i) => (
+            {steps.map((s, i) => (
               <ScrollReveal key={s.step} delay={i + 1}>
                 <div className="flex gap-6">
                   <span className="text-green font-heading text-2xl font-light mt-0.5 shrink-0">
                     {s.step}
                   </span>
                   <div>
-                    <h3 className="font-heading text-xl font-light text-charcoal mb-1">
-                      {s.title}
-                    </h3>
-                    <p className="text-stone text-sm leading-relaxed">
-                      {s.text}
-                    </p>
+                    <h3 className="font-heading text-xl font-light text-charcoal mb-1">{s.title}</h3>
+                    <p className="text-stone text-sm leading-relaxed">{s.text}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -245,15 +212,12 @@ export default function ClassesPage() {
       <section className="bg-warm-black py-16 sm:py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <ScrollReveal>
-            <SectionLabel dark>Ready to begin</SectionLabel>
+            <SectionLabel dark>{c.ctaLabel}</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-6 leading-tight max-w-2xl mx-auto">
-              We recommend starting with Reformer Fundamentals.
+              {c.ctaTitle}
             </h2>
-            <p className="text-cream/50 text-lg max-w-lg mx-auto mb-10">
-              No experience necessary. Just you, the Reformer, and an instructor
-              who will guide every movement.
-            </p>
-            <ButtonPrimary href="/pricing">View pricing</ButtonPrimary>
+            <p className="text-cream/50 text-lg max-w-lg mx-auto mb-10">{c.ctaSubtitle}</p>
+            <ButtonPrimary href="/pricing">{c.viewPricing}</ButtonPrimary>
           </ScrollReveal>
         </div>
       </section>

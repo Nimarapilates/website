@@ -3,35 +3,39 @@
 import Image from "next/image";
 import { SectionLabel, ButtonPrimary } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
-
-const instructors = [
-  {
-    name: "Instructor name",
-    role: "Lead Instructor",
-    credentials: "Balanced Body certified, 8+ years experience",
-    bio: "A brief biography about this instructor — their background, approach to teaching, and what they bring to the studio.",
-    speciality: "Reformer Flow, Private Sessions",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=500&h=667&fit=crop&q=80",
-  },
-  {
-    name: "Instructor name",
-    role: "Instructor",
-    credentials: "BASI Pilates certified, physiotherapy background",
-    bio: "A brief biography about this instructor — their background, approach to teaching, and what they bring to the studio.",
-    speciality: "Reformer Restore, Rehabilitation",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=667&fit=crop&q=80",
-  },
-  {
-    name: "Instructor name",
-    role: "Instructor",
-    credentials: "Stott Pilates certified, 5+ years experience",
-    bio: "A brief biography about this instructor — their background, approach to teaching, and what they bring to the studio.",
-    speciality: "Reformer Sculpt, Fundamentals",
-    image: "https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=500&h=667&fit=crop&q=80",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function InstructorsPage() {
+  const { t } = useLanguage();
+  const inst = t.instructors;
+
+  const instructors = [
+    {
+      name: "Instructor name",
+      role: inst.leadInstructor,
+      credentials: inst.credentials1,
+      bio: inst.bio,
+      speciality: inst.speciality1,
+      image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=500&h=667&fit=crop&q=80",
+    },
+    {
+      name: "Instructor name",
+      role: inst.instructor,
+      credentials: inst.credentials2,
+      bio: inst.bio,
+      speciality: inst.speciality2,
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=667&fit=crop&q=80",
+    },
+    {
+      name: "Instructor name",
+      role: inst.instructor,
+      credentials: inst.credentials3,
+      bio: inst.bio,
+      speciality: inst.speciality3,
+      image: "https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=500&h=667&fit=crop&q=80",
+    },
+  ];
+
   return (
     <>
       {/* Hero */}
@@ -45,13 +49,11 @@ export default function InstructorsPage() {
         />
         <div className="absolute inset-0 hero-video-overlay" />
         <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-24">
-          <SectionLabel dark>Our team</SectionLabel>
+          <SectionLabel dark>{inst.heroLabel}</SectionLabel>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-cream mb-4 leading-tight max-w-2xl">
-            The people behind your practice
+            {inst.heroTitle}
           </h1>
-          <p className="text-cream/60 text-lg leading-relaxed max-w-xl">
-            Qualified, experienced, and genuinely invested in your progress.
-          </p>
+          <p className="text-cream/60 text-lg leading-relaxed max-w-xl">{inst.heroSubtitle}</p>
         </div>
       </section>
 
@@ -59,7 +61,7 @@ export default function InstructorsPage() {
       <section className="bg-sand py-16 sm:py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="space-y-20">
-            {instructors.map((inst, i) => (
+            {instructors.map((instructor, i) => (
               <ScrollReveal key={i}>
                 <div
                   className={`grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16 items-start ${
@@ -68,8 +70,8 @@ export default function InstructorsPage() {
                 >
                   <div className="aspect-[3/4] rounded-sm overflow-hidden img-zoom">
                     <Image
-                      src={inst.image}
-                      alt={inst.name}
+                      src={instructor.image}
+                      alt={instructor.name}
                       width={500}
                       height={667}
                       className="w-full h-full object-cover"
@@ -78,22 +80,16 @@ export default function InstructorsPage() {
 
                   <div className="lg:col-span-2">
                     <p className="text-xs uppercase tracking-[0.2em] font-medium text-green mb-2">
-                      {inst.role}
+                      {instructor.role}
                     </p>
                     <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-2">
-                      {inst.name}
+                      {instructor.name}
                     </h2>
-                    <p className="text-stone text-sm mb-6">
-                      {inst.credentials}
-                    </p>
-                    <p className="text-stone leading-relaxed mb-4">
-                      {inst.bio}
-                    </p>
+                    <p className="text-stone text-sm mb-6">{instructor.credentials}</p>
+                    <p className="text-stone leading-relaxed mb-4">{instructor.bio}</p>
                     <p className="text-sm">
-                      <span className="text-charcoal font-medium">
-                        Speciality:{" "}
-                      </span>
-                      <span className="text-stone">{inst.speciality}</span>
+                      <span className="text-charcoal font-medium">{inst.specialityLabel}: </span>
+                      <span className="text-stone">{instructor.speciality}</span>
                     </p>
                   </div>
                 </div>
@@ -108,19 +104,12 @@ export default function InstructorsPage() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center">
-              <SectionLabel dark>Our approach</SectionLabel>
+              <SectionLabel dark>{inst.philosophyLabel}</SectionLabel>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-8">
-                Teaching with precision and care
+                {inst.philosophyTitle}
               </h2>
-              <p className="text-cream/50 leading-relaxed mb-4">
-                We believe good instruction is not about counting reps. It is
-                about seeing how you move, understanding what your body needs,
-                and guiding you with clarity and patience.
-              </p>
-              <p className="text-cream/50 leading-relaxed">
-                Every client is different. Every session is an opportunity to
-                learn something new — for you and for us.
-              </p>
+              <p className="text-cream/50 leading-relaxed mb-4">{inst.philosophyP1}</p>
+              <p className="text-cream/50 leading-relaxed">{inst.philosophyP2}</p>
             </div>
           </ScrollReveal>
         </div>
@@ -137,11 +126,11 @@ export default function InstructorsPage() {
         <div className="absolute inset-0 bg-warm-black/75" />
         <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <ScrollReveal>
-            <SectionLabel dark>Come and meet us</SectionLabel>
+            <SectionLabel dark>{inst.ctaLabel}</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-8 leading-tight max-w-2xl mx-auto">
-              Your first class is the best introduction.
+              {inst.ctaTitle}
             </h2>
-            <ButtonPrimary href="/classes">Book a class</ButtonPrimary>
+            <ButtonPrimary href="/classes">{inst.bookClass}</ButtonPrimary>
           </ScrollReveal>
         </div>
       </section>

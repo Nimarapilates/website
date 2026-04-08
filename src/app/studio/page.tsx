@@ -3,35 +3,21 @@
 import Image from "next/image";
 import { SectionLabel, ButtonPrimary, Divider } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
-
-const practical = [
-  {
-    title: "Grip socks",
-    text: "Required for all classes. Bring your own or purchase a pair at the studio.",
-  },
-  {
-    title: "What to wear",
-    text: "Comfortable, fitted clothing — leggings and a fitted top work best on the Reformer.",
-  },
-  {
-    title: "Water",
-    text: "Complimentary water is available in the reception area before and after class.",
-  },
-  {
-    title: "Changing area",
-    text: "We have a changing room and lockers on site. You are welcome to arrive ready.",
-  },
-  {
-    title: "Arrive early",
-    text: "10 minutes before your first class. We will show you around and set up your Reformer.",
-  },
-  {
-    title: "Booking",
-    text: "All classes must be booked in advance via Bsport. Walk-ins cannot be guaranteed.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function StudioPage() {
+  const { t } = useLanguage();
+  const s = t.studio;
+
+  const practical = [
+    { title: s.p1Title, text: s.p1Text },
+    { title: s.p2Title, text: s.p2Text },
+    { title: s.p3Title, text: s.p3Text },
+    { title: s.p4Title, text: s.p4Text },
+    { title: s.p5Title, text: s.p5Text },
+    { title: s.p6Title, text: s.p6Text },
+  ];
+
   return (
     <>
       {/* Hero */}
@@ -45,14 +31,11 @@ export default function StudioPage() {
         />
         <div className="absolute inset-0 hero-video-overlay" />
         <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-24">
-          <SectionLabel dark>The studio</SectionLabel>
+          <SectionLabel dark>{s.heroLabel}</SectionLabel>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-cream mb-4 leading-tight max-w-2xl">
-            Step inside
+            {s.heroTitle}
           </h1>
-          <p className="text-cream/60 text-lg leading-relaxed max-w-xl">
-            A calm, considered space in the heart of Santa Catalina. Here is
-            what to expect when you arrive.
-          </p>
+          <p className="text-cream/60 text-lg leading-relaxed max-w-xl">{s.heroSubtitle}</p>
         </div>
       </section>
 
@@ -73,20 +56,12 @@ export default function StudioPage() {
             </ScrollReveal>
 
             <ScrollReveal delay={1}>
-              <SectionLabel>When you arrive</SectionLabel>
+              <SectionLabel>{s.arrivalLabel}</SectionLabel>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal mb-4 sm:mb-6 leading-tight">
-                Quiet from the moment you walk in
+                {s.arrivalTitle}
               </h2>
-              <p className="text-stone leading-relaxed mb-3 sm:mb-4">
-                The reception area is where you drop your bag, put on your grip
-                socks, and take a breath. Soft light, warm materials, and no
-                rush — the studio opens 15 minutes before each class.
-              </p>
-              <p className="text-stone leading-relaxed">
-                Your instructor will greet you, confirm any injuries or
-                considerations, and guide you to your Reformer. First visit?
-                We will walk you through everything.
-              </p>
+              <p className="text-stone leading-relaxed mb-3 sm:mb-4">{s.arrivalP1}</p>
+              <p className="text-stone leading-relaxed">{s.arrivalP2}</p>
             </ScrollReveal>
           </div>
         </div>
@@ -97,20 +72,12 @@ export default function StudioPage() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             <ScrollReveal>
-              <SectionLabel>The studio floor</SectionLabel>
+              <SectionLabel>{s.floorLabel}</SectionLabel>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal mb-4 sm:mb-6 leading-tight">
-                Eight Reformers. Room to breathe.
+                {s.floorTitle}
               </h2>
-              <p className="text-stone leading-relaxed mb-3 sm:mb-4">
-                The main studio has eight Balanced Body Allegro 2 Reformers —
-                the same machines used in the world&apos;s best studios. Spaced
-                generously so you are never on top of each other.
-              </p>
-              <p className="text-stone leading-relaxed">
-                Natural light, warm oak floors, and soft ambient sound. It is
-                designed to feel like a retreat, not a gym. You will notice the
-                difference the moment you step in.
-              </p>
+              <p className="text-stone leading-relaxed mb-3 sm:mb-4">{s.floorP1}</p>
+              <p className="text-stone leading-relaxed">{s.floorP2}</p>
             </ScrollReveal>
 
             <ScrollReveal delay={1}>
@@ -136,9 +103,9 @@ export default function StudioPage() {
       <section className="bg-sand py-16 sm:py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel>Before you come</SectionLabel>
+            <SectionLabel>{s.practicalLabel}</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
-              Everything you need to know
+              {s.practicalTitle}
             </h2>
           </ScrollReveal>
 
@@ -153,9 +120,7 @@ export default function StudioPage() {
                     <h3 className="font-heading text-lg font-light text-charcoal mb-1">
                       {item.title}
                     </h3>
-                    <p className="text-stone text-sm leading-relaxed">
-                      {item.text}
-                    </p>
+                    <p className="text-stone text-sm leading-relaxed">{item.text}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -169,48 +134,36 @@ export default function StudioPage() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             <ScrollReveal>
-              <SectionLabel>How to find us</SectionLabel>
+              <SectionLabel>{s.locationLabel}</SectionLabel>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal mb-6 leading-tight">
-                Santa Catalina, Palma
+                {s.locationTitle}
               </h2>
 
               <div className="space-y-6 mb-8">
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-green font-medium mb-1">
-                    Address
+                    {s.addressLabel}
                   </p>
-                  <p className="text-charcoal font-medium">
-                    C/ Joan Crespí, 47
-                  </p>
-                  <p className="text-stone text-sm">
-                    07014 Palma de Mallorca
-                  </p>
+                  <p className="text-charcoal font-medium">C/ Joan Crespí, 47</p>
+                  <p className="text-stone text-sm">07014 Palma de Mallorca</p>
                 </div>
 
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-green font-medium mb-1">
-                    Parking
+                    {s.parkingLabel}
                   </p>
-                  <p className="text-stone text-sm leading-relaxed">
-                    Street parking is available on C/ Joan Crespí and the
-                    surrounding streets. We recommend arriving a few minutes
-                    early to allow time.
-                  </p>
+                  <p className="text-stone text-sm leading-relaxed">{s.parkingText}</p>
                 </div>
 
                 <div>
                   <p className="text-xs uppercase tracking-[0.2em] text-green font-medium mb-1">
-                    The neighbourhood
+                    {s.neighbourhoodLabel}
                   </p>
-                  <p className="text-stone text-sm leading-relaxed">
-                    Santa Catalina is one of Palma&apos;s most welcoming
-                    neighbourhoods — independent cafés, bakeries, and quiet
-                    streets. The perfect place to linger after class.
-                  </p>
+                  <p className="text-stone text-sm leading-relaxed">{s.neighbourhoodText}</p>
                 </div>
               </div>
 
-              <ButtonPrimary href="/contact">Get in touch</ButtonPrimary>
+              <ButtonPrimary href="/contact">{s.getInTouch}</ButtonPrimary>
             </ScrollReveal>
 
             <ScrollReveal delay={1}>
@@ -232,14 +185,12 @@ export default function StudioPage() {
       <section className="bg-warm-black py-16 sm:py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <ScrollReveal>
-            <SectionLabel dark>Ready?</SectionLabel>
+            <SectionLabel dark>{s.ctaLabel}</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-4 leading-tight max-w-2xl mx-auto">
-              Your first class is the best way to experience it.
+              {s.ctaTitle}
             </h2>
-            <p className="text-cream/40 text-lg max-w-lg mx-auto mb-10">
-              No experience needed. Just come as you are.
-            </p>
-            <ButtonPrimary href="/classes">Book your first class</ButtonPrimary>
+            <p className="text-cream/40 text-lg max-w-lg mx-auto mb-10">{s.ctaSubtitle}</p>
+            <ButtonPrimary href="/classes">{s.bookFirstClass}</ButtonPrimary>
           </ScrollReveal>
         </div>
       </section>

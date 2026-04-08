@@ -2,24 +2,29 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Lang } from "@/lib/i18n";
 
-const links = [
-  { label: "Studio", href: "/studio" },
-  { label: "Classes", href: "/classes" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Instructors", href: "/instructors" },
-  { label: "Contact", href: "/contact" },
-];
+const langs: Lang[] = ["en", "es", "fr"];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const links = [
+    { label: t.nav.studio, href: "/studio" },
+    { label: t.nav.classes, href: "/classes" },
+    { label: t.nav.pricing, href: "/pricing" },
+    { label: t.nav.instructors, href: "/instructors" },
+    { label: t.nav.contact, href: "/contact" },
+  ];
 
   return (
     <header
@@ -52,8 +57,25 @@ export default function Nav() {
             href="/classes"
             className="bg-green text-cream font-medium text-sm px-5 py-2.5 rounded-sm transition-all duration-300 hover:bg-green-light hover:shadow-lg hover:shadow-green/20"
           >
-            Book a class
+            {t.nav.book}
           </Link>
+
+          {/* Language switcher */}
+          <div className="flex items-center gap-1 ml-2">
+            {langs.map((l, i) => (
+              <span key={l} className="flex items-center">
+                {i > 0 && <span className="text-cream/20 text-xs mx-0.5">|</span>}
+                <button
+                  onClick={() => setLang(l)}
+                  className={`text-xs font-medium uppercase tracking-wide transition-colors ${
+                    lang === l ? "text-cream" : "text-cream/30 hover:text-cream/60"
+                  }`}
+                >
+                  {l}
+                </button>
+              </span>
+            ))}
+          </div>
         </nav>
 
         {/* Mobile hamburger */}
@@ -77,7 +99,7 @@ export default function Nav() {
       {/* Mobile menu */}
       <div
         className={`lg:hidden overflow-hidden transition-all duration-500 ease-out ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-[30rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <nav className="bg-charcoal/95 backdrop-blur-xl border-t border-cream/8 px-6 pb-6 pt-4">
@@ -96,8 +118,25 @@ export default function Nav() {
             onClick={() => setOpen(false)}
             className="inline-block mt-4 bg-green text-cream font-medium text-sm px-5 py-2.5 rounded-sm"
           >
-            Book a class
+            {t.nav.book}
           </Link>
+
+          {/* Mobile language switcher */}
+          <div className="flex items-center gap-2 mt-5 pt-4 border-t border-cream/8">
+            {langs.map((l) => (
+              <button
+                key={l}
+                onClick={() => setLang(l)}
+                className={`text-xs font-medium uppercase tracking-widest px-2 py-1 rounded-sm transition-colors ${
+                  lang === l
+                    ? "bg-cream/10 text-cream"
+                    : "text-cream/30 hover:text-cream/60"
+                }`}
+              >
+                {l}
+              </button>
+            ))}
+          </div>
         </nav>
       </div>
     </header>

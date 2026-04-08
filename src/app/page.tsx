@@ -4,60 +4,47 @@ import Image from "next/image";
 import { SectionLabel, ButtonPrimary, ButtonOutline, Divider } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
 import ScrollHint from "@/components/ScrollHint";
-
-const classes = [
-  {
-    name: "Reformer Fundamentals",
-    description:
-      "A foundational class for those new to Reformer Pilates. Focus on alignment, breath, and the core principles of the method.",
-    image:
-      "https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&h=600&fit=crop&q=80",
-  },
-  {
-    name: "Reformer Flow",
-    description:
-      "A dynamic, flowing class connecting movements with breath. Builds strength, flexibility, and body awareness.",
-    image:
-      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop&q=80",
-  },
-  {
-    name: "Reformer Sculpt",
-    description:
-      "An athletic, strength-focused class using the full range of the Reformer. Controlled intensity for real results.",
-    image:
-      "https://images.unsplash.com/photo-1540206395-68808572332f?w=800&h=600&fit=crop&q=80",
-  },
-  {
-    name: "Reformer Restore",
-    description:
-      "A slower, deeper practice emphasising mobility, stretch, and release. Ideal for recovery days.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&q=80",
-  },
-];
-
-const values = [
-  {
-    title: "Small classes",
-    description:
-      "Maximum eight clients per session. Your instructor knows your name, your body, and your goals.",
-    number: "08",
-  },
-  {
-    title: "Expert guidance",
-    description:
-      "Qualified, experienced instructors who teach with precision, care, and personal attention.",
-    number: "50",
-  },
-  {
-    title: "Considered space",
-    description:
-      "Oak floors, natural stone, and warm light. A studio designed for focus and calm, not distraction.",
-    number: "01",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Home() {
+  const { t } = useLanguage();
+  const h = t.home;
+
+  const classes = [
+    {
+      name: h.class1Name,
+      description: h.class1Desc,
+      image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&h=600&fit=crop&q=80",
+    },
+    {
+      name: h.class2Name,
+      description: h.class2Desc,
+      image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop&q=80",
+    },
+    {
+      name: h.class3Name,
+      description: h.class3Desc,
+      image: "https://images.unsplash.com/photo-1540206395-68808572332f?w=800&h=600&fit=crop&q=80",
+    },
+    {
+      name: h.class4Name,
+      description: h.class4Desc,
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&q=80",
+    },
+  ];
+
+  const values = [
+    { title: h.v1Title, description: h.v1Desc, number: "08" },
+    { title: h.v2Title, description: h.v2Desc, number: "50" },
+    { title: h.v3Title, description: h.v3Desc, number: "01" },
+  ];
+
+  const testimonials = [
+    { quote: h.t1Quote, name: h.t1Name, detail: h.t1Detail },
+    { quote: h.t2Quote, name: h.t2Name, detail: h.t2Detail },
+    { quote: h.t3Quote, name: h.t3Name, detail: h.t3Detail },
+  ];
+
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
@@ -76,19 +63,18 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-28">
           <div className="max-w-2xl">
-            <SectionLabel dark>Santa Catalina, Palma de Mallorca</SectionLabel>
+            <SectionLabel dark>{h.location}</SectionLabel>
             <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-light leading-[1.05] text-cream mb-4 sm:mb-6">
-              Reconnect with yourself.
+              {h.heroTitle}
             </h1>
             <p className="text-base sm:text-xl text-cream/60 leading-relaxed mb-8 sm:mb-10 max-w-lg">
-              Premium Reformer Pilates in an intimate, design-led studio. Eight
-              Reformers. Expert guidance. Your practice.
+              {h.heroSubtitle}
             </p>
             {/* CTAs — desktop only */}
             <div className="hidden sm:flex flex-wrap gap-4">
-              <ButtonPrimary href="/classes">Book a class</ButtonPrimary>
+              <ButtonPrimary href="/classes">{h.bookClass}</ButtonPrimary>
               <ButtonOutline href="/studio" light>
-                Explore the studio
+                {h.exploreStudio}
               </ButtonOutline>
             </div>
           </div>
@@ -141,21 +127,13 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal delay={1}>
-              <SectionLabel>The studio</SectionLabel>
+              <SectionLabel>{h.aboutLabel}</SectionLabel>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal mb-4 sm:mb-6 leading-tight">
-                A space designed for your practice
+                {h.aboutTitle}
               </h2>
-              <p className="text-stone leading-relaxed mb-3 sm:mb-4">
-                BE:LiVE is not a gym. It is a considered, calm space where
-                every detail — from the oak flooring to the acoustic ceiling —
-                has been chosen to help you focus.
-              </p>
-              <p className="text-stone leading-relaxed mb-6 sm:mb-8">
-                Eight Balanced Body Allegro 2 Reformers. Black and white
-                Mallorcan photography on the walls. Natural light, warm
-                materials, and room to breathe.
-              </p>
-              <ButtonOutline href="/studio">Discover the space</ButtonOutline>
+              <p className="text-stone leading-relaxed mb-3 sm:mb-4">{h.aboutP1}</p>
+              <p className="text-stone leading-relaxed mb-6 sm:mb-8">{h.aboutP2}</p>
+              <ButtonOutline href="/studio">{h.discoverSpace}</ButtonOutline>
             </ScrollReveal>
           </div>
         </div>
@@ -173,7 +151,7 @@ export default function Home() {
         <div className="relative z-10 flex items-center justify-center h-full">
           <ScrollReveal className="text-center">
             <p className="font-heading text-2xl sm:text-4xl lg:text-5xl font-light text-cream leading-tight max-w-2xl px-6">
-              Move. Breathe. Reconnect.
+              {h.bannerQuote}
             </p>
           </ScrollReveal>
         </div>
@@ -184,9 +162,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <div className="text-center mb-10 sm:mb-16">
-              <SectionLabel>Our classes</SectionLabel>
+              <SectionLabel>{h.classesLabel}</SectionLabel>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal">
-                Find your practice
+                {h.classesTitle}
               </h2>
             </div>
           </ScrollReveal>
@@ -210,12 +188,10 @@ export default function Home() {
                         {c.name}
                       </h3>
                       <span className="shrink-0 text-xs text-stone bg-sand/80 rounded-full px-3 py-1">
-                        50 min
+                        {h.classDuration}
                       </span>
                     </div>
-                    <p className="text-stone text-sm leading-relaxed">
-                      {c.description}
-                    </p>
+                    <p className="text-stone text-sm leading-relaxed">{c.description}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -224,7 +200,7 @@ export default function Home() {
 
           <ScrollReveal>
             <div className="text-center mt-8 sm:mt-12">
-              <ButtonPrimary href="/classes">View all classes</ButtonPrimary>
+              <ButtonPrimary href="/classes">{h.viewAllClasses}</ButtonPrimary>
             </div>
           </ScrollReveal>
         </div>
@@ -235,43 +211,24 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <div className="text-center mb-12 sm:mb-16">
-              <SectionLabel>What our clients say</SectionLabel>
+              <SectionLabel>{h.testimonialsLabel}</SectionLabel>
               <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal">
-                Real people. Real results.
+                {h.testimonialsTitle}
               </h2>
             </div>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              {
-                quote:
-                  "I had never tried Reformer before. After two sessions I was completely hooked. The team made me feel safe and guided from the very first movement.",
-                name: "Sophie R.",
-                detail: "Palma resident",
-              },
-              {
-                quote:
-                  "I've done Pilates in London and Paris. BE:LiVE is on a different level — small classes, genuine attention, and you feel it the next day.",
-                name: "Claire D.",
-                detail: "British expat, Mallorca",
-              },
-              {
-                quote:
-                  "I came with chronic lower back pain. After six sessions the difference was remarkable. The instructors are knowledgeable and genuinely careful.",
-                name: "Marc P.",
-                detail: "Santa Catalina",
-              },
-            ].map((t, i) => (
-              <ScrollReveal key={t.name} delay={i + 1}>
+            {testimonials.map((testimonial, i) => (
+              <ScrollReveal key={testimonial.name} delay={i + 1}>
                 <div className="bg-cream rounded-sm p-8 h-full flex flex-col border border-charcoal/8">
                   <p className="font-heading text-4xl text-green/30 leading-none mb-4">&ldquo;</p>
                   <p className="text-stone leading-relaxed text-sm mb-6 flex-1">
-                    {t.quote}
+                    {testimonial.quote}
                   </p>
                   <div>
-                    <p className="text-charcoal font-medium text-sm">{t.name}</p>
-                    <p className="text-stone text-xs">{t.detail}</p>
+                    <p className="text-charcoal font-medium text-sm">{testimonial.name}</p>
+                    <p className="text-stone text-xs">{testimonial.detail}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -285,19 +242,12 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             <ScrollReveal>
-              <SectionLabel dark>The neighbourhood</SectionLabel>
+              <SectionLabel dark>{h.neighbourhoodLabel}</SectionLabel>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-4 sm:mb-6 leading-tight">
-                Santa Catalina, Palma
+                {h.neighbourhoodTitle}
               </h2>
-              <p className="text-cream/50 leading-relaxed mb-3 sm:mb-4">
-                A quiet, residential neighbourhood of tree-lined streets,
-                independent cafes, and the kind of calm that makes the rest of
-                your morning better.
-              </p>
-              <p className="text-cream/50 leading-relaxed">
-                C/ Joan Crespi, 47. Easy to find, easy to park, and far enough
-                from the bustle to feel like a retreat.
-              </p>
+              <p className="text-cream/50 leading-relaxed mb-3 sm:mb-4">{h.neighbourhoodP1}</p>
+              <p className="text-cream/50 leading-relaxed">{h.neighbourhoodP2}</p>
             </ScrollReveal>
 
             <ScrollReveal delay={1}>
@@ -326,21 +276,20 @@ export default function Home() {
         <div className="absolute inset-0 bg-warm-black/70" />
         <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
           <ScrollReveal>
-            <SectionLabel dark>Begin your practice</SectionLabel>
+            <SectionLabel dark>{h.ctaLabel}</SectionLabel>
             <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-light text-cream mb-4 sm:mb-6 leading-tight max-w-3xl mx-auto">
-              Your first class is an introduction — to the method, the
-              equipment, and us.
+              {h.ctaTitle}
             </h2>
             <p className="text-cream/50 text-base sm:text-lg max-w-xl mx-auto mb-8 sm:mb-10">
-              No experience required. We will guide you through every movement.
+              {h.ctaSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <ButtonPrimary href="/pricing">View pricing</ButtonPrimary>
+              <ButtonPrimary href="/pricing">{h.viewPricing}</ButtonPrimary>
               <a
                 href="/pricing#founding"
                 className="text-cream/60 hover:text-cream text-sm underline underline-offset-4 transition-colors"
               >
-                Founding member rates →
+                {h.foundingRates}
               </a>
             </div>
           </ScrollReveal>

@@ -3,58 +3,67 @@
 import Image from "next/image";
 import { SectionLabel, ButtonPrimary, Divider } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
-
-const packs = [
-  {
-    name: "Drop-in",
-    price: 38,
-    per: null,
-    features: ["Single class", "No commitment", "Any class type"],
-  },
-  {
-    name: "5-class pack",
-    price: 170,
-    per: "€34 per class",
-    features: ["5 group classes", "Valid 2 months", "Any class type"],
-  },
-  {
-    name: "10-class pack",
-    price: 300,
-    per: "€30 per class",
-    features: ["10 group classes", "Valid 3 months", "Any class type", "Best value pack"],
-  },
-];
-
-const memberships = [
-  {
-    name: "4x Monthly",
-    price: 140,
-    per: "€35 per class",
-    features: ["4 classes per month", "Auto-renewing", "Pause anytime"],
-    featured: false,
-  },
-  {
-    name: "8x Monthly",
-    price: 250,
-    per: "€31.25 per class",
-    features: ["8 classes per month", "Auto-renewing", "Pause anytime"],
-    featured: true,
-  },
-  {
-    name: "Unlimited",
-    price: 320,
-    per: null,
-    features: [
-      "Unlimited group classes",
-      "Auto-renewing",
-      "Priority booking",
-      "Pause anytime",
-    ],
-    featured: false,
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function PricingPage() {
+  const { t } = useLanguage();
+  const p = t.pricing;
+
+  const packs = [
+    {
+      name: p.dropIn,
+      price: 38,
+      per: null,
+      features: [p.singleClass, p.noCommitment, p.anyClassType],
+    },
+    {
+      name: p.pack5,
+      price: 170,
+      per: p.perClass34,
+      features: [p.fiveClasses, p.valid2months, p.anyClassType],
+    },
+    {
+      name: p.pack10,
+      price: 300,
+      per: p.perClass30,
+      features: [p.tenClasses, p.valid3months, p.anyClassType, p.bestValue],
+    },
+  ];
+
+  const memberships = [
+    {
+      name: p.monthly4,
+      price: 140,
+      per: p.perClass35,
+      features: [p.classes4month, p.autoRenewing, p.pauseAnytime],
+      featured: false,
+    },
+    {
+      name: p.monthly8,
+      price: 250,
+      per: p.perClass31,
+      features: [p.classes8month, p.autoRenewing, p.pauseAnytime],
+      featured: true,
+    },
+    {
+      name: p.unlimited,
+      price: 320,
+      per: null,
+      features: [p.unlimitedClasses, p.autoRenewing, p.priorityBooking, p.pauseAnytime],
+      featured: false,
+    },
+  ];
+
+  const faqs = [
+    { q: p.faq1Q, a: p.faq1A },
+    { q: p.faq2Q, a: p.faq2A },
+    { q: p.faq3Q, a: p.faq3A },
+    { q: p.faq4Q, a: p.faq4A },
+    { q: p.faq5Q, a: p.faq5A },
+    { q: p.faq6Q, a: p.faq6A },
+    { q: p.faq7Q, a: p.faq7A },
+  ];
+
   return (
     <>
       {/* Hero */}
@@ -68,14 +77,11 @@ export default function PricingPage() {
         />
         <div className="absolute inset-0 hero-video-overlay" />
         <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-24">
-          <SectionLabel dark>Pricing</SectionLabel>
+          <SectionLabel dark>{p.heroLabel}</SectionLabel>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-cream mb-4 leading-tight max-w-2xl">
-            Simple, transparent pricing
+            {p.heroTitle}
           </h1>
-          <p className="text-cream/60 text-lg leading-relaxed max-w-xl">
-            Choose between class packs for flexibility or memberships for
-            consistency.
-          </p>
+          <p className="text-cream/60 text-lg leading-relaxed max-w-xl">{p.heroSubtitle}</p>
         </div>
       </section>
 
@@ -83,14 +89,14 @@ export default function PricingPage() {
       <div className="bg-green">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
           <p className="text-cream/80 text-sm flex-1">
-            <span className="font-medium text-cream">Founding member offer — </span>
-            Lock in unlimited classes at &euro;260/month for 12 months. Available pre-launch and first month only.
+            <span className="font-medium text-cream">{p.foundingBannerBold}</span>
+            {p.foundingBannerText}
           </p>
           <a
             href="#founding"
             className="shrink-0 text-cream text-sm font-medium underline underline-offset-4 hover:text-cream/80 transition-colors"
           >
-            Learn more →
+            {p.foundingBannerLink}
           </a>
         </div>
       </div>
@@ -99,38 +105,31 @@ export default function PricingPage() {
       <section className="bg-sand py-16 sm:py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel>Class packs</SectionLabel>
+            <SectionLabel>{p.packsLabel}</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
-              Pay as you go
+              {p.packsTitle}
             </h2>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {packs.map((p, i) => (
-              <ScrollReveal key={p.name} delay={i + 1}>
+            {packs.map((pack, i) => (
+              <ScrollReveal key={pack.name} delay={i + 1}>
                 <div className="bg-cream border border-charcoal/8 rounded-sm p-8 flex flex-col h-full card-hover">
-                  <h3 className="font-heading text-xl font-light text-charcoal mb-1">
-                    {p.name}
-                  </h3>
-                  {p.per && (
-                    <p className="text-stone text-sm mb-4">{p.per}</p>
-                  )}
+                  <h3 className="font-heading text-xl font-light text-charcoal mb-1">{pack.name}</h3>
+                  {pack.per && <p className="text-stone text-sm mb-4">{pack.per}</p>}
                   <p className="text-charcoal text-3xl font-medium mb-6 mt-auto pt-4">
-                    &euro;{p.price}
+                    &euro;{pack.price}
                   </p>
                   <ul className="space-y-2 mb-8">
-                    {p.features.map((f) => (
-                      <li
-                        key={f}
-                        className="flex items-start gap-2 text-stone text-sm"
-                      >
+                    {pack.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2 text-stone text-sm">
                         <span className="text-green mt-0.5 shrink-0">&#10003;</span>
                         {f}
                       </li>
                     ))}
                   </ul>
                   <ButtonPrimary href="/classes" className="text-center mt-auto">
-                    Book now
+                    {p.bookNow}
                   </ButtonPrimary>
                 </div>
               </ScrollReveal>
@@ -147,9 +146,9 @@ export default function PricingPage() {
       <section className="bg-sand py-16 sm:py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel>Memberships</SectionLabel>
+            <SectionLabel>{p.membershipsLabel}</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
-              Commit to your practice
+              {p.membershipsTitle}
             </h2>
           </ScrollReveal>
 
@@ -165,40 +164,27 @@ export default function PricingPage() {
                 >
                   {m.featured && (
                     <span className="text-xs uppercase tracking-[0.2em] font-medium text-cream/70 mb-2">
-                      Most popular
+                      {p.mostPopular}
                     </span>
                   )}
-                  <h3
-                    className={`font-heading text-xl font-light mb-1 ${m.featured ? "text-cream" : "text-charcoal"}`}
-                  >
+                  <h3 className={`font-heading text-xl font-light mb-1 ${m.featured ? "text-cream" : "text-charcoal"}`}>
                     {m.name}
                   </h3>
                   {m.per && (
-                    <p
-                      className={`text-sm mb-4 ${m.featured ? "text-cream/70" : "text-stone"}`}
-                    >
+                    <p className={`text-sm mb-4 ${m.featured ? "text-cream/70" : "text-stone"}`}>
                       {m.per}
                     </p>
                   )}
-                  <p
-                    className={`text-3xl font-medium mb-6 mt-auto pt-4 ${m.featured ? "text-cream" : "text-charcoal"}`}
-                  >
+                  <p className={`text-3xl font-medium mb-6 mt-auto pt-4 ${m.featured ? "text-cream" : "text-charcoal"}`}>
                     &euro;{m.price}
-                    <span
-                      className={`text-sm font-normal ${m.featured ? "text-cream/60" : "text-stone"}`}
-                    >
-                      /month
+                    <span className={`text-sm font-normal ${m.featured ? "text-cream/60" : "text-stone"}`}>
+                      {p.perMonth}
                     </span>
                   </p>
                   <ul className="space-y-2 mb-8">
                     {m.features.map((f) => (
-                      <li
-                        key={f}
-                        className={`flex items-start gap-2 text-sm ${m.featured ? "text-cream/80" : "text-stone"}`}
-                      >
-                        <span
-                          className={`mt-0.5 shrink-0 ${m.featured ? "text-cream" : "text-green"}`}
-                        >
+                      <li key={f} className={`flex items-start gap-2 text-sm ${m.featured ? "text-cream/80" : "text-stone"}`}>
+                        <span className={`mt-0.5 shrink-0 ${m.featured ? "text-cream" : "text-green"}`}>
                           &#10003;
                         </span>
                         {f}
@@ -210,11 +196,11 @@ export default function PricingPage() {
                       href="/classes"
                       className="inline-block text-center bg-cream text-green font-medium text-sm px-7 py-3.5 rounded-sm transition-all duration-300 hover:bg-cream/90 hover:shadow-lg mt-auto"
                     >
-                      Get started
+                      {p.getStarted}
                     </a>
                   ) : (
                     <ButtonPrimary href="/classes" className="text-center mt-auto">
-                      Get started
+                      {p.getStarted}
                     </ButtonPrimary>
                   )}
                 </div>
@@ -228,31 +214,27 @@ export default function PricingPage() {
       <section className="bg-cream py-16 sm:py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel>Private instruction</SectionLabel>
+            <SectionLabel>{p.privateLabel}</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-12">
-              One-to-one and duet sessions
+              {p.privateTitle}
             </h2>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
             <ScrollReveal delay={1}>
               <div className="bg-sand border border-charcoal/8 rounded-sm p-8 card-hover">
-                <h3 className="font-heading text-xl font-light text-charcoal mb-1">
-                  Private session
-                </h3>
-                <p className="text-stone text-sm mb-4">55 min, one-to-one</p>
+                <h3 className="font-heading text-xl font-light text-charcoal mb-1">{p.privateSession}</h3>
+                <p className="text-stone text-sm mb-4">{p.privateDetail}</p>
                 <p className="text-charcoal text-3xl font-medium">&euro;75</p>
               </div>
             </ScrollReveal>
             <ScrollReveal delay={2}>
               <div className="bg-sand border border-charcoal/8 rounded-sm p-8 card-hover">
-                <h3 className="font-heading text-xl font-light text-charcoal mb-1">
-                  Duet session
-                </h3>
-                <p className="text-stone text-sm mb-4">55 min, for two</p>
+                <h3 className="font-heading text-xl font-light text-charcoal mb-1">{p.duetSession}</h3>
+                <p className="text-stone text-sm mb-4">{p.duetDetail}</p>
                 <p className="text-charcoal text-3xl font-medium">
                   &euro;95
-                  <span className="text-sm font-normal text-stone"> total</span>
+                  <span className="text-sm font-normal text-stone"> {p.total}</span>
                 </p>
               </div>
             </ScrollReveal>
@@ -264,43 +246,14 @@ export default function PricingPage() {
       <section className="bg-sand py-16 sm:py-24 lg:py-32">
         <div className="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
-            <SectionLabel>FAQ</SectionLabel>
+            <SectionLabel>{p.faqLabel}</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
-              Questions before you book
+              {p.faqTitle}
             </h2>
           </ScrollReveal>
 
           <div className="space-y-0">
-            {[
-              {
-                q: "Do I need experience?",
-                a: "Not at all. Our Reformer Fundamentals class is designed for complete beginners. Your instructor will guide every movement, every time.",
-              },
-              {
-                q: "What should I bring?",
-                a: "Grip socks are required — bring your own or purchase a pair at the studio. Wear comfortable, fitted clothing. We provide mats and complimentary water.",
-              },
-              {
-                q: "What is the cancellation policy?",
-                a: "You can cancel or reschedule up to 12 hours before your class, free of charge. Late cancellations and no-shows forfeit the session.",
-              },
-              {
-                q: "I have an injury or back pain. Can I still come?",
-                a: "Please mention it when booking and inform your instructor before class. The Reformer is excellent for rehabilitation — but we recommend consulting your GP first.",
-              },
-              {
-                q: "How do I book?",
-                a: "All bookings are made through Bsport, our online booking platform. You will receive an email confirmation immediately.",
-              },
-              {
-                q: "How many people are in a class?",
-                a: "Maximum eight clients per session — always. We never increase this number. You will receive real attention, not just a spot in the room.",
-              },
-              {
-                q: "Can I pause or cancel my membership?",
-                a: "Yes. All memberships can be paused or cancelled with 30 days' notice. No penalties, no difficult conversations.",
-              },
-            ].map((item, i) => (
+            {faqs.map((item, i) => (
               <ScrollReveal key={i} delay={0}>
                 <details className="group border-t border-charcoal/10 py-6 cursor-pointer">
                   <summary className="flex items-center justify-between gap-4 list-none">
@@ -311,9 +264,7 @@ export default function PricingPage() {
                       +
                     </span>
                   </summary>
-                  <p className="mt-4 text-stone text-sm leading-relaxed max-w-2xl">
-                    {item.a}
-                  </p>
+                  <p className="mt-4 text-stone text-sm leading-relaxed max-w-2xl">{item.a}</p>
                 </details>
               </ScrollReveal>
             ))}
@@ -334,19 +285,13 @@ export default function PricingPage() {
         <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <div className="max-w-2xl mx-auto text-center">
-              <SectionLabel dark>Limited availability</SectionLabel>
+              <SectionLabel dark>{p.foundingLabel}</SectionLabel>
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-6 leading-tight">
-                Founding member rates
+                {p.foundingTitle}
               </h2>
-              <p className="text-cream/50 text-lg mb-4">
-                Be one of the first. Lock in unlimited classes at &euro;260/month
-                for 12 months — or pay annually at &euro;2,600 and save two
-                months.
-              </p>
-              <p className="text-cream/30 text-sm mb-10">
-                Available during pre-launch and the first month of opening only.
-              </p>
-              <ButtonPrimary href="/contact">Register interest</ButtonPrimary>
+              <p className="text-cream/50 text-lg mb-4">{p.foundingP1}</p>
+              <p className="text-cream/30 text-sm mb-10">{p.foundingP2}</p>
+              <ButtonPrimary href="/contact">{p.registerInterest}</ButtonPrimary>
             </div>
           </ScrollReveal>
         </div>
