@@ -6,7 +6,7 @@ const en = {
     pricing: "Pricing",
     instructors: "Instructors",
     contact: "Contact",
-    book: "Reserve your place",
+    book: "Book your place",
   },
   footer: {
     tagline: "Reformer Pilates studio in Santa Catalina, Palma de Mallorca.",
