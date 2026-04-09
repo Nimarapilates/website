@@ -22,8 +22,8 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "BE:LiVE — Reformer Pilates in Palma de Mallorca",
-    template: "%s | BE:LiVE Pilates",
+    default: "Nimara — Reformer Pilates in Palma de Mallorca",
+    template: "%s | Nimara Pilates",
   },
   description:
     "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes, expert instruction, Balanced Body equipment. Reconnect with yourself.",
@@ -37,17 +37,17 @@ export const metadata: Metadata = {
     "Pilates studio",
   ],
   openGraph: {
-    title: "BE:LiVE — Reformer Pilates in Palma de Mallorca",
+    title: "Nimara — Reformer Pilates in Palma de Mallorca",
     description:
       "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes, expert instruction, Balanced Body equipment.",
     url: "https://reconnectpilates.es",
-    siteName: "BE:LiVE Pilates",
+    siteName: "Nimara Pilates",
     locale: "en",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "BE:LiVE — Reformer Pilates in Palma de Mallorca",
+    title: "Nimara — Reformer Pilates in Palma de Mallorca",
     description:
       "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca.",
   },

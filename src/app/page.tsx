@@ -51,7 +51,7 @@ export default function Home() {
       <section className="relative h-screen min-h-[550px] max-h-[1000px] overflow-hidden">
         <Image
           src="/images/studio/reformers.png"
-          alt="BE:LiVE Reformer Pilates studio"
+          alt="Nimara Reformer Pilates studio"
           fill
           className="object-cover"
           priority

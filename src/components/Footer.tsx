@@ -22,7 +22,7 @@ export default function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <span className="font-heading text-2xl font-light tracking-[0.12em] text-cream">
-                BE:LiVE
+                Nimara
               </span>
             </Link>
             <p className="text-sm leading-relaxed max-w-xs">{t.footer.tagline}</p>
@@ -85,7 +85,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-14 pt-8 border-t border-cream/8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-cream/30">
-          <p>&copy; {new Date().getFullYear()} BE:LiVE Reformer Pilates S.L.</p>
+          <p>&copy; {new Date().getFullYear()} Nimara Reformer Pilates S.L.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-cream/50">
               {t.footer.privacy}

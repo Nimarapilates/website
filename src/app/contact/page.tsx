@@ -284,7 +284,7 @@ export default function ContactPage() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="BE:LiVE studio location"
+                    title="Nimara studio location"
                   />
                 </div>
               </div>

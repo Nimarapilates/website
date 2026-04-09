@@ -24,7 +24,7 @@ export default function StudioPage() {
       <section className="relative h-[55vh] sm:h-[70vh] min-h-[400px] sm:min-h-[500px] overflow-hidden">
         <Image
           src="/images/studio/reformers.png"
-          alt="BE:LiVE Reformer Pilates studio"
+          alt="Nimara Reformer Pilates studio"
           fill
           className="object-cover"
           priority
@@ -47,7 +47,7 @@ export default function StudioPage() {
               <div className="aspect-[4/3] rounded-sm overflow-hidden img-zoom">
                 <Image
                   src="/images/studio/reception.png"
-                  alt="BE:LiVE studio reception area"
+                  alt="Nimara studio reception area"
                   width={960}
                   height={720}
                   className="w-full h-full object-cover"
@@ -170,7 +170,7 @@ export default function StudioPage() {
               <div className="aspect-[4/3] rounded-sm overflow-hidden img-zoom">
                 <Image
                   src="/images/studio/storefront.png"
-                  alt="BE:LiVE studio on C/ Joan Crespí, Santa Catalina"
+                  alt="Nimara studio on C/ Joan Crespí, Santa Catalina"
                   width={960}
                   height={720}
                   className="w-full h-full object-cover"
