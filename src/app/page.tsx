@@ -69,10 +69,14 @@ export default function Home() {
         {/* Dark overlay */}
         <div className="absolute inset-0 hero-video-overlay" />
 
+        {/* Location label — top */}
+        <div className="absolute top-24 sm:top-28 left-0 right-0 z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+          <SectionLabel dark>{h.location}</SectionLabel>
+        </div>
+
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-28">
           <div className="max-w-2xl">
-            <SectionLabel dark>{h.location}</SectionLabel>
             <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-light text-cream mb-3 sm:mb-4 max-w-xl leading-tight">
               {h.heroTitle}
             </h1>
