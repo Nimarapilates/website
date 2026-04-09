@@ -77,7 +77,7 @@ export default function Home() {
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-28">
           <div className="max-w-2xl">
-            <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-light text-cream mb-3 sm:mb-4 max-w-xl leading-tight">
+            <h1 className="font-heading text-lg sm:text-2xl lg:text-3xl font-light text-cream mb-3 sm:mb-4 max-w-xl leading-relaxed">
               {h.heroTitle}
             </h1>
             <p className="text-sm text-cream/45 leading-relaxed mb-8 sm:mb-10 max-w-sm">

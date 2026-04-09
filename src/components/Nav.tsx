@@ -36,10 +36,10 @@ export default function Nav() {
       <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 flex items-center justify-between h-16 sm:h-20">
         {/* Logo */}
         <Link href="/" className="flex-shrink-0 flex flex-col leading-tight">
-          <span className="font-heading text-2xl sm:text-[1.7rem] font-semibold tracking-[0.12em] text-cream uppercase">
+          <span className="font-heading text-3xl sm:text-4xl font-semibold tracking-[0.12em] text-cream uppercase">
             Nimara
           </span>
-          <span className="text-[0.55rem] sm:text-[0.6rem] uppercase tracking-[0.28em] text-cream/50 font-medium">
+          <span className="text-[0.6rem] sm:text-[0.7rem] uppercase tracking-[0.25em] text-cream/50 font-medium">
             Reformer Studio
           </span>
         </Link>

@@ -20,10 +20,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-flex flex-col leading-tight mb-4">
-              <span className="font-heading text-2xl font-semibold tracking-[0.12em] text-cream uppercase">
+              <span className="font-heading text-3xl font-semibold tracking-[0.12em] text-cream uppercase">
                 Nimara
               </span>
-              <span className="text-[0.55rem] uppercase tracking-[0.28em] text-cream/50 font-medium mt-0.5">
+              <span className="text-[0.6rem] uppercase tracking-[0.25em] text-cream/50 font-medium mt-0.5">
                 Reformer Studio
               </span>
             </Link>
