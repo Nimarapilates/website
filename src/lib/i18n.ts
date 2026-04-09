@@ -20,8 +20,6 @@ const en = {
     location: "Santa Catalina, Palma de Mallorca",
     heroTitle: "Reconnect with yourself.",
     heroSubtitle: "An intimate studio in the heart of Palma. Eight Reformers, expert hands, and space to breathe.",
-    bookClass: "See the classes",
-
     v1Title: "Intimate by design",
     v1Desc: "Eight clients per class — enough to share the energy, few enough to feel truly seen.",
     v2Title: "Attentive instruction",
@@ -269,8 +267,6 @@ const es: typeof en = {
     location: "Santa Catalina, Palma de Mallorca",
     heroTitle: "Reconéctate.",
     heroSubtitle: "Un estudio íntimo en el corazón de Palma. Ocho Reformers, instructores expertos y espacio para respirar.",
-    bookClass: "Ver las clases",
-
     v1Title: "Íntimo por diseño",
     v1Desc: "Ocho clientes por sesión — suficiente para compartir la energía, pocos para sentirte realmente visto.",
     v2Title: "Atención personalizada",
@@ -518,8 +514,6 @@ const fr: typeof en = {
     location: "Santa Catalina, Palma de Majorque",
     heroTitle: "Reconnectez-vous.",
     heroSubtitle: "Un studio intime au cœur de Palma. Huit Reformers, des mains expertes et de l'espace pour respirer.",
-    bookClass: "Voir les cours",
-
     v1Title: "Intime par nature",
     v1Desc: "Huit clients par séance — assez pour partager l'énergie, peu pour être vraiment vu.",
     v2Title: "Une attention sincère",

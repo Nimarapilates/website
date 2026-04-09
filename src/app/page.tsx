@@ -85,7 +85,7 @@ export default function Home() {
             </p>
             {/* CTA — desktop only */}
             <div className="hidden sm:flex flex-wrap gap-4">
-              <ButtonPrimary href="/classes">{h.bookClass}</ButtonPrimary>
+              <ButtonPrimary href="/classes">{t.nav.book}</ButtonPrimary>
             </div>
           </div>
         </div>
