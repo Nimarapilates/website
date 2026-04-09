@@ -20,9 +20,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="inline-block mb-4">
-              <span className="font-heading text-2xl font-light tracking-[0.12em] text-cream">
+            <Link href="/" className="inline-flex flex-col leading-tight mb-4">
+              <span className="font-heading text-2xl font-semibold tracking-[0.12em] text-cream uppercase">
                 Nimara
+              </span>
+              <span className="text-[0.55rem] uppercase tracking-[0.28em] text-cream/50 font-medium mt-0.5">
+                Reformer Studio
               </span>
             </Link>
             <p className="text-sm leading-relaxed max-w-xs">{t.footer.tagline}</p>
