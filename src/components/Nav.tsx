@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Lang } from "@/lib/i18n";
 
-const langs: Lang[] = ["en", "es", "fr"];
+const langs: Lang[] = ["en", "es", "fr", "de"];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
