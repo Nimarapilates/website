@@ -69,8 +69,8 @@ export default function Home() {
         {/* Dark overlay */}
         <div className="absolute inset-0 hero-video-overlay" />
 
-        {/* Location label — top */}
-        <div className="absolute top-24 sm:top-28 left-0 right-0 z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+        {/* Location label — right below nav */}
+        <div className="absolute top-16 sm:top-20 left-0 right-0 z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pt-4">
           <SectionLabel dark>{h.location}</SectionLabel>
         </div>
 
