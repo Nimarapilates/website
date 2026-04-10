@@ -18,14 +18,14 @@ export default function PricingPage() {
     },
     {
       name: p.pack5,
-      price: 170,
-      per: p.perClass34,
+      price: 165,
+      per: p.perClass33,
       features: [p.fiveClasses, p.valid2months, p.anyClassType],
     },
     {
       name: p.pack10,
-      price: 300,
-      per: p.perClass30,
+      price: 290,
+      per: p.perClass29,
       features: [p.tenClasses, p.valid3months, p.anyClassType, p.bestValue],
     },
   ];
@@ -33,23 +33,23 @@ export default function PricingPage() {
   const memberships = [
     {
       name: p.monthly4,
-      price: 140,
-      per: p.perClass35,
-      features: [p.classes4month, p.autoRenewing, p.pauseAnytime],
+      price: 135,
+      per: p.perClass3375,
+      features: [p.classes4month, p.commitment2m, p.notice30, p.creditsNoRollover, p.pauseOnce],
       featured: false,
     },
     {
       name: p.monthly8,
-      price: 250,
-      per: p.perClass31,
-      features: [p.classes8month, p.autoRenewing, p.pauseAnytime],
+      price: 245,
+      per: p.perClass306,
+      features: [p.classes8month, p.commitment2m, p.notice30, p.creditsNoRollover, p.pauseOnce],
       featured: true,
     },
     {
       name: p.unlimited,
-      price: 320,
+      price: 315,
       per: null,
-      features: [p.unlimitedClasses, p.autoRenewing, p.priorityBooking, p.pauseAnytime],
+      features: [p.unlimitedClasses, p.commitment3m, p.notice30, p.priorityBooking, p.pauseOnce],
       featured: false,
     },
   ];
@@ -103,14 +103,50 @@ export default function PricingPage() {
         </div>
       </div>
 
+      {/* Discovery offer */}
+      <section className="bg-cream py-16 sm:py-24 lg:py-32">
+        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+          <ScrollReveal>
+            <SectionLabel>{p.discoveryLabel}</SectionLabel>
+            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
+              {p.discoveryTitle}
+            </h2>
+          </ScrollReveal>
+
+          <ScrollReveal delay={1}>
+            <div className="max-w-md bg-sand border border-charcoal/8 rounded-sm p-8 card-hover">
+              <h3 className="font-heading text-xl font-light text-charcoal mb-1">{p.discoveryName}</h3>
+              <p className="text-stone text-sm mb-4">{p.discoverySubtitle}</p>
+              <p className="text-charcoal text-3xl font-medium mb-6 mt-auto pt-4">&euro;29</p>
+              <ul className="space-y-2 mb-8">
+                {[p.discoveryFeature1, p.discoveryFeature2, p.discoveryFeature3, p.discoveryFeature4].map((f) => (
+                  <li key={f} className="flex items-start gap-2 text-stone text-sm">
+                    <span className="text-green mt-0.5 shrink-0">&#10003;</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <ButtonPrimary href="/classes" className="text-center">
+                {p.discoveryButton}
+              </ButtonPrimary>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+        <Divider />
+      </div>
+
       {/* Class packs */}
       <section className="bg-sand py-16 sm:py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <SectionLabel>{p.packsLabel}</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
+            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-3">
               {p.packsTitle}
             </h2>
+            <p className="text-stone text-sm mb-14">{p.packsCondition}</p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -149,9 +185,10 @@ export default function PricingPage() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <SectionLabel>{p.membershipsLabel}</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
+            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-3">
               {p.membershipsTitle}
             </h2>
+            <p className="text-stone text-sm mb-14">{p.membershipsCondition}</p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -217,9 +254,10 @@ export default function PricingPage() {
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <SectionLabel>{p.privateLabel}</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-12">
+            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-3">
               {p.privateTitle}
             </h2>
+            <p className="text-stone text-sm mb-12">{p.privateCondition}</p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
