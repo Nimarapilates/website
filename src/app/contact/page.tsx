@@ -254,10 +254,10 @@ export default function ContactPage() {
                   <AccentLine />
                   <h3 className="font-heading text-xl font-light text-charcoal mb-3">{c.emailHeading}</h3>
                   <a
-                    href="mailto:hello@nimarapilates.com"
+                    href="mailto:info@nimarapilates.com"
                     className="text-green hover:text-green-light transition-colors"
                   >
-                    hello@nimarapilates.com
+                    info@nimarapilates.com
                   </a>
                 </div>
 

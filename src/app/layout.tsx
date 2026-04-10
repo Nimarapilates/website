@@ -91,7 +91,7 @@ const jsonLd = {
     "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes of 8, expert instruction, Balanced Body Allegro 2 Reformers.",
   url: "https://nimarapilates.com",
   telephone: "",
-  email: "hello@nimarapilates.com",
+  email: "info@nimarapilates.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "C/ Joan Crespí, 47",

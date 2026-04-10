@@ -56,10 +56,10 @@ export default function Footer() {
               <li>07014 Palma de Mallorca</li>
               <li>
                 <a
-                  href="mailto:hello@nimarapilates.com"
+                  href="mailto:info@nimarapilates.com"
                   className="transition-colors hover:text-cream"
                 >
-                  hello@nimarapilates.com
+                  info@nimarapilates.com
                 </a>
               </li>
             </ul>
