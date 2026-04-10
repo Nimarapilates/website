@@ -24,7 +24,7 @@ export default function ClassesPage() {
       duration: 50,
       level: c.allLevels,
       description: c.class2Desc,
-      image: "https://images.unsplash.com/photo-1747240549807-fc3962949818?w=800&h=500&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=500&fit=crop&q=80",
     },
     {
       name: c.class3Name,
@@ -32,7 +32,7 @@ export default function ClassesPage() {
       duration: 50,
       level: c.intermediate,
       description: c.class3Desc,
-      image: "https://images.unsplash.com/photo-1754257320382-95b43e9f797c?w=800&h=500&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&h=500&fit=crop&q=80",
     },
     {
       name: c.class4Name,
@@ -40,7 +40,7 @@ export default function ClassesPage() {
       duration: 50,
       level: c.allLevels,
       description: c.class4Desc,
-      image: "https://images.unsplash.com/photo-1754257319747-df51c384c0fa?w=800&h=500&fit=crop&q=80",
+      image: "https://images.unsplash.com/photo-1516526995003-435ccce2be97?w=800&h=500&fit=crop&q=80",
     },
   ];
 
@@ -71,7 +71,7 @@ export default function ClassesPage() {
       {/* Hero */}
       <section className="relative h-[50vh] sm:h-[60vh] min-h-[380px] sm:min-h-[450px] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1754257320374-cd5fb647cfea?w=1920&h=1080&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1540539234-c14a20fb7c7b?w=1920&h=1080&fit=crop&q=80"
           alt="Reformer Pilates in practice"
           fill
           className="object-cover"

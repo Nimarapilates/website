@@ -316,7 +316,7 @@ export default function PricingPage() {
       {/* Founding member */}
       <section id="founding" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1920&h=1080&fit=crop&q=80"
+          src="https://images.unsplash.com/photo-1517130038641-a774d04afb3c?w=1920&h=1080&fit=crop&q=80"
           alt="Reformer Pilates studio"
           fill
           className="object-cover"
