@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     "Balanced Body Palma",
     "estudio reformer Mallorca",
   ],
-  alternates: { canonical: "https://nimarastudio.es/studio" },
+  alternates: { canonical: "https://nimarapilates.com/studio" },
   openGraph: {
     title: "Studio | Nimara Pilates",
     description:
       "Eight Balanced Body Allegro 2 Reformers in a carefully designed studio in Santa Catalina, Palma de Mallorca.",
-    url: "https://nimarastudio.es/studio",
+    url: "https://nimarapilates.com/studio",
   },
 };
 

@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     "contacto pilates Mallorca",
     "dirección estudio pilates Palma",
   ],
-  alternates: { canonical: "https://nimarastudio.es/contact" },
+  alternates: { canonical: "https://nimarapilates.com/contact" },
   openGraph: {
     title: "Contact | Nimara Pilates",
     description:
       "Find Nimara Pilates at C/ Joan Crespí, 47, Santa Catalina, Palma de Mallorca. Book a class or get in touch.",
-    url: "https://nimarastudio.es/contact",
+    url: "https://nimarapilates.com/contact",
   },
 };
 

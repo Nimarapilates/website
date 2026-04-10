@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://nimarastudio.es/sitemap.xml",
+    sitemap: "https://nimarapilates.com/sitemap.xml",
   };
 }

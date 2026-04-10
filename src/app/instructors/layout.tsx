@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     "pilates teacher Santa Catalina",
     "Nimara instructor",
   ],
-  alternates: { canonical: "https://nimarastudio.es/instructors" },
+  alternates: { canonical: "https://nimarapilates.com/instructors" },
   openGraph: {
     title: "Instructors | Nimara Pilates",
     description:
       "Certified Reformer Pilates instructors in Palma de Mallorca, dedicated to expert small-group teaching.",
-    url: "https://nimarastudio.es/instructors",
+    url: "https://nimarapilates.com/instructors",
   },
 };
 

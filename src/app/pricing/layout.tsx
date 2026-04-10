@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     "bono pilates Mallorca",
     "tarifa pilates Palma",
   ],
-  alternates: { canonical: "https://nimarastudio.es/pricing" },
+  alternates: { canonical: "https://nimarapilates.com/pricing" },
   openGraph: {
     title: "Pricing | Nimara Pilates",
     description:
       "Transparent Reformer Pilates pricing in Palma de Mallorca. Single classes, packs, and founding member rates.",
-    url: "https://nimarastudio.es/pricing",
+    url: "https://nimarapilates.com/pricing",
   },
 };
 

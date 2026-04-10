@@ -14,12 +14,12 @@ export const metadata: Metadata = {
     "clases pilates reformer Palma",
     "tipos clases pilates Mallorca",
   ],
-  alternates: { canonical: "https://nimarastudio.es/classes" },
+  alternates: { canonical: "https://nimarapilates.com/classes" },
   openGraph: {
     title: "Classes | Nimara Pilates",
     description:
       "Reformer Pilates classes for all levels in Santa Catalina, Palma de Mallorca. Fundamentals, Flow, Sculpt, and Restore.",
-    url: "https://nimarastudio.es/classes",
+    url: "https://nimarapilates.com/classes",
   },
 };
 

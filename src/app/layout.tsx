@@ -23,7 +23,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nimarastudio.es"),
+  metadataBase: new URL("https://nimarapilates.com"),
   title: {
     default: "Nimara — Reformer Pilates in Palma de Mallorca",
     template: "%s | Nimara Pilates",
@@ -63,13 +63,13 @@ export const metadata: Metadata = {
     "Nimara studio",
   ],
   alternates: {
-    canonical: "https://nimarastudio.es",
+    canonical: "https://nimarapilates.com",
   },
   openGraph: {
     title: "Nimara — Reformer Pilates in Palma de Mallorca",
     description:
       "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes of 8, expert instruction, Balanced Body equipment.",
-    url: "https://nimarastudio.es",
+    url: "https://nimarapilates.com",
     siteName: "Nimara Pilates",
     locale: "en_GB",
     type: "website",
@@ -89,9 +89,9 @@ const jsonLd = {
   name: "Nimara Pilates",
   description:
     "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes of 8, expert instruction, Balanced Body Allegro 2 Reformers.",
-  url: "https://nimarastudio.es",
+  url: "https://nimarapilates.com",
   telephone: "",
-  email: "hello@nimarastudio.es",
+  email: "hello@nimarapilates.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "C/ Joan Crespí, 47",
@@ -122,7 +122,7 @@ const jsonLd = {
   priceRange: "€€",
   currenciesAccepted: "EUR",
   paymentAccepted: "Credit Card, Cash",
-  image: "https://nimarastudio.es/images/studio/reformers.png",
+  image: "https://nimarapilates.com/images/studio/reformers.png",
   sameAs: [
     "https://www.instagram.com/nimarastudio",
   ],
