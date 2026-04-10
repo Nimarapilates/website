@@ -16,7 +16,7 @@ export default function ClassesPage() {
       duration: 50,
       level: c.allLevels,
       description: c.class1Desc,
-      image: "https://images.unsplash.com/photo-1717500252709-05a73fc4f1da?w=800&h=500&fit=crop&q=80",
+      image: "https://images.pexels.com/photos/8769171/pexels-photo-8769171.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
     },
     {
       name: c.class2Name,
@@ -24,7 +24,7 @@ export default function ClassesPage() {
       duration: 50,
       level: c.allLevels,
       description: c.class2Desc,
-      image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=500&fit=crop&q=80",
+      image: "https://images.pexels.com/photos/8769177/pexels-photo-8769177.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
     },
     {
       name: c.class3Name,
@@ -32,7 +32,7 @@ export default function ClassesPage() {
       duration: 50,
       level: c.intermediate,
       description: c.class3Desc,
-      image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&h=500&fit=crop&q=80",
+      image: "https://images.pexels.com/photos/8769168/pexels-photo-8769168.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
     },
     {
       name: c.class4Name,
@@ -40,7 +40,7 @@ export default function ClassesPage() {
       duration: 50,
       level: c.allLevels,
       description: c.class4Desc,
-      image: "https://images.unsplash.com/photo-1516526995003-435ccce2be97?w=800&h=500&fit=crop&q=80",
+      image: "https://images.pexels.com/photos/8769170/pexels-photo-8769170.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
     },
   ];
 
@@ -71,7 +71,7 @@ export default function ClassesPage() {
       {/* Hero */}
       <section className="relative h-[50vh] sm:h-[60vh] min-h-[380px] sm:min-h-[450px] overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1540539234-c14a20fb7c7b?w=1920&h=1080&fit=crop&q=80"
+          src="https://images.pexels.com/photos/8769173/pexels-photo-8769173.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
           alt="Reformer Pilates in practice"
           fill
           className="object-cover"
