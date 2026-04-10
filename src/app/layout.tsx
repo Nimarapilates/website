@@ -5,6 +5,8 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Providers from "@/components/Providers";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -21,37 +23,109 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nimarastudio.es"),
   title: {
     default: "Nimara — Reformer Pilates in Palma de Mallorca",
     template: "%s | Nimara Pilates",
   },
   description:
-    "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes, expert instruction, Balanced Body equipment. Reconnect with yourself.",
+    "Nimara is a premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes of 8, expert instruction, Balanced Body Allegro 2 Reformers. Book your first class today.",
   keywords: [
-    "Reformer Pilates",
-    "Pilates Palma",
-    "Palma de Mallorca Pilates",
+    // English — pilates
+    "Reformer Pilates Palma",
     "Reformer Pilates Mallorca",
-    "Santa Catalina",
-    "Balanced Body",
-    "Pilates studio",
+    "Pilates studio Palma de Mallorca",
+    "Pilates classes Palma",
+    "Pilates Mallorca",
+    "Balanced Body Reformer",
+    "Pilates Santa Catalina Palma",
+    "Pilates Spain",
+    // English — yoga crossover
+    "yoga and pilates Palma",
+    "mind body studio Mallorca",
+    "wellness studio Palma",
+    "pilates yoga Mallorca",
+    // Spanish — pilates
+    "pilates reformer Palma",
+    "clases pilates Palma de Mallorca",
+    "estudio pilates Palma",
+    "pilates Mallorca",
+    "reformer pilates España",
+    "pilates Santa Catalina",
+    // Spanish — yoga crossover
+    "yoga pilates Palma",
+    "bienestar Palma Mallorca",
+    "clases bienestar Palma",
+    // Local / expat
+    "pilates Palma expats",
+    "English pilates Palma",
+    "Nimara Pilates",
+    "Nimara studio",
   ],
+  alternates: {
+    canonical: "https://nimarastudio.es",
+  },
   openGraph: {
     title: "Nimara — Reformer Pilates in Palma de Mallorca",
     description:
-      "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes, expert instruction, Balanced Body equipment.",
+      "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes of 8, expert instruction, Balanced Body equipment.",
     url: "https://nimarastudio.es",
     siteName: "Nimara Pilates",
-    locale: "en",
+    locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Nimara — Reformer Pilates in Palma de Mallorca",
     description:
-      "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca.",
+      "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes, expert instruction.",
   },
   robots: { index: true, follow: true },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ExerciseGym",
+  name: "Nimara Pilates",
+  description:
+    "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes of 8, expert instruction, Balanced Body Allegro 2 Reformers.",
+  url: "https://nimarastudio.es",
+  telephone: "",
+  email: "hello@nimarastudio.es",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "C/ Joan Crespí, 47",
+    addressLocality: "Palma de Mallorca",
+    addressRegion: "Illes Balears",
+    postalCode: "07014",
+    addressCountry: "ES",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 39.5696,
+    longitude: 2.6502,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "07:00",
+      closes: "20:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "09:00",
+      closes: "14:00",
+    },
+  ],
+  priceRange: "€€",
+  currenciesAccepted: "EUR",
+  paymentAccepted: "Credit Card, Cash",
+  image: "https://nimarastudio.es/images/studio/reformers.png",
+  sameAs: [
+    "https://www.instagram.com/nimarastudio",
+  ],
 };
 
 export default function RootLayout({
@@ -64,6 +138,12 @@ export default function RootLayout({
       lang="en"
       className={`${cormorant.variable} ${dmSans.variable} h-full`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         <Providers>
           <Nav />
@@ -71,6 +151,8 @@ export default function RootLayout({
           <Footer />
           <WhatsAppButton />
         </Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
