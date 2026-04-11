@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { SectionLabel } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
+import { InstagramIcon, LinkedInIcon } from "@/components/SocialIcons";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ContactPage() {
@@ -180,14 +181,26 @@ export default function ContactPage() {
 
             <div>
               <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-green mb-3">{c.followUs}</h3>
-              <a
-                href="https://instagram.com/nimarastudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-charcoal hover:text-green transition-colors text-sm"
-              >
-                @nimarastudio
-              </a>
+              <div className="flex items-center gap-4">
+                <a
+                  href="https://instagram.com/nimarastudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="text-charcoal/60 hover:text-green transition-colors"
+                >
+                  <InstagramIcon className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://linkedin.com/company/nimarapilates"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="text-charcoal/60 hover:text-green transition-colors"
+                >
+                  <LinkedInIcon className="w-5 h-5" />
+                </a>
+              </div>
             </div>
 
           </div>

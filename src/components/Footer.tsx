@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { InstagramIcon, LinkedInIcon } from "@/components/SocialIcons";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -60,28 +61,26 @@ export default function Footer() {
             <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-cream/70 mb-4">
               {t.footer.followHeading}
             </h3>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <a
-                  href="https://instagram.com/nimarastudio"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-cream"
-                >
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://linkedin.com/company/nimarapilates"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-cream"
-                >
-                  LinkedIn
-                </a>
-              </li>
-            </ul>
+            <div className="flex items-center gap-4">
+              <a
+                href="https://instagram.com/nimarastudio"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-cream/50 hover:text-cream transition-colors"
+              >
+                <InstagramIcon className="w-5 h-5" />
+              </a>
+              <a
+                href="https://linkedin.com/company/nimarapilates"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-cream/50 hover:text-cream transition-colors"
+              >
+                <LinkedInIcon className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
 

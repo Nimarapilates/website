@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Lang } from "@/lib/i18n";
 import { BOOKING_CONFIG } from "@/lib/config";
+import { InstagramIcon } from "@/components/SocialIcons";
 
 const langs: Lang[] = ["en", "es", "fr", "de"];
 
@@ -54,7 +55,7 @@ export default function Nav() {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-7">
           {links.map((l) => (
             <Link
               key={l.href}
@@ -115,6 +116,18 @@ export default function Nav() {
             </div>
           </div>
 
+          {/* Instagram */}
+          <a
+            href="https://instagram.com/nimarastudio"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            className="text-cream/70 hover:text-cream transition-colors duration-300"
+          >
+            <InstagramIcon className="w-[18px] h-[18px]" />
+          </a>
+
+          {/* Book now */}
           <a
             href={bookingHref}
             className="text-sm font-medium uppercase tracking-[0.1em] text-cream border border-cream/40 px-6 py-2.5 rounded-full transition-all duration-500 hover:bg-cream hover:text-sage"
