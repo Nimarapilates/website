@@ -169,41 +169,50 @@ body {
   animation: marquee 40s linear infinite;
 }
 
-/* ── Horizontal scroll panels ──────────────────────── */
-.panel {
-  width: 100vw;
-  height: 100vh;
-  flex-shrink: 0;
-  overflow: hidden;
-  position: relative;
+/* ── Breathing pulse — 4s inhale/exhale cycle ────────── */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.92;
+  }
 }
 
-.panel + .panel::before {
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.breathe-slow {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+/* ── Full-bleed typography ───────────────────────────── */
+.text-full-bleed {
+  font-size: clamp(2.5rem, 8vw, 8rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.text-full-bleed-sm {
+  font-size: clamp(2rem, 5vw, 5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ── Vignette overlay ────────────────────────────────── */
+.vignette::after {
   content: "";
   position: absolute;
-  left: 0;
-  top: 10%;
-  width: 1px;
-  height: 80%;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(0, 0, 0, 0.06) 30%,
-    rgba(0, 0, 0, 0.06) 70%,
-    transparent
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(15, 14, 12, 0.08) 100%
   );
-  z-index: 10;
-}
-
-@media (max-width: 767px) {
-  .panel {
-    width: 100%;
-    height: auto;
-    min-height: auto;
-  }
-  .panel + .panel::before {
-    display: none;
-  }
 }
 
 /* ── Reduced motion ─────────────────────────────────── */
@@ -213,5 +222,8 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .breathe, .breathe-slow {
+    animation: none !important;
   }
 }

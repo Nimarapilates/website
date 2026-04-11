@@ -1,233 +1,131 @@
 "use client";
 
-import Image from "next/image";
-import { SectionLabel, ButtonPrimary, BadgeDuration, Divider } from "@/components/ui";
+import Link from "next/link";
+import { SectionLabel } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
-import ClassSchedule from "@/components/ClassSchedule";
 import BsportBookingWidget from "@/components/BsportBookingWidget";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { BOOKING_CONFIG } from "@/lib/config";
 
 export default function ClassesPage() {
   const { t } = useLanguage();
   const c = t.classes;
 
   const groupClasses = [
-    {
-      name: c.class1Name,
-      slug: "fundamentals",
-      duration: 50,
-      level: c.allLevels,
-      description: c.class1Desc,
-      image: "https://images.pexels.com/photos/8769171/pexels-photo-8769171.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
-    },
-    {
-      name: c.class2Name,
-      slug: "flow",
-      duration: 50,
-      level: c.allLevels,
-      description: c.class2Desc,
-      image: "https://images.pexels.com/photos/8769177/pexels-photo-8769177.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
-    },
-    {
-      name: c.class3Name,
-      slug: "sculpt",
-      duration: 50,
-      level: c.intermediate,
-      description: c.class3Desc,
-      image: "https://images.pexels.com/photos/8769168/pexels-photo-8769168.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
-    },
-    {
-      name: c.class4Name,
-      slug: "restore",
-      duration: 50,
-      level: c.allLevels,
-      description: c.class4Desc,
-      image: "https://images.pexels.com/photos/8769170/pexels-photo-8769170.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop",
-    },
-  ];
-
-  const privateClasses = [
-    {
-      name: c.privateSession,
-      duration: 55,
-      price: 75,
-      description: c.privateDesc,
-    },
-    {
-      name: c.duetSession,
-      duration: 55,
-      price: 95,
-      description: c.duetDesc,
-    },
-  ];
-
-  const steps = [
-    { step: "01", title: c.step1Title, text: c.step1Text },
-    { step: "02", title: c.step2Title, text: c.step2Text },
-    { step: "03", title: c.step3Title, text: c.step3Text },
-    { step: "04", title: c.step4Title, text: c.step4Text },
+    { name: c.class1Name, level: c.allLevels, description: c.class1Desc },
+    { name: c.class2Name, level: c.allLevels, description: c.class2Desc },
+    { name: c.class3Name, level: c.intermediate, description: c.class3Desc },
+    { name: c.class4Name, level: c.allLevels, description: c.class4Desc },
   ];
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative h-[50vh] sm:h-[60vh] min-h-[380px] sm:min-h-[450px] overflow-hidden">
-        <Image
-          src="https://images.pexels.com/photos/8769173/pexels-photo-8769173.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
-          alt="Reformer Pilates in practice"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 hero-video-overlay" />
-        <div className="absolute top-24 sm:top-28 left-0 right-0 z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-          <p className="text-[0.65rem] sm:text-[0.7rem] uppercase tracking-[0.25em] text-cream font-medium">{c.heroLabel}</p>
-        </div>
-        <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-24">
-          <h1 className="font-heading text-lg sm:text-2xl lg:text-3xl font-light text-cream mb-4 leading-relaxed max-w-2xl">
-            {c.heroTitle}
-          </h1>
-          <p className="text-cream/60 text-lg leading-relaxed max-w-xl">{c.heroSubtitle}</p>
-        </div>
-      </section>
+      {/* Page heading + Group classes */}
+      <section className="bg-sand pt-32 sm:pt-40 pb-20 sm:pb-28">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+          <ScrollReveal>
+            <SectionLabel>{c.heroLabel}</SectionLabel>
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-charcoal leading-tight mb-4">
+              {c.heroTitle}
+            </h1>
+            <p className="text-stone text-lg leading-relaxed max-w-xl mb-16 sm:mb-20">
+              {c.heroSubtitle}
+            </p>
+          </ScrollReveal>
 
-      {/* Group classes */}
-      <section className="bg-sand py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <SectionLabel>{c.groupLabel}</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-8">
-              {c.groupTitle}
-            </h2>
           </ScrollReveal>
 
-          {/* New here callout */}
-          <ScrollReveal>
-            <div className="bg-green/10 border border-green/20 rounded-sm px-6 py-5 mb-12 flex flex-col sm:flex-row sm:items-center gap-4">
-              <div className="flex-1">
-                <p className="text-green font-medium text-sm mb-1">{c.newHereTitle}</p>
-                <p className="text-stone text-sm leading-relaxed">
-                  {c.newHereText}
-                </p>
-              </div>
-              <a
-                href="/pricing"
-                className="shrink-0 text-sm font-medium text-green border border-green/30 px-5 py-2.5 rounded-sm hover:bg-green hover:text-cream transition-all duration-300"
-              >
-                {c.seePricing}
-              </a>
-            </div>
-          </ScrollReveal>
-
-          <div className="space-y-8">
+          <div className="space-y-0">
             {groupClasses.map((cls) => (
-              <ScrollReveal key={cls.slug}>
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 bg-cream border border-charcoal/8 rounded-sm overflow-hidden card-hover">
-                  <div className="aspect-[16/9] lg:aspect-auto overflow-hidden">
-                    <Image
-                      src={cls.image}
-                      alt={cls.name}
-                      width={800}
-                      height={500}
-                      className="w-full h-full object-cover"
-                    />
+              <ScrollReveal key={cls.name}>
+                <div className="border-t border-charcoal/10 py-8 sm:py-10">
+                  <div className="flex flex-wrap items-baseline justify-between gap-3 mb-3">
+                    <h3 className="font-heading text-2xl sm:text-3xl font-light text-charcoal">
+                      {cls.name}
+                    </h3>
+                    <span className="text-xs text-stone tracking-wider">
+                      50 min · {cls.level}
+                    </span>
                   </div>
-                  <div className="lg:col-span-2 p-8 sm:p-10 flex flex-col justify-center">
-                    <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                      <h3 className="font-heading text-2xl font-light text-charcoal">{cls.name}</h3>
-                      <div className="flex gap-2">
-                        <BadgeDuration minutes={cls.duration} />
-                        <span className="inline-block bg-sand text-stone text-xs rounded-full px-3 py-1">
-                          {cls.level}
-                        </span>
-                      </div>
-                    </div>
-                    <p className="text-stone leading-relaxed max-w-2xl">{cls.description}</p>
-                  </div>
+                  <p className="text-stone leading-relaxed max-w-2xl">
+                    {cls.description}
+                  </p>
                 </div>
               </ScrollReveal>
             ))}
+            <div className="border-t border-charcoal/10" />
           </div>
         </div>
       </section>
-
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-        <Divider />
-      </div>
 
       {/* Private sessions */}
-      <section className="bg-sand py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+      <section className="bg-cream py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <ScrollReveal>
             <SectionLabel>{c.privateLabel}</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-12">
-              {c.privateTitle}
-            </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {privateClasses.map((cls, i) => (
-              <ScrollReveal key={cls.name} delay={i + 1}>
-                <div className="bg-cream border border-charcoal/8 rounded-sm p-8 sm:p-10 card-hover h-full">
-                  <div className="flex items-start justify-between gap-4 mb-2">
-                    <h3 className="font-heading text-2xl font-light text-charcoal">{cls.name}</h3>
-                    <BadgeDuration minutes={cls.duration} />
-                  </div>
-                  <p className="text-green font-medium text-lg mb-4">&euro;{cls.price}</p>
-                  <p className="text-stone text-sm leading-relaxed">{cls.description}</p>
-                </div>
-              </ScrollReveal>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
+            <ScrollReveal>
+              <div className="border-t border-charcoal/10 py-8 sm:py-10 sm:pr-12">
+                <h3 className="font-heading text-2xl font-light text-charcoal mb-1">
+                  {c.privateSession}
+                </h3>
+                <p className="text-xs text-stone tracking-wider mb-3">55 min · one-to-one</p>
+                <p className="text-charcoal text-2xl font-medium mb-3">&euro;75</p>
+                <p className="text-stone text-sm leading-relaxed">{c.privateDesc}</p>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal>
+              <div className="border-t border-charcoal/10 py-8 sm:py-10 sm:pl-12 sm:border-l">
+                <h3 className="font-heading text-2xl font-light text-charcoal mb-1">
+                  {c.duetSession}
+                </h3>
+                <p className="text-xs text-stone tracking-wider mb-3">55 min · for two</p>
+                <p className="text-charcoal text-2xl font-medium mb-3">&euro;95 <span className="text-sm font-normal text-stone">{t.pricing.total}</span></p>
+                <p className="text-stone text-sm leading-relaxed">{c.duetDesc}</p>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* Weekly schedule */}
-      <ClassSchedule />
-
-      {/* Booking widget */}
+      {/* Booking */}
       <BsportBookingWidget />
 
-      {/* What to expect */}
-      <section className="bg-cream py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-          <ScrollReveal>
-            <div className="max-w-2xl mx-auto text-center mb-12">
-              <SectionLabel>{c.firstVisitLabel}</SectionLabel>
-              <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal">
-                {c.firstVisitTitle}
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="max-w-2xl mx-auto space-y-8">
-            {steps.map((s, i) => (
-              <ScrollReveal key={s.step} delay={i + 1}>
-                <div className="flex gap-6">
-                  <span className="text-green font-heading text-2xl font-light mt-0.5 shrink-0">
-                    {s.step}
-                  </span>
-                  <div>
-                    <h3 className="font-heading text-xl font-light text-charcoal mb-1">{s.title}</h3>
-                    <p className="text-stone text-sm leading-relaxed">{s.text}</p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+      {/* ClassPass — only visible when enabled */}
+      {BOOKING_CONFIG.classpass.enabled && BOOKING_CONFIG.classpass.url && (
+        <div className="bg-cream pb-12">
+          <p className="text-center text-stone text-sm">
+            Also available on{" "}
+            <a
+              href={BOOKING_CONFIG.classpass.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-charcoal font-medium underline underline-offset-4 hover:text-green transition-colors"
+            >
+              ClassPass
+            </a>
+          </p>
         </div>
-      </section>
+      )}
 
       {/* CTA */}
-      <section className="bg-warm-black py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
+      <section className="bg-warm-black py-24 sm:py-32">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 text-center">
           <ScrollReveal>
-            <SectionLabel dark>{c.ctaLabel}</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-6 leading-tight max-w-2xl mx-auto">
+            <h2 className="font-heading text-3xl sm:text-4xl font-light text-cream mb-4">
               {c.ctaTitle}
             </h2>
-            <p className="text-cream/50 text-lg max-w-lg mx-auto mb-10">{c.ctaSubtitle}</p>
-            <ButtonPrimary href="/pricing">{c.viewPricing}</ButtonPrimary>
+            <p className="text-cream/50 mb-8">{c.ctaSubtitle}</p>
+            <Link
+              href="/pricing"
+              className="inline-block text-sm font-medium uppercase tracking-[0.1em] text-cream border border-cream/30 px-7 py-3.5 rounded-sm transition-all duration-500 hover:bg-cream hover:text-sage"
+            >
+              {c.viewPricing}
+            </Link>
           </ScrollReveal>
         </div>
       </section>

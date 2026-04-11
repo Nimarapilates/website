@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { SectionLabel, ButtonPrimary, Divider } from "@/components/ui";
+import Link from "next/link";
+import { SectionLabel } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
-import ClassPassBadge from "@/components/ClassPassBadge";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { BOOKING_CONFIG } from "@/lib/config";
 
@@ -11,240 +10,119 @@ export default function PricingPage() {
   const { t } = useLanguage();
   const p = t.pricing;
 
+  const bookingHref = BOOKING_CONFIG.bsport.widgetEnabled
+    ? "/classes#book"
+    : BOOKING_CONFIG.bsport.baseUrl;
+
   const packs = [
-    {
-      name: p.dropIn,
-      price: 38,
-      per: null,
-      features: [p.singleClass, p.noCommitment, p.anyClassType],
-    },
-    {
-      name: p.pack5,
-      price: 165,
-      per: p.perClass33,
-      features: [p.fiveClasses, p.valid2months, p.anyClassType],
-    },
-    {
-      name: p.pack10,
-      price: 290,
-      per: p.perClass29,
-      features: [p.tenClasses, p.valid3months, p.anyClassType, p.bestValue],
-    },
+    { name: p.dropIn, price: 38, per: null, features: [p.singleClass, p.noCommitment, p.anyClassType] },
+    { name: p.pack5, price: 165, per: p.perClass33, features: [p.fiveClasses, p.valid2months, p.anyClassType] },
+    { name: p.pack10, price: 290, per: p.perClass29, features: [p.tenClasses, p.valid3months, p.anyClassType] },
   ];
 
   const memberships = [
-    {
-      name: p.monthly4,
-      price: 135,
-      per: p.perClass3375,
-      features: [p.classes4month, p.commitment2m, p.notice30, p.creditsNoRollover, p.pauseOnce],
-      featured: false,
-    },
-    {
-      name: p.monthly8,
-      price: 245,
-      per: p.perClass306,
-      features: [p.classes8month, p.commitment2m, p.notice30, p.creditsNoRollover, p.pauseOnce],
-      featured: true,
-    },
-    {
-      name: p.unlimited,
-      price: 315,
-      per: null,
-      features: [p.unlimitedClasses, p.commitment3m, p.notice30, p.priorityBooking, p.pauseOnce],
-      featured: false,
-    },
+    { name: p.monthly4, price: 135, per: p.perClass3375, features: [p.classes4month, p.commitment2m, p.notice30], featured: false },
+    { name: p.monthly8, price: 245, per: p.perClass306, features: [p.classes8month, p.commitment2m, p.notice30], featured: true },
+    { name: p.unlimited, price: 315, per: null, features: [p.unlimitedClasses, p.commitment3m, p.notice30, p.priorityBooking], featured: false },
   ];
 
   const faqs = [
     { q: p.faq1Q, a: p.faq1A },
-    { q: p.faq2Q, a: p.faq2A },
+    { q: p.faq2Q, a: `${p.faq2A} Arrive ten minutes early on your first visit — we will show you the studio and your Reformer.` },
     { q: p.faq3Q, a: p.faq3A },
     { q: p.faq4Q, a: p.faq4A },
-    { q: p.faq5Q, a: p.faq5A },
-    { q: p.faq6Q, a: p.faq6A },
     { q: p.faq7Q, a: p.faq7A },
-    { q: p.faq8Q, a: p.faq8A },
   ];
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative h-[45vh] sm:h-[50vh] min-h-[340px] sm:min-h-[400px] overflow-hidden">
-        <Image
-          src="/images/pricing-hero.jpg"
-          alt="Woman on pilates reformer in studio"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 hero-video-overlay" />
-        <div className="absolute top-24 sm:top-28 left-0 right-0 z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
-          <p className="text-[0.65rem] sm:text-[0.7rem] uppercase tracking-[0.25em] text-cream font-medium">{p.heroLabel}</p>
-        </div>
-        <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-24">
-          <h1 className="font-heading text-lg sm:text-2xl lg:text-3xl font-light text-cream mb-4 leading-relaxed max-w-2xl">
-            {p.heroTitle}
-          </h1>
-          <p className="text-cream/60 text-lg leading-relaxed max-w-xl">{p.heroSubtitle}</p>
-        </div>
-      </section>
-
-      {/* Founding member banner */}
-      <div className="bg-green">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-          <p className="text-cream/80 text-sm flex-1">
-            <span className="font-medium text-cream">{p.foundingBannerBold}</span>
-            {p.foundingBannerText}
-          </p>
-          <a
-            href="#founding"
-            className="shrink-0 text-cream text-sm font-medium underline underline-offset-4 hover:text-cream/80 transition-colors"
-          >
-            {p.foundingBannerLink}
-          </a>
-        </div>
-      </div>
-
-      {/* Discovery offer */}
-      <section className="bg-cream py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+      {/* Page heading + Discovery */}
+      <section className="bg-sand pt-32 sm:pt-40 pb-20 sm:pb-28">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <ScrollReveal>
-            <SectionLabel>{p.discoveryLabel}</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
-              {p.discoveryTitle}
-            </h2>
+            <SectionLabel>{p.heroLabel}</SectionLabel>
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-charcoal leading-tight mb-4">
+              {p.heroTitle}
+            </h1>
+            <p className="text-stone text-lg leading-relaxed max-w-xl mb-16 sm:mb-20">
+              {p.heroSubtitle}
+            </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={1}>
-            <div className="max-w-md bg-sand border border-charcoal/8 rounded-sm p-8 card-hover">
-              <h3 className="font-heading text-xl font-light text-charcoal mb-1">{p.discoveryName}</h3>
+          <ScrollReveal>
+            <SectionLabel>{p.discoveryLabel}</SectionLabel>
+            <div className="border-t border-charcoal/10 py-8 sm:py-10">
+              <div className="flex flex-wrap items-baseline justify-between gap-4 mb-3">
+                <h3 className="font-heading text-2xl sm:text-3xl font-light text-charcoal">
+                  {p.discoveryName}
+                </h3>
+                <span className="text-charcoal text-2xl font-medium">&euro;29</span>
+              </div>
               <p className="text-stone text-sm mb-4">{p.discoverySubtitle}</p>
-              <p className="text-charcoal text-3xl font-medium mb-6 mt-auto pt-4">&euro;29</p>
-              <ul className="space-y-2 mb-8">
-                {[p.discoveryFeature1, p.discoveryFeature2, p.discoveryFeature3, p.discoveryFeature4].map((f) => (
-                  <li key={f} className="flex items-start gap-2 text-stone text-sm">
-                    <span className="text-green mt-0.5 shrink-0">&#10003;</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <ButtonPrimary href={BOOKING_CONFIG.bsport.widgetEnabled ? "/classes#book" : BOOKING_CONFIG.bsport.baseUrl} className="text-center">
-                {p.discoveryButton}
-              </ButtonPrimary>
+              <p className="text-stone text-xs">{p.discoveryFeature3} · {p.discoveryFeature4}</p>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-        <Divider />
-      </div>
-
       {/* Class packs */}
-      <section className="bg-sand py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+      <section className="bg-cream py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <ScrollReveal>
             <SectionLabel>{p.packsLabel}</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-3">
-              {p.packsTitle}
-            </h2>
-            <p className="text-stone text-sm mb-14">{p.packsCondition}</p>
+            <p className="text-stone text-xs mb-8">{p.packsCondition}</p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
             {packs.map((pack, i) => (
-              <ScrollReveal key={pack.name} delay={i + 1}>
-                <div className="bg-cream border border-charcoal/8 rounded-sm p-8 flex flex-col h-full card-hover">
-                  <h3 className="font-heading text-xl font-light text-charcoal mb-1">{pack.name}</h3>
-                  {pack.per && <p className="text-stone text-sm mb-4">{pack.per}</p>}
-                  <p className="text-charcoal text-3xl font-medium mb-6 mt-auto pt-4">
-                    &euro;{pack.price}
-                  </p>
-                  <ul className="space-y-2 mb-8">
+              <ScrollReveal key={pack.name}>
+                <div className={`border-t border-charcoal/10 py-8 sm:py-10 ${i > 0 ? "sm:pl-10 sm:border-l" : ""} ${i < packs.length - 1 ? "sm:pr-10" : ""}`}>
+                  <h3 className="font-heading text-xl font-light text-charcoal mb-1">
+                    {pack.name}
+                  </h3>
+                  {pack.per && <p className="text-stone text-xs mb-3">{pack.per}</p>}
+                  <p className="text-charcoal text-2xl font-medium mb-4">&euro;{pack.price}</p>
+                  <ul className="space-y-1.5">
                     {pack.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2 text-stone text-sm">
-                        <span className="text-green mt-0.5 shrink-0">&#10003;</span>
-                        {f}
-                      </li>
+                      <li key={f} className="text-stone text-sm">{f}</li>
                     ))}
                   </ul>
-                  <ButtonPrimary href={BOOKING_CONFIG.bsport.widgetEnabled ? "/classes#book" : BOOKING_CONFIG.bsport.baseUrl} className="text-center mt-auto">
-                    {p.bookNow}
-                  </ButtonPrimary>
                 </div>
               </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
-
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-        <Divider />
-      </div>
 
       {/* Memberships */}
-      <section className="bg-sand py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+      <section className="bg-sand py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <ScrollReveal>
             <SectionLabel>{p.membershipsLabel}</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-3">
-              {p.membershipsTitle}
-            </h2>
-            <p className="text-stone text-sm mb-14">{p.membershipsCondition}</p>
+            <p className="text-stone text-xs mb-8">{p.membershipsCondition}</p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
             {memberships.map((m, i) => (
-              <ScrollReveal key={m.name} delay={i + 1}>
-                <div
-                  className={`rounded-sm p-8 flex flex-col h-full ${
-                    m.featured
-                      ? "bg-green text-cream ring-2 ring-green shadow-xl shadow-green/10"
-                      : "bg-cream border border-charcoal/8 card-hover"
-                  }`}
-                >
+              <ScrollReveal key={m.name}>
+                <div className={`border-t border-charcoal/10 py-8 sm:py-10 ${i > 0 ? "sm:pl-10 sm:border-l" : ""} ${i < memberships.length - 1 ? "sm:pr-10" : ""}`}>
                   {m.featured && (
-                    <span className="text-xs uppercase tracking-[0.2em] font-medium text-cream/70 mb-2">
+                    <p className="text-xs uppercase tracking-[0.2em] font-medium text-green mb-2">
                       {p.mostPopular}
-                    </span>
-                  )}
-                  <h3 className={`font-heading text-xl font-light mb-1 ${m.featured ? "text-cream" : "text-charcoal"}`}>
-                    {m.name}
-                  </h3>
-                  {m.per && (
-                    <p className={`text-sm mb-4 ${m.featured ? "text-cream/70" : "text-stone"}`}>
-                      {m.per}
                     </p>
                   )}
-                  <p className={`text-3xl font-medium mb-6 mt-auto pt-4 ${m.featured ? "text-cream" : "text-charcoal"}`}>
-                    &euro;{m.price}
-                    <span className={`text-sm font-normal ${m.featured ? "text-cream/60" : "text-stone"}`}>
-                      {p.perMonth}
-                    </span>
+                  <h3 className="font-heading text-xl font-light text-charcoal mb-1">
+                    {m.name}
+                  </h3>
+                  {m.per && <p className="text-stone text-xs mb-3">{m.per}</p>}
+                  <p className="text-charcoal text-2xl font-medium mb-4">
+                    &euro;{m.price}<span className="text-sm font-normal text-stone">{p.perMonth}</span>
                   </p>
-                  <ul className="space-y-2 mb-8">
+                  <ul className="space-y-1.5">
                     {m.features.map((f) => (
-                      <li key={f} className={`flex items-start gap-2 text-sm ${m.featured ? "text-cream/80" : "text-stone"}`}>
-                        <span className={`mt-0.5 shrink-0 ${m.featured ? "text-cream" : "text-green"}`}>
-                          &#10003;
-                        </span>
-                        {f}
-                      </li>
+                      <li key={f} className="text-stone text-sm">{f}</li>
                     ))}
                   </ul>
-                  {m.featured ? (
-                    <a
-                      href="/classes"
-                      className="inline-block text-center bg-cream text-green font-medium text-sm px-7 py-3.5 rounded-sm transition-all duration-300 hover:bg-cream/90 hover:shadow-lg mt-auto"
-                    >
-                      {p.getStarted}
-                    </a>
-                  ) : (
-                    <ButtonPrimary href="/classes" className="text-center mt-auto">
-                      {p.getStarted}
-                    </ButtonPrimary>
-                  )}
                 </div>
               </ScrollReveal>
             ))}
@@ -252,55 +130,16 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Private sessions */}
-      <section className="bg-cream py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-          <ScrollReveal>
-            <SectionLabel>{p.privateLabel}</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-3">
-              {p.privateTitle}
-            </h2>
-            <p className="text-stone text-sm mb-12">{p.privateCondition}</p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl">
-            <ScrollReveal delay={1}>
-              <div className="bg-sand border border-charcoal/8 rounded-sm p-8 card-hover">
-                <h3 className="font-heading text-xl font-light text-charcoal mb-1">{p.privateSession}</h3>
-                <p className="text-stone text-sm mb-4">{p.privateDetail}</p>
-                <p className="text-charcoal text-3xl font-medium">&euro;75</p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={2}>
-              <div className="bg-sand border border-charcoal/8 rounded-sm p-8 card-hover">
-                <h3 className="font-heading text-xl font-light text-charcoal mb-1">{p.duetSession}</h3>
-                <p className="text-stone text-sm mb-4">{p.duetDetail}</p>
-                <p className="text-charcoal text-3xl font-medium">
-                  &euro;95
-                  <span className="text-sm font-normal text-stone"> {p.total}</span>
-                </p>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ClassPass badge — only renders when enabled in config */}
-      <ClassPassBadge />
-
       {/* FAQ */}
-      <section className="bg-sand py-16 sm:py-24 lg:py-32">
-        <div className="max-w-3xl mx-auto px-5 sm:px-8 lg:px-12">
+      <section className="bg-cream py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <ScrollReveal>
             <SectionLabel>{p.faqLabel}</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
-              {p.faqTitle}
-            </h2>
           </ScrollReveal>
 
-          <div className="space-y-0">
+          <div className="max-w-3xl">
             {faqs.map((item, i) => (
-              <ScrollReveal key={i} delay={0}>
+              <ScrollReveal key={i}>
                 <details className="group border-t border-charcoal/10 py-6 cursor-pointer">
                   <summary className="flex items-center justify-between gap-4 list-none">
                     <span className="font-heading text-lg font-light text-charcoal group-open:text-green transition-colors">
@@ -319,26 +158,19 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Founding member */}
-      <section id="founding" className="relative py-16 sm:py-24 lg:py-32 overflow-hidden">
-        <Image
-          src="https://images.pexels.com/photos/8769172/pexels-photo-8769172.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
-          alt="Reformer Pilates studio"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-warm-black/80" />
-        <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+      {/* CTA */}
+      <section className="bg-warm-black py-24 sm:py-32">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 text-center">
           <ScrollReveal>
-            <div className="max-w-2xl mx-auto text-center">
-              <SectionLabel dark>{p.foundingLabel}</SectionLabel>
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-cream mb-6 leading-tight">
-                {p.foundingTitle}
-              </h2>
-              <p className="text-cream/50 text-lg mb-4">{p.foundingP1}</p>
-              <p className="text-cream/30 text-sm mb-10">{p.foundingP2}</p>
-              <ButtonPrimary href="/contact">{p.registerInterest}</ButtonPrimary>
-            </div>
+            <h2 className="font-heading text-3xl sm:text-4xl font-light text-cream mb-8">
+              {t.home.ctaTitle}
+            </h2>
+            <a
+              href={bookingHref}
+              className="inline-block bg-green text-cream font-medium text-sm px-8 py-4 rounded-sm transition-all duration-300 hover:bg-green-light"
+            >
+              {t.nav.book}
+            </a>
           </ScrollReveal>
         </div>
       </section>

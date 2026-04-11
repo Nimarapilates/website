@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Lang } from "@/lib/i18n";
 import { BOOKING_CONFIG } from "@/lib/config";
@@ -12,6 +13,8 @@ export default function Nav() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { lang, setLang, t } = useLanguage();
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -26,14 +29,16 @@ export default function Nav() {
   const links = [
     { label: t.nav.classes, href: "/classes" },
     { label: t.nav.pricing, href: "/pricing" },
-    { label: t.nav.instructors, href: "/instructors" },
     { label: t.nav.contact, href: "/contact" },
   ];
+
+  // On content pages, always show solid nav background
+  const showSolid = !isHome || scrolled;
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
-        scrolled
+        showSolid
           ? "bg-sage/90 backdrop-blur-2xl border-b border-cream/6"
           : "bg-transparent"
       }`}
@@ -49,7 +54,7 @@ export default function Nav() {
           </span>
         </Link>
 
-        {/* Desktop nav + locale grouped right */}
+        {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-10">
           {links.map((l) => (
             <Link
@@ -63,26 +68,33 @@ export default function Nav() {
 
           {/* Language dropdown */}
           <div className="relative group">
-          <button className="text-xs font-medium uppercase tracking-wider text-cream flex items-center gap-1.5">
-            {lang}
-            <svg width="8" height="5" viewBox="0 0 8 5" fill="none" className="opacity-60">
-              <path d="M1 1L4 4L7 1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-          <div className="absolute right-0 top-full mt-2 bg-sage/95 backdrop-blur-xl rounded-sm py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-            {langs.map((l) => (
-              <button
-                key={l}
-                onClick={() => setLang(l)}
-                className={`block w-full text-left px-5 py-1.5 text-xs font-medium uppercase tracking-wider transition-colors duration-200 ${
-                  lang === l ? "text-cream" : "text-cream/60 hover:text-cream"
-                }`}
-              >
-                {l}
-              </button>
-            ))}
+            <button className="text-xs font-medium uppercase tracking-wider text-cream flex items-center gap-1.5">
+              {lang}
+              <svg width="8" height="5" viewBox="0 0 8 5" fill="none" className="opacity-60">
+                <path d="M1 1L4 4L7 1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <div className="absolute right-0 top-full mt-2 bg-sage/95 backdrop-blur-xl rounded-sm py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+              {langs.map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLang(l)}
+                  className={`block w-full text-left px-5 py-1.5 text-xs font-medium uppercase tracking-wider transition-colors duration-200 ${
+                    lang === l ? "text-cream" : "text-cream/60 hover:text-cream"
+                  }`}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+
+          <a
+            href={bookingHref}
+            className="text-sm font-medium uppercase tracking-[0.1em] text-cream border border-cream/40 px-6 py-2.5 rounded-full transition-all duration-500 hover:bg-cream hover:text-sage"
+          >
+            {t.nav.book}
+          </a>
         </div>
 
         {/* Mobile hamburger */}
@@ -121,13 +133,13 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link
+          <a
             href={bookingHref}
             onClick={() => setOpen(false)}
             className="inline-block mt-5 text-sm font-medium text-cream border border-cream/25 px-6 py-2.5 rounded-full transition-all duration-300 hover:bg-cream hover:text-charcoal"
           >
             {t.nav.book}
-          </Link>
+          </a>
 
           {/* Mobile language switcher */}
           <div className="flex items-center gap-3 mt-6 pt-5 border-t border-cream/6">
@@ -138,7 +150,7 @@ export default function Nav() {
                 className={`text-xs font-medium uppercase tracking-widest transition-colors ${
                   lang === l
                     ? "text-cream"
-                    : "text-cream hover:text-cream"
+                    : "text-cream/50 hover:text-cream"
                 }`}
               >
                 {l}

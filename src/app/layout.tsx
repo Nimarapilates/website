@@ -3,9 +3,8 @@ import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import FilmGrain from "@/components/FilmGrain";
 import Providers from "@/components/Providers";
-import SmoothScroll from "@/components/SmoothScroll";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -239,6 +238,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${cormorant.variable} ${dmSans.variable} h-full`}
     >
       <head>
@@ -255,10 +255,10 @@ export default function RootLayout({
           Skip to main content
         </a>
         <Providers>
+          <FilmGrain />
           <Nav />
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
-          <WhatsAppButton />
         </Providers>
         <Analytics />
         <SpeedInsights />
