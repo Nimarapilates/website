@@ -9,34 +9,80 @@ export default function Footer() {
   return (
     <footer className="bg-warm-black text-cream/50">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-16 sm:py-20">
-        {/* Brand */}
-        <Link href="/" className="inline-flex flex-col leading-tight mb-10">
-          <span className="font-heading text-3xl font-light tracking-[0.18em] text-cream uppercase">
-            Nimara
-          </span>
-          <span className="text-[0.6rem] uppercase tracking-[0.25em] text-cream/60 font-medium">
-            Reformer Pilates
-          </span>
-        </Link>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
+          {/* Brand */}
+          <div>
+            <Link href="/" className="inline-flex flex-col leading-tight mb-6">
+              <span className="font-heading text-3xl font-light tracking-[0.18em] text-cream uppercase">
+                Nimara
+              </span>
+              <span className="text-[0.6rem] uppercase tracking-[0.25em] text-cream/60 font-medium">
+                Reformer Pilates
+              </span>
+            </Link>
+            <div className="space-y-1 text-sm">
+              <p>C/ Joan Crespi, 47</p>
+              <p>07014 Palma de Mallorca</p>
+              <p className="pt-2">
+                <a href="mailto:info@nimarapilates.com" className="transition-colors hover:text-cream">
+                  info@nimarapilates.com
+                </a>
+              </p>
+            </div>
+          </div>
 
-        <div className="space-y-1 text-sm mb-10">
-          <p>C/ Joan Crespi, 47</p>
-          <p>07014 Palma de Mallorca</p>
-          <p className="pt-2">
-            <a href="mailto:info@nimarapilates.com" className="transition-colors hover:text-cream">
-              info@nimarapilates.com
-            </a>
-          </p>
-          <p>
-            <a
-              href="https://instagram.com/nimarastudio"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors hover:text-cream"
-            >
-              @nimarastudio
-            </a>
-          </p>
+          {/* Classes & Pricing */}
+          <div>
+            <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-cream/70 mb-4">
+              {t.nav.classes}
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link href="/classes" className="transition-colors hover:text-cream">{t.nav.classes}</Link></li>
+              <li><Link href="/pricing" className="transition-colors hover:text-cream">{t.nav.pricing}</Link></li>
+              <li><Link href="/studio" className="transition-colors hover:text-cream">Studio</Link></li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-cream/70 mb-4">
+              Company
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link href="/contact" className="transition-colors hover:text-cream">{t.nav.contact}</Link></li>
+              <li><Link href="/careers" className="transition-colors hover:text-cream">Work with us</Link></li>
+              <li><Link href="/blog" className="transition-colors hover:text-cream">Journal</Link></li>
+            </ul>
+          </div>
+
+          {/* Social */}
+          <div>
+            <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-cream/70 mb-4">
+              {t.footer.followHeading}
+            </h3>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <a
+                  href="https://instagram.com/nimarastudio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-cream"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://linkedin.com/company/nimarapilates"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-cream"
+                >
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
 
         {/* Bottom */}
@@ -45,6 +91,7 @@ export default function Footer() {
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-cream/50">{t.footer.privacy}</Link>
             <Link href="/terms" className="hover:text-cream/50">{t.footer.terms}</Link>
+            <Link href="/cancellation" className="hover:text-cream/50">Cancellation policy</Link>
           </div>
         </div>
       </div>

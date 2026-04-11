@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import FilmGrain from "@/components/FilmGrain";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import Providers from "@/components/Providers";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -259,6 +260,7 @@ export default function RootLayout({
           <Nav />
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
+          <WhatsAppButton />
         </Providers>
         <Analytics />
         <SpeedInsights />

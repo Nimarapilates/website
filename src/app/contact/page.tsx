@@ -9,7 +9,7 @@ export default function ContactPage() {
   const { t } = useLanguage();
   const c = t.contact;
 
-  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phoneCode: "+34", phoneNumber: "", message: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", foundUs: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -25,7 +25,7 @@ export default function ContactPage() {
 
       if (res.ok) {
         setStatus("sent");
-        setForm({ firstName: "", lastName: "", email: "", phoneCode: "+34", phoneNumber: "", message: "" });
+        setForm({ firstName: "", lastName: "", email: "", foundUs: "", message: "" });
       } else {
         setStatus("error");
       }
@@ -107,24 +107,23 @@ export default function ContactPage() {
               </div>
 
               <div>
-                <label htmlFor="phoneNumber" className="block text-sm font-medium text-charcoal mb-2">{c.phone}</label>
-                <div className="flex gap-3">
-                  <input
-                    id="phoneCode"
-                    value={form.phoneCode}
-                    onChange={(e) => setForm({ ...form, phoneCode: e.target.value })}
-                    className="w-20 bg-transparent border-b border-charcoal/20 px-0 py-3 text-charcoal text-sm placeholder:text-stone/40 focus:outline-none focus:border-green transition-colors"
-                    placeholder="+34"
-                  />
-                  <input
-                    id="phoneNumber"
-                    type="tel"
-                    value={form.phoneNumber}
-                    onChange={(e) => setForm({ ...form, phoneNumber: e.target.value })}
-                    className="flex-1 bg-transparent border-b border-charcoal/20 px-0 py-3 text-charcoal text-sm placeholder:text-stone/40 focus:outline-none focus:border-green transition-colors"
-                    placeholder="600 000 000"
-                  />
-                </div>
+                <label htmlFor="foundUs" className="block text-sm font-medium text-charcoal mb-2">
+                  How did you find us?
+                </label>
+                <select
+                  id="foundUs"
+                  value={form.foundUs}
+                  onChange={(e) => setForm({ ...form, foundUs: e.target.value })}
+                  className="w-full bg-transparent border-b border-charcoal/20 px-0 py-3 text-charcoal text-sm focus:outline-none focus:border-green transition-colors appearance-none"
+                >
+                  <option value="" className="text-stone/40">Select an option</option>
+                  <option value="instagram">Instagram</option>
+                  <option value="google">Google search</option>
+                  <option value="word-of-mouth">Word of mouth</option>
+                  <option value="walked-past">Walked past the studio</option>
+                  <option value="classpass">ClassPass</option>
+                  <option value="other">Other</option>
+                </select>
               </div>
 
               <div>
@@ -191,17 +190,6 @@ export default function ContactPage() {
               </a>
             </div>
 
-            <div>
-              <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-green mb-3">WhatsApp</h3>
-              <a
-                href="https://wa.me/34689582692"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-charcoal hover:text-green transition-colors text-sm"
-              >
-                +34 689 582 692
-              </a>
-            </div>
           </div>
         </ScrollReveal>
       </div>

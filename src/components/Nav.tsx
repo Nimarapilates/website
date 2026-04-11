@@ -29,10 +29,9 @@ export default function Nav() {
   const links = [
     { label: t.nav.classes, href: "/classes" },
     { label: t.nav.pricing, href: "/pricing" },
-    { label: t.nav.contact, href: "/contact" },
+    { label: "Studio", href: "/studio" },
   ];
 
-  // On content pages, always show solid nav background
   const showSolid = !isHome || scrolled;
 
   return (
@@ -65,6 +64,33 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
+
+          {/* Contact dropdown */}
+          <div className="relative group">
+            <Link
+              href="/contact"
+              className="text-sm font-medium uppercase tracking-[0.1em] text-cream transition-colors duration-300 hover:text-cream flex items-center gap-1.5"
+            >
+              {t.nav.contact}
+              <svg width="8" height="5" viewBox="0 0 8 5" fill="none" className="opacity-60">
+                <path d="M1 1L4 4L7 1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </Link>
+            <div className="absolute right-0 top-full mt-2 bg-sage/95 backdrop-blur-xl rounded-sm py-2 min-w-[160px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+              <Link
+                href="/contact"
+                className="block px-5 py-2 text-xs font-medium uppercase tracking-wider text-cream/70 hover:text-cream transition-colors duration-200"
+              >
+                {t.nav.contact}
+              </Link>
+              <Link
+                href="/careers"
+                className="block px-5 py-2 text-xs font-medium uppercase tracking-wider text-cream/70 hover:text-cream transition-colors duration-200"
+              >
+                Work with us
+              </Link>
+            </div>
+          </div>
 
           {/* Language dropdown */}
           <div className="relative group">
@@ -133,6 +159,20 @@ export default function Nav() {
               {l.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
+            className="block py-3 text-sm font-light tracking-wide text-cream hover:text-cream transition-colors"
+          >
+            {t.nav.contact}
+          </Link>
+          <Link
+            href="/careers"
+            onClick={() => setOpen(false)}
+            className="block py-3 text-sm font-light tracking-wide text-cream/60 hover:text-cream transition-colors pl-4"
+          >
+            Work with us
+          </Link>
           <a
             href={bookingHref}
             onClick={() => setOpen(false)}

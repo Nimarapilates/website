@@ -3,16 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { BOOKING_CONFIG } from "@/lib/config";
 import SplitText from "@/components/SplitText";
 
 export default function Home() {
   const { t } = useLanguage();
   const h = t.home;
-
-  const bookingHref = BOOKING_CONFIG.bsport.widgetEnabled
-    ? "/classes#book"
-    : BOOKING_CONFIG.bsport.baseUrl;
 
   return (
     <section className="relative h-screen min-h-[600px] max-h-[1100px] overflow-hidden vignette">
@@ -41,23 +36,15 @@ export default function Home() {
           delay={0.3}
           italicFrom={2}
         >
-          Reconnect with yourself.
+          {h.heroTitle}
         </SplitText>
 
-        <div className="flex items-center gap-6">
-          <a
-            href={bookingHref}
-            className="text-sm font-medium uppercase tracking-[0.1em] text-cream border border-cream/40 px-7 py-3 rounded-full transition-all duration-500 hover:bg-cream hover:text-sage"
-          >
-            {t.nav.book}
-          </a>
-          <Link
-            href="/classes"
-            className="text-cream text-sm uppercase tracking-[0.1em] hover:text-cream transition-colors duration-300 underline underline-offset-4"
-          >
-            {h.viewAllClasses} →
-          </Link>
-        </div>
+        <Link
+          href="/classes"
+          className="text-cream text-sm uppercase tracking-[0.1em] hover:text-cream transition-colors duration-300 underline underline-offset-4"
+        >
+          {h.viewAllClasses} →
+        </Link>
       </div>
     </section>
   );

@@ -60,35 +60,22 @@ export default function ClassesPage() {
         </div>
       </section>
 
-      {/* Private sessions */}
+      {/* Discovery offer */}
       <section className="bg-cream py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <ScrollReveal>
-            <SectionLabel>{c.privateLabel}</SectionLabel>
+            <SectionLabel>{t.pricing.discoveryLabel}</SectionLabel>
+            <div className="border-t border-charcoal/10 py-8 sm:py-10">
+              <div className="flex flex-wrap items-baseline justify-between gap-4 mb-3">
+                <h3 className="font-heading text-2xl sm:text-3xl font-light text-charcoal">
+                  {t.pricing.discoveryName}
+                </h3>
+                <span className="text-charcoal text-2xl font-medium">&euro;29</span>
+              </div>
+              <p className="text-stone text-sm mb-4">{t.pricing.discoverySubtitle}</p>
+              <p className="text-stone text-xs">{t.pricing.discoveryFeature3} · {t.pricing.discoveryFeature4}</p>
+            </div>
           </ScrollReveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
-            <ScrollReveal>
-              <div className="border-t border-charcoal/10 py-8 sm:py-10 sm:pr-12">
-                <h3 className="font-heading text-2xl font-light text-charcoal mb-1">
-                  {c.privateSession}
-                </h3>
-                <p className="text-xs text-stone tracking-wider mb-3">55 min · one-to-one</p>
-                <p className="text-charcoal text-2xl font-medium mb-3">&euro;75</p>
-                <p className="text-stone text-sm leading-relaxed">{c.privateDesc}</p>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal>
-              <div className="border-t border-charcoal/10 py-8 sm:py-10 sm:pl-12 sm:border-l">
-                <h3 className="font-heading text-2xl font-light text-charcoal mb-1">
-                  {c.duetSession}
-                </h3>
-                <p className="text-xs text-stone tracking-wider mb-3">55 min · for two</p>
-                <p className="text-charcoal text-2xl font-medium mb-3">&euro;95 <span className="text-sm font-normal text-stone">{t.pricing.total}</span></p>
-                <p className="text-stone text-sm leading-relaxed">{c.duetDesc}</p>
-              </div>
-            </ScrollReveal>
-          </div>
         </div>
       </section>
 
