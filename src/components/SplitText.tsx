@@ -25,14 +25,15 @@ export default function SplitText({
   scroll = false,
   italicFrom,
 }: SplitTextProps) {
-  const containerRef = useRef<HTMLElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const containerRef = useRef<any>(null);
   const hasAnimated = useRef(false);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el || hasAnimated.current) return;
 
-    const words = el.querySelectorAll<HTMLSpanElement>(".split-word");
+    const words = (el as HTMLElement).querySelectorAll<HTMLSpanElement>(".split-word");
 
     gsap.set(words, {
       opacity: 0,
@@ -76,7 +77,7 @@ export default function SplitText({
 
   return (
     <Tag
-      ref={containerRef as React.RefObject<HTMLElement>}
+      ref={containerRef}
       className={`${className}`}
       style={{ perspective: "600px" }}
     >

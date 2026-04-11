@@ -21,7 +21,8 @@ export default function MagneticButton({
   as: Tag = "div",
   ...props
 }: MagneticButtonProps) {
-  const ref = useRef<HTMLElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const ref = useRef<any>(null);
 
   const handleMouseMove = useCallback(
     (e: React.MouseEvent) => {
@@ -49,7 +50,7 @@ export default function MagneticButton({
 
   return (
     <Tag
-      ref={ref as React.RefObject<HTMLElement>}
+      ref={ref}
       className={`inline-block will-change-transform ${className}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
