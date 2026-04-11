@@ -98,8 +98,8 @@ const en = {
     getInTouch: "Get in touch",
 
     ctaLabel: "Ready to begin",
-    ctaTitle: "Come once. You will understand.",
-    ctaSubtitle: "No experience required. Your instructor takes care of the rest.",
+    ctaTitle: "Your first session is waiting.",
+    ctaSubtitle: "No experience needed. We take care of the rest.",
     viewPricing: "View pricing",
     foundingRates: "Founding member rates →",
   },
@@ -372,7 +372,7 @@ const es: typeof en = {
     getInTouch: "Escríbenos",
 
     ctaLabel: "Empieza hoy",
-    ctaTitle: "Ven una vez. Lo entenderás.",
+    ctaTitle: "Tu primera sesión te espera.",
     ctaSubtitle: "Sin experiencia previa. Tu instructor se encarga del resto.",
     viewPricing: "Ver precios",
     foundingRates: "Tarifas de miembro fundador →",
@@ -646,7 +646,7 @@ const fr: typeof en = {
     getInTouch: "Nous écrire",
 
     ctaLabel: "Commencez aujourd'hui",
-    ctaTitle: "Venez une fois. Vous comprendrez.",
+    ctaTitle: "Votre première séance vous attend.",
     ctaSubtitle: "Aucune expérience requise. Votre instructeur s'occupe du reste.",
     viewPricing: "Voir les tarifs",
     foundingRates: "Tarifs membres fondateurs →",
@@ -921,7 +921,7 @@ const de: typeof en = {
     getInTouch: "Kontakt aufnehmen",
 
     ctaLabel: "Bereit anzufangen",
-    ctaTitle: "Komm einmal. Du wirst es verstehen.",
+    ctaTitle: "Deine erste Einheit wartet.",
     ctaSubtitle: "Keine Vorkenntnisse nötig. Dein Instruktor kümmert sich um den Rest.",
     viewPricing: "Preise ansehen",
     foundingRates: "Gründungsmitglied-Tarife →",

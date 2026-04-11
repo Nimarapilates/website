@@ -21,11 +21,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-flex flex-col leading-tight mb-4">
-              <span className="font-heading text-3xl font-semibold tracking-[0.12em] text-cream uppercase">
+              <span className="font-heading text-4xl font-light tracking-[0.18em] text-cream uppercase">
                 Nimara
               </span>
-              <span className="text-[0.6rem] uppercase tracking-[0.25em] text-cream/50 font-medium mt-0.5">
-                Reformer Studio
+              <span className="text-[0.65rem] uppercase tracking-[0.25em] text-cream font-medium">
+                Reformer Pilates
               </span>
             </Link>
             <p className="text-sm leading-relaxed max-w-xs">{t.footer.tagline}</p>
@@ -96,6 +96,9 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-cream/50">
               {t.footer.terms}
             </Link>
+            <a href="mailto:careers@nimarapilates.com?subject=Work%20with%20us" className="hover:text-cream/50">
+              Work with us
+            </a>
           </div>
         </div>
       </div>

@@ -2,15 +2,16 @@
 
 @theme inline {
   /* Palette — beige/crème, noir, vert sauge doux */
-  --color-sand: #EDE7DC;
-  --color-cream: #F5F0E8;
-  --color-dune: #C4B49A;
-  --color-green: #6B8B66;
-  --color-green-light: #82A47D;
-  --color-sage: #8FA888;
+  --color-sand: #EFE6D8;
+  --color-cream: #F7F3ED;
+  --color-dune: #D2C2A8;
+  --color-green: #6E8A6A;
+  --color-green-light: #7E9A7A;
+  --color-sage: #3E5A45;
+  --color-mist: #A8B8A2;
   --color-charcoal: #1A1A1A;
-  --color-oak: #B0966E;
-  --color-stone: #7A756A;
+  --color-oak: #C2A87A;
+  --color-stone: #6B6B60;
   --color-warm-black: #0F0E0C;
 
   --font-heading: var(--font-cormorant);
@@ -30,7 +31,7 @@ body {
 }
 
 ::selection {
-  background-color: var(--color-sage);
+  background-color: var(--color-green);
   color: var(--color-cream);
 }
 
@@ -155,6 +156,54 @@ body {
 }
 .prose-nimara a:hover {
   color: var(--color-green-light);
+}
+
+/* ── Marquee scroll ─────────────────────────────────── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+/* ── Horizontal scroll panels ──────────────────────── */
+.panel {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.panel + .panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10%;
+  width: 1px;
+  height: 80%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 0, 0, 0.06) 30%,
+    rgba(0, 0, 0, 0.06) 70%,
+    transparent
+  );
+  z-index: 10;
+}
+
+@media (max-width: 767px) {
+  .panel {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+  }
+  .panel + .panel::before {
+    display: none;
+  }
 }
 
 /* ── Reduced motion ─────────────────────────────────── */
