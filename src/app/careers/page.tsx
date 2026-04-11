@@ -2,47 +2,45 @@
 
 import { SectionLabel } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
-
-const roles = [
-  {
-    title: "Reformer Pilates Instructor",
-    type: "Part-time / Full-time",
-    description:
-      "We are looking for certified Reformer Pilates instructors who teach with care, precision, and genuine attention. Experience with Balanced Body equipment is a plus but not essential.",
-    requirements: [
-      "Recognised Pilates certification (Balanced Body, BASI, Stott, or equivalent)",
-      "Experience teaching group Reformer classes",
-      "Fluent in English or Spanish — additional languages welcome",
-      "Right to work in Spain",
-    ],
-  },
-  {
-    title: "Studio Host",
-    type: "Part-time",
-    description:
-      "The first person our clients see. You set the tone — calm, warm, organised. You manage bookings, greet clients, and keep the studio running smoothly.",
-    requirements: [
-      "Fluent in English and Spanish",
-      "Experience in hospitality, wellness, or customer-facing roles",
-      "Comfortable with booking platforms and basic admin",
-      "Right to work in Spain",
-    ],
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function CareersPage() {
+  const { t } = useLanguage();
+  const c = t.careers;
+
+  const roles = [
+    {
+      title: c.role1Title,
+      type: c.role1Type,
+      description: c.role1Desc,
+      requirements: [c.role1Req1, c.role1Req2, c.role1Req3, c.role1Req4],
+    },
+    {
+      title: c.role2Title,
+      type: c.role2Type,
+      description: c.role2Desc,
+      requirements: [c.role2Req1, c.role2Req2, c.role2Req3, c.role2Req4],
+    },
+  ];
+
+  const values = [
+    { title: c.v1Title, text: c.v1Text },
+    { title: c.v2Title, text: c.v2Text },
+    { title: c.v3Title, text: c.v3Text },
+  ];
+
   return (
     <>
       {/* Heading */}
       <section className="bg-sand pt-32 sm:pt-40 pb-16 sm:pb-20">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <ScrollReveal>
-            <SectionLabel>Careers</SectionLabel>
+            <SectionLabel>{c.label}</SectionLabel>
             <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-charcoal leading-tight mb-4">
-              Work with us
+              {c.title}
             </h1>
             <p className="text-stone text-lg leading-relaxed max-w-xl">
-              We are building a small team of people who care deeply about movement, attention, and creating a space worth returning to.
+              {c.subtitle}
             </p>
           </ScrollReveal>
         </div>
@@ -52,7 +50,7 @@ export default function CareersPage() {
       <section className="bg-cream py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <ScrollReveal>
-            <SectionLabel>Open roles</SectionLabel>
+            <SectionLabel>{c.openRolesLabel}</SectionLabel>
           </ScrollReveal>
 
           <div className="space-y-0">
@@ -90,15 +88,11 @@ export default function CareersPage() {
       <section className="bg-sand py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <ScrollReveal>
-            <SectionLabel>What we value</SectionLabel>
+            <SectionLabel>{c.valuesLabel}</SectionLabel>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-0">
-            {[
-              { title: "Attention", text: "We notice the details — in a client's posture, in a room's temperature, in the way someone feels when they walk in." },
-              { title: "Calm", text: "No rush, no noise, no performance. We move with intention and speak with care." },
-              { title: "Craft", text: "Teaching is a skill that deepens over time. We invest in our team's growth and trust their expertise." },
-            ].map((item, i) => (
+            {values.map((item, i) => (
               <ScrollReveal key={item.title}>
                 <div className={`border-t border-charcoal/10 py-8 sm:py-10 ${i > 0 ? "sm:pl-10 sm:border-l" : ""} ${i < 2 ? "sm:pr-10" : ""}`}>
                   <h3 className="font-heading text-xl font-light text-charcoal mb-2">
@@ -117,10 +111,10 @@ export default function CareersPage() {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 text-center">
           <ScrollReveal>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-cream mb-4">
-              Interested?
+              {c.ctaTitle}
             </h2>
             <p className="text-cream/50 mb-8 max-w-md mx-auto">
-              Send your CV and a short note about yourself. We read every application.
+              {c.ctaText}
             </p>
             <a
               href="mailto:careers@nimarapilates.com?subject=Application"

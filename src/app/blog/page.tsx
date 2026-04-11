@@ -1,9 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function BlogPage() {
+  const { lang, t } = useLanguage();
+  const b = t.blog;
   const posts = getAllPosts();
+
+  const dateLocale =
+    lang === "fr" ? "fr-FR" :
+    lang === "es" ? "es-ES" :
+    lang === "de" ? "de-DE" : "en-GB";
 
   return (
     <>
@@ -11,14 +21,13 @@ export default function BlogPage() {
       <section className="bg-charcoal pt-32 sm:pt-40 pb-16 sm:pb-20">
         <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
           <p className="text-xs uppercase tracking-[0.2em] font-medium text-sage mb-4">
-            Insights &amp; Guidance
+            {b.label}
           </p>
           <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-cream mb-4 leading-tight">
-            The Nimara Journal
+            {b.title}
           </h1>
           <p className="text-cream/50 text-base sm:text-lg max-w-xl leading-relaxed">
-            Thoughtful writing on Reformer Pilates, movement science, and
-            building a practice that lasts.
+            {b.subtitle}
           </p>
         </div>
       </section>
@@ -54,7 +63,7 @@ export default function BlogPage() {
                   </p>
                   <div className="flex items-center justify-between text-xs text-stone/70">
                     <time dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString("en-GB", {
+                      {new Date(post.date).toLocaleDateString(dateLocale, {
                         day: "numeric",
                         month: "long",
                         year: "numeric",
