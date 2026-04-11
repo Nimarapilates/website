@@ -1,67 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { SectionLabel, ButtonPrimary, ButtonOutline, Divider } from "@/components/ui";
+import Link from "next/link";
+import { ButtonPrimary } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
-import ScrollHint from "@/components/ScrollHint";
-import NewsletterSignup from "@/components/NewsletterSignup";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { BOOKING_CONFIG } from "@/lib/config";
 
 export default function Home() {
   const { t } = useLanguage();
   const h = t.home;
 
-  const classes = [
-    {
-      name: h.class1Name,
-      description: h.class1Desc,
-      image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&h=600&fit=crop&q=80",
-    },
-    {
-      name: h.class2Name,
-      description: h.class2Desc,
-      image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop&q=80",
-    },
-    {
-      name: h.class3Name,
-      description: h.class3Desc,
-      image: "https://images.unsplash.com/photo-1540206395-68808572332f?w=800&h=600&fit=crop&q=80",
-    },
-    {
-      name: h.class4Name,
-      description: h.class4Desc,
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop&q=80",
-    },
-  ];
-
-  const values = [
-    { title: h.v1Title, description: h.v1Desc, number: "08" },
-    { title: h.v2Title, description: h.v2Desc, number: "50" },
-    { title: h.v3Title, description: h.v3Desc, number: "01" },
-  ];
-
-  const practical = [
-    { title: h.p1Title, text: h.p1Text },
-    { title: h.p2Title, text: h.p2Text },
-    { title: h.p3Title, text: h.p3Text },
-    { title: h.p4Title, text: h.p4Text },
-    { title: h.p5Title, text: h.p5Text },
-    { title: h.p6Title, text: h.p6Text },
-  ];
-
-  const testimonials = [
-    { quote: h.t1Quote, name: h.t1Name, detail: h.t1Detail },
-    { quote: h.t2Quote, name: h.t2Name, detail: h.t2Detail },
-    { quote: h.t3Quote, name: h.t3Name, detail: h.t3Detail },
-    { quote: h.t4Quote, name: h.t4Name, detail: h.t4Detail },
-    { quote: h.t5Quote, name: h.t5Name, detail: h.t5Detail },
-    { quote: h.t6Quote, name: h.t6Name, detail: h.t6Detail },
-  ];
+  const bookingHref = BOOKING_CONFIG.bsport.widgetEnabled
+    ? "/classes#book"
+    : BOOKING_CONFIG.bsport.baseUrl;
 
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────── */}
-      <section className="relative h-screen min-h-[550px] max-h-[1000px] overflow-hidden">
+      <section className="relative h-screen min-h-[600px] max-h-[1100px] overflow-hidden">
         <Image
           src="/images/studio/reformers.png"
           alt="Nimara Reformer Pilates studio"
@@ -69,330 +26,260 @@ export default function Home() {
           className="object-cover"
           priority
         />
-
-        {/* Dark overlay */}
         <div className="absolute inset-0 hero-video-overlay" />
 
-        {/* Location label — right below nav */}
-        <div className="absolute top-16 sm:top-20 left-0 right-0 z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pt-4">
-          <SectionLabel dark>{h.location}</SectionLabel>
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 flex flex-col justify-end h-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 pb-16 sm:pb-28">
-          <div className="max-w-2xl">
-            <h1 className="font-heading text-lg sm:text-2xl lg:text-3xl font-light text-cream mb-3 sm:mb-4 max-w-xl leading-relaxed">
-              {h.heroTitle}
-            </h1>
-            <p className="text-sm text-cream/45 leading-relaxed mb-8 sm:mb-10 max-w-sm">
-              {h.heroSubtitle}
-            </p>
+        {/* Asymmetric content — pushed left, not centered */}
+        <div className="relative z-10 flex flex-col justify-end h-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-20 sm:pb-32">
+          <p className="text-[0.65rem] uppercase tracking-[0.35em] text-cream/40 mb-6">
+            {h.location}
+          </p>
+          <h1 className="font-heading text-4xl sm:text-5xl lg:text-7xl font-light text-cream leading-[1.1] tracking-[-0.02em] max-w-lg mb-6">
+            {h.heroTitle}
+          </h1>
+          <p className="text-cream/50 text-base sm:text-lg leading-relaxed max-w-md mb-10">
+            {h.heroSubtitle}
+          </p>
+          <div className="flex items-center gap-6">
+            <ButtonPrimary href={bookingHref}>{h.viewPricing}</ButtonPrimary>
+            <Link
+              href="/classes"
+              className="text-cream/40 text-sm hover:text-cream/70 transition-colors duration-300 underline underline-offset-4"
+            >
+              {h.viewAllClasses}
+            </Link>
           </div>
         </div>
 
-        {/* Scroll hint — mobile only */}
-        <ScrollHint />
-
-        {/* Scroll indicator — desktop only */}
-        <div className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex-col items-center gap-2">
-          <div className="w-px h-8 bg-cream/30 animate-pulse" />
+        {/* Scroll line — minimal */}
+        <div className="hidden sm:block absolute bottom-10 right-10 z-10">
+          <div className="w-px h-16 bg-cream/20 animate-pulse" />
         </div>
       </section>
 
-      {/* ── Values ───────────────────────────────────────── */}
-      <section className="bg-charcoal py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
-            {values.map((v, i) => (
-              <ScrollReveal key={v.title} delay={i + 1}>
-                <span className="block font-heading text-5xl sm:text-6xl font-light text-green/60 mb-3 sm:mb-4">
-                  {v.number}
-                </span>
-                <h3 className="font-heading text-xl sm:text-2xl font-light text-cream mb-2 sm:mb-3">
-                  {v.title}
-                </h3>
-                <p className="text-cream/65 leading-relaxed text-sm sm:text-base">
-                  {v.description}
-                </p>
+      {/* ── Philosophy — asymmetric two-column ───────────── */}
+      <section className="bg-sand py-24 sm:py-32 lg:py-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
+            {/* Left — narrow column with numbers */}
+            <div className="lg:col-span-4">
+              <ScrollReveal>
+                <div className="space-y-12">
+                  {[
+                    { number: "08", label: h.v1Title },
+                    { number: "50", label: h.v2Title },
+                    { number: "01", label: h.v3Title },
+                  ].map((v) => (
+                    <div key={v.number}>
+                      <span className="block font-heading text-6xl sm:text-7xl font-light text-charcoal/10 leading-none tracking-[-0.04em]">
+                        {v.number}
+                      </span>
+                      <p className="text-charcoal text-sm mt-2 tracking-wide">
+                        {v.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </ScrollReveal>
-            ))}
+            </div>
+
+            {/* Right — large image, offset upward */}
+            <div className="lg:col-span-8 lg:-mt-16">
+              <ScrollReveal>
+                <div className="aspect-[3/2] rounded-sm overflow-hidden">
+                  <Image
+                    src="/images/studio/reception.png"
+                    alt="Nimara studio interior"
+                    width={1200}
+                    height={800}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Arrival ──────────────────────────────────────── */}
-      <section className="bg-cream py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-            <ScrollReveal>
-              <div className="aspect-[4/3] rounded-sm overflow-hidden img-zoom">
-                <Image
-                  src="/images/studio/reception.png"
-                  alt="Nimara studio reception area"
-                  width={960}
-                  height={720}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </ScrollReveal>
+      {/* ── Studio — editorial, asymmetric ───────────────── */}
+      <section className="bg-cream py-24 sm:py-32 lg:py-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            {/* Text — offset to left third */}
+            <div className="lg:col-span-5 lg:pr-8">
+              <ScrollReveal>
+                <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-charcoal leading-[1.1] tracking-[-0.02em] mb-6">
+                  {h.floorTitle}
+                </h2>
+                <p className="text-stone leading-relaxed mb-4">{h.floorP1}</p>
+                <p className="text-stone/70 leading-relaxed text-sm">{h.floorP2}</p>
+              </ScrollReveal>
+            </div>
 
-            <ScrollReveal delay={1}>
-              <SectionLabel>{h.arrivalLabel}</SectionLabel>
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal mb-4 sm:mb-6 leading-tight">
-                {h.arrivalTitle}
-              </h2>
-              <p className="text-stone leading-relaxed mb-3 sm:mb-4">{h.arrivalP1}</p>
-              <p className="text-stone leading-relaxed">{h.arrivalP2}</p>
-            </ScrollReveal>
+            {/* Image — takes two-thirds */}
+            <div className="lg:col-span-7">
+              <ScrollReveal>
+                <div className="aspect-[4/3] rounded-sm overflow-hidden img-zoom">
+                  <Image
+                    src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=1200&h=900&fit=crop&q=80"
+                    alt="Reformer studio detail"
+                    width={1200}
+                    height={900}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Studio floor ─────────────────────────────────── */}
-      <section className="bg-sand py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-            <ScrollReveal>
-              <SectionLabel>{h.floorLabel}</SectionLabel>
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal mb-4 sm:mb-6 leading-tight">
-                {h.floorTitle}
-              </h2>
-              <p className="text-stone leading-relaxed mb-3 sm:mb-4">{h.floorP1}</p>
-              <p className="text-stone leading-relaxed">{h.floorP2}</p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={1}>
-              <div className="aspect-[4/3] rounded-sm overflow-hidden img-zoom">
-                <Image
-                  src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=960&h=720&fit=crop&q=80"
-                  alt="Pilates reformer studio detail"
-                  width={960}
-                  height={720}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Full-bleed image break ───────────────────────── */}
-      <section className="relative h-[40vh] sm:h-[50vh] min-h-[280px] sm:min-h-[400px] overflow-hidden">
+      {/* ── Full-bleed quote ─────────────────────────────── */}
+      <section className="relative h-[35vh] sm:h-[45vh] min-h-[260px] overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1747239202356-764770773c9a?w=1920&h=800&fit=crop&q=80"
           alt="Pilates practice in motion"
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-warm-black/40" />
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <ScrollReveal className="text-center">
-            <p className="font-heading text-2xl sm:text-4xl lg:text-5xl font-light text-cream leading-tight max-w-2xl px-6">
+        <div className="absolute inset-0 bg-warm-black/50" />
+        <div className="relative z-10 flex items-center h-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+          <ScrollReveal>
+            <p className="font-heading text-3xl sm:text-5xl lg:text-6xl font-light text-cream leading-[1.15] tracking-[-0.02em] max-w-xl">
               {h.bannerQuote}
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── Practical info ───────────────────────────────── */}
-      <section className="bg-sand py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+      {/* ── Classes — minimal cards ──────────────────────── */}
+      <section className="bg-sand py-24 sm:py-32 lg:py-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <ScrollReveal>
-            <SectionLabel>{h.practicalLabel}</SectionLabel>
-            <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-14">
-              {h.practicalTitle}
+            <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-charcoal leading-[1.1] tracking-[-0.02em] mb-16 sm:mb-20 max-w-md">
+              {h.classesTitle}
             </h2>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
-            {practical.map((item, i) => (
-              <ScrollReveal key={item.title} delay={(i % 3) + 1}>
-                <div className="flex gap-4">
-                  <span className="font-heading text-2xl font-light text-green/50 shrink-0 mt-0.5">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="font-heading text-lg font-light text-charcoal mb-1">
-                      {item.title}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-charcoal/8">
+            {[
+              { name: h.class1Name, desc: h.class1Desc },
+              { name: h.class2Name, desc: h.class2Desc },
+              { name: h.class3Name, desc: h.class3Desc },
+              { name: h.class4Name, desc: h.class4Desc },
+            ].map((c) => (
+              <ScrollReveal key={c.name}>
+                <div className="bg-sand p-8 sm:p-10 lg:p-12 group cursor-default">
+                  <div className="flex items-baseline justify-between mb-3">
+                    <h3 className="font-heading text-xl sm:text-2xl font-light text-charcoal group-hover:text-green transition-colors duration-500">
+                      {c.name}
                     </h3>
-                    <p className="text-stone text-sm leading-relaxed">{item.text}</p>
+                    <span className="text-xs text-stone/50">{h.classDuration}</span>
                   </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-        <Divider />
-      </div>
-
-      {/* ── Classes preview ──────────────────────────────── */}
-      <section className="bg-cream py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-          <ScrollReveal>
-            <div className="text-center mb-10 sm:mb-16">
-              <SectionLabel>{h.classesLabel}</SectionLabel>
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal">
-                {h.classesTitle}
-              </h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
-            {classes.map((c, i) => (
-              <ScrollReveal key={c.name} delay={(i % 2) + 1}>
-                <div className="group bg-sand border border-charcoal/8 rounded-sm overflow-hidden card-hover">
-                  <div className="aspect-[16/9] overflow-hidden">
-                    <Image
-                      src={c.image}
-                      alt={c.name}
-                      width={800}
-                      height={450}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-5 sm:p-8">
-                    <div className="flex items-start justify-between gap-3 mb-2 sm:mb-3">
-                      <h3 className="font-heading text-lg sm:text-xl font-light text-charcoal">
-                        {c.name}
-                      </h3>
-                      <span className="shrink-0 text-xs text-stone bg-sand/80 rounded-full px-3 py-1">
-                        {h.classDuration}
-                      </span>
-                    </div>
-                    <p className="text-stone text-sm leading-relaxed">{c.description}</p>
-                  </div>
+                  <p className="text-stone text-sm leading-relaxed">{c.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
           </div>
 
           <ScrollReveal>
-            <div className="text-center mt-8 sm:mt-12">
+            <div className="mt-12">
               <ButtonPrimary href="/classes">{h.viewAllClasses}</ButtonPrimary>
             </div>
           </ScrollReveal>
         </div>
       </section>
 
-      {/* ── Testimonials ─────────────────────────────────── */}
-      <section className="bg-sand py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-          <ScrollReveal>
-            <div className="text-center mb-12 sm:mb-16">
-              <SectionLabel>{h.testimonialsLabel}</SectionLabel>
-              <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-4">
-                {h.testimonialsTitle}
-              </h2>
-              <div className="flex items-center justify-center gap-2">
-                <span className="text-green text-lg tracking-wide">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-                <span className="text-stone text-sm">5.0 on Google</span>
-              </div>
+      {/* ── Testimonial — single, cinematic ──────────────── */}
+      <section className="bg-charcoal py-24 sm:py-32 lg:py-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-8">
+              <ScrollReveal>
+                <p className="font-heading text-2xl sm:text-3xl lg:text-4xl font-light text-cream/90 leading-[1.4] tracking-[-0.01em]">
+                  &ldquo;{h.t2Quote}&rdquo;
+                </p>
+              </ScrollReveal>
             </div>
-          </ScrollReveal>
+            <div className="lg:col-span-4 lg:text-right">
+              <ScrollReveal>
+                <p className="text-cream/60 text-sm">{h.t2Name}</p>
+                <p className="text-cream/30 text-xs">{h.t2Detail}</p>
+              </ScrollReveal>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {testimonials.map((testimonial, i) => (
-              <ScrollReveal key={testimonial.name} delay={(i % 3) + 1}>
-                <div className="bg-cream rounded-sm p-8 h-full flex flex-col border border-charcoal/8">
-                  <p className="font-heading text-4xl text-green/30 leading-none mb-4">&ldquo;</p>
-                  <p className="text-stone leading-relaxed text-sm mb-6 flex-1">
-                    {testimonial.quote}
-                  </p>
+      {/* ── Location — clean, asymmetric ─────────────────── */}
+      <section className="bg-cream py-24 sm:py-32 lg:py-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+            <div className="lg:col-span-5">
+              <ScrollReveal>
+                <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-light text-charcoal leading-[1.1] tracking-[-0.02em] mb-8">
+                  {h.locationTitle}
+                </h2>
+
+                <div className="space-y-5 mb-10">
                   <div>
-                    <p className="text-charcoal font-medium text-sm">{testimonial.name}</p>
-                    <p className="text-stone text-xs">{testimonial.detail}</p>
+                    <p className="text-xs uppercase tracking-[0.2em] text-green font-medium mb-1">
+                      {h.addressLabel}
+                    </p>
+                    <p className="text-charcoal">C/ Joan Crespí, 47</p>
+                    <p className="text-stone text-sm">07014 Palma de Mallorca</p>
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-green font-medium mb-1">
+                      {h.neighbourhoodLabel}
+                    </p>
+                    <p className="text-stone text-sm leading-relaxed">{h.neighbourhoodText}</p>
                   </div>
                 </div>
+
+                <Link
+                  href="/contact"
+                  className="inline-block border border-charcoal/20 text-charcoal font-medium text-sm px-7 py-3.5 rounded-sm transition-all duration-300 hover:bg-charcoal hover:text-cream"
+                >
+                  {h.getInTouch}
+                </Link>
               </ScrollReveal>
-            ))}
+            </div>
+
+            <div className="lg:col-span-7">
+              <ScrollReveal>
+                <div className="aspect-[4/3] rounded-sm overflow-hidden img-zoom">
+                  <Image
+                    src="/images/studio/storefront.png"
+                    alt="Nimara studio on C/ Joan Crespí, Santa Catalina"
+                    width={1200}
+                    height={900}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </ScrollReveal>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Newsletter ───────────────────────────────────── */}
-      <NewsletterSignup />
-
-      {/* ── Location ─────────────────────────────────────── */}
-      <section className="bg-cream py-16 sm:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-            <ScrollReveal>
-              <SectionLabel>{h.locationLabel}</SectionLabel>
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-light text-charcoal mb-6 leading-tight">
-                {h.locationTitle}
-              </h2>
-
-              <div className="space-y-6 mb-8">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-green font-medium mb-1">
-                    {h.addressLabel}
-                  </p>
-                  <p className="text-charcoal font-medium">C/ Joan Crespí, 47</p>
-                  <p className="text-stone text-sm">07014 Palma de Mallorca</p>
-                </div>
-
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-green font-medium mb-1">
-                    {h.parkingLabel}
-                  </p>
-                  <p className="text-stone text-sm leading-relaxed">{h.parkingText}</p>
-                </div>
-
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-green font-medium mb-1">
-                    {h.neighbourhoodLabel}
-                  </p>
-                  <p className="text-stone text-sm leading-relaxed">{h.neighbourhoodText}</p>
-                </div>
-              </div>
-
-              <ButtonOutline href="/contact">{h.getInTouch}</ButtonOutline>
-            </ScrollReveal>
-
-            <ScrollReveal delay={1}>
-              <div className="aspect-[4/3] rounded-sm overflow-hidden img-zoom">
-                <Image
-                  src="/images/studio/storefront.png"
-                  alt="Nimara studio on C/ Joan Crespí, Santa Catalina"
-                  width={960}
-                  height={720}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ──────────────────────────────────────────── */}
-      <section className="relative py-20 sm:py-28 lg:py-36 overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&h=1080&fit=crop&q=80"
-          alt="Meditation and calm"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-warm-black/70" />
-        <div className="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
+      {/* ── CTA — minimal, confident ─────────────────────── */}
+      <section className="bg-warm-black py-24 sm:py-32 lg:py-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
           <ScrollReveal>
-            <SectionLabel dark>{h.ctaLabel}</SectionLabel>
-            <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-light text-cream mb-4 sm:mb-6 leading-tight max-w-3xl mx-auto">
+            <h2 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-light text-cream leading-[1.1] tracking-[-0.02em] max-w-lg mb-8">
               {h.ctaTitle}
             </h2>
-            <p className="text-cream/50 text-base sm:text-lg max-w-xl mx-auto mb-8 sm:mb-10">
+            <p className="text-cream/35 text-base max-w-md mb-10">
               {h.ctaSubtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex items-center gap-6">
               <ButtonPrimary href="/pricing">{h.viewPricing}</ButtonPrimary>
-              <a
+              <Link
                 href="/pricing#founding"
-                className="text-cream/60 hover:text-cream text-sm underline underline-offset-4 transition-colors"
+                className="text-cream/30 text-sm hover:text-cream/60 transition-colors duration-300"
               >
                 {h.foundingRates}
-              </a>
+              </Link>
             </div>
           </ScrollReveal>
         </div>

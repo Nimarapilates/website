@@ -38,7 +38,7 @@ body {
 @keyframes reveal {
   from {
     opacity: 0;
-    transform: translateY(32px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -48,19 +48,30 @@ body {
 
 .reveal {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(24px);
   transition: none;
 }
 
 .reveal.revealed {
-  animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: reveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* Staggered delays for children */
-.reveal-delay-1.revealed { animation-delay: 0.1s; }
-.reveal-delay-2.revealed { animation-delay: 0.2s; }
-.reveal-delay-3.revealed { animation-delay: 0.3s; }
-.reveal-delay-4.revealed { animation-delay: 0.4s; }
+.reveal-delay-1.revealed { animation-delay: 0.12s; }
+.reveal-delay-2.revealed { animation-delay: 0.24s; }
+.reveal-delay-3.revealed { animation-delay: 0.36s; }
+.reveal-delay-4.revealed { animation-delay: 0.48s; }
+
+/* ── Image blur-to-sharp load ────────────────────────── */
+.img-reveal {
+  filter: blur(8px);
+  opacity: 0.6;
+  transition: filter 0.8s ease-out, opacity 0.8s ease-out;
+}
+.img-reveal.loaded {
+  filter: blur(0);
+  opacity: 1;
+}
 
 /* ── Parallax image container ────────────────────────── */
 .parallax-img {
