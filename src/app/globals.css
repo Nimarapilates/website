@@ -97,3 +97,61 @@ body {
   border-color: var(--color-sage);
   box-shadow: 0 0 0 1px var(--color-sage);
 }
+
+/* ── Blog prose ─────────────────────────────────────── */
+.prose-nimara {
+  color: var(--color-stone);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+.prose-nimara p {
+  margin-bottom: 1.5em;
+}
+.prose-nimara h2 {
+  font-family: var(--font-heading), serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: var(--color-charcoal);
+  margin-top: 2.5em;
+  margin-bottom: 0.75em;
+  line-height: 1.3;
+}
+.prose-nimara h3 {
+  font-family: var(--font-heading), serif;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: var(--color-charcoal);
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+.prose-nimara strong {
+  color: var(--color-charcoal);
+  font-weight: 600;
+}
+.prose-nimara ul,
+.prose-nimara ol {
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+}
+.prose-nimara li {
+  margin-bottom: 0.5em;
+}
+.prose-nimara a {
+  color: var(--color-green);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.prose-nimara a:hover {
+  color: var(--color-green-light);
+}
+
+/* ── Reduced motion ─────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

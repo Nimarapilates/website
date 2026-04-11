@@ -4,6 +4,7 @@ import Image from "next/image";
 import { SectionLabel, ButtonPrimary, ButtonOutline, Divider } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
 import ScrollHint from "@/components/ScrollHint";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Home() {
@@ -52,6 +53,9 @@ export default function Home() {
     { quote: h.t1Quote, name: h.t1Name, detail: h.t1Detail },
     { quote: h.t2Quote, name: h.t2Name, detail: h.t2Detail },
     { quote: h.t3Quote, name: h.t3Name, detail: h.t3Detail },
+    { quote: h.t4Quote, name: h.t4Name, detail: h.t4Detail },
+    { quote: h.t5Quote, name: h.t5Name, detail: h.t5Detail },
+    { quote: h.t6Quote, name: h.t6Name, detail: h.t6Detail },
   ];
 
   return (
@@ -279,15 +283,19 @@ export default function Home() {
           <ScrollReveal>
             <div className="text-center mb-12 sm:mb-16">
               <SectionLabel>{h.testimonialsLabel}</SectionLabel>
-              <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal">
+              <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-4">
                 {h.testimonialsTitle}
               </h2>
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-green text-lg tracking-wide">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span className="text-stone text-sm">5.0 on Google</span>
+              </div>
             </div>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {testimonials.map((testimonial, i) => (
-              <ScrollReveal key={testimonial.name} delay={i + 1}>
+              <ScrollReveal key={testimonial.name} delay={(i % 3) + 1}>
                 <div className="bg-cream rounded-sm p-8 h-full flex flex-col border border-charcoal/8">
                   <p className="font-heading text-4xl text-green/30 leading-none mb-4">&ldquo;</p>
                   <p className="text-stone leading-relaxed text-sm mb-6 flex-1">
@@ -303,6 +311,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Newsletter ───────────────────────────────────── */}
+      <NewsletterSignup />
 
       {/* ── Location ─────────────────────────────────────── */}
       <section className="bg-cream py-16 sm:py-24 lg:py-32">

@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { SectionLabel, ButtonPrimary, Divider } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
+import ClassPassBadge from "@/components/ClassPassBadge";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { BOOKING_CONFIG } from "@/lib/config";
 
 export default function PricingPage() {
   const { t } = useLanguage();
@@ -62,6 +64,7 @@ export default function PricingPage() {
     { q: p.faq5Q, a: p.faq5A },
     { q: p.faq6Q, a: p.faq6A },
     { q: p.faq7Q, a: p.faq7A },
+    { q: p.faq8Q, a: p.faq8A },
   ];
 
   return (
@@ -126,7 +129,7 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <ButtonPrimary href="/classes" className="text-center">
+              <ButtonPrimary href={BOOKING_CONFIG.bsport.widgetEnabled ? "/classes#book" : BOOKING_CONFIG.bsport.baseUrl} className="text-center">
                 {p.discoveryButton}
               </ButtonPrimary>
             </div>
@@ -166,7 +169,7 @@ export default function PricingPage() {
                       </li>
                     ))}
                   </ul>
-                  <ButtonPrimary href="/classes" className="text-center mt-auto">
+                  <ButtonPrimary href={BOOKING_CONFIG.bsport.widgetEnabled ? "/classes#book" : BOOKING_CONFIG.bsport.baseUrl} className="text-center mt-auto">
                     {p.bookNow}
                   </ButtonPrimary>
                 </div>
@@ -281,6 +284,9 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+
+      {/* ClassPass badge — only renders when enabled in config */}
+      <ClassPassBadge />
 
       {/* FAQ */}
       <section className="bg-sand py-16 sm:py-24 lg:py-32">

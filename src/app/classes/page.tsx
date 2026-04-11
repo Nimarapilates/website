@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { SectionLabel, ButtonPrimary, BadgeDuration, Divider } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
+import ClassSchedule from "@/components/ClassSchedule";
+import BsportBookingWidget from "@/components/BsportBookingWidget";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ClassesPage() {
@@ -179,6 +181,12 @@ export default function ClassesPage() {
           </div>
         </div>
       </section>
+
+      {/* Weekly schedule */}
+      <ClassSchedule />
+
+      {/* Booking widget */}
+      <BsportBookingWidget />
 
       {/* What to expect */}
       <section className="bg-cream py-16 sm:py-24 lg:py-32">

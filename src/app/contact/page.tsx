@@ -18,7 +18,7 @@ export default function ContactPage() {
     setStatus("sending");
 
     try {
-      const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const res = await fetch("https://formspree.io/f/xgopgyra", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -67,7 +67,7 @@ export default function ContactPage() {
               <h2 className="font-heading text-2xl font-light text-charcoal mb-8">{c.formTitle}</h2>
 
               {status === "sent" ? (
-                <div className="bg-green/10 border border-green/20 rounded-sm p-8">
+                <div className="bg-green/10 border border-green/20 rounded-sm p-8" role="alert" aria-live="polite">
                   <p className="text-green font-medium mb-1">{c.sentTitle}</p>
                   <p className="text-stone text-sm">{c.sentText}</p>
                 </div>
@@ -82,6 +82,7 @@ export default function ContactPage() {
                         id="firstName"
                         type="text"
                         required
+                        aria-required="true"
                         value={form.firstName}
                         onChange={(e) => setForm({ ...form, firstName: e.target.value })}
                         className="w-full bg-cream border border-charcoal/15 rounded-sm px-4 py-3 text-charcoal text-sm placeholder:text-stone/50 focus:outline-none focus:border-green focus:ring-1 focus:ring-green/30 transition-all"
@@ -96,6 +97,7 @@ export default function ContactPage() {
                         id="lastName"
                         type="text"
                         required
+                        aria-required="true"
                         value={form.lastName}
                         onChange={(e) => setForm({ ...form, lastName: e.target.value })}
                         className="w-full bg-cream border border-charcoal/15 rounded-sm px-4 py-3 text-charcoal text-sm placeholder:text-stone/50 focus:outline-none focus:border-green focus:ring-1 focus:ring-green/30 transition-all"
@@ -112,6 +114,7 @@ export default function ContactPage() {
                       id="email"
                       type="email"
                       required
+                      aria-required="true"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
                       className="w-full bg-cream border border-charcoal/15 rounded-sm px-4 py-3 text-charcoal text-sm placeholder:text-stone/50 focus:outline-none focus:border-green focus:ring-1 focus:ring-green/30 transition-all"
@@ -120,9 +123,10 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-charcoal mb-2">{c.phone}</label>
+                    <label htmlFor="phoneCode" className="block text-sm font-medium text-charcoal mb-2">{c.phone}</label>
                     <div className="flex gap-2">
                       <input
+                        id="phoneCode"
                         list="phone-codes"
                         value={form.phoneCode}
                         onChange={(e) => setForm({ ...form, phoneCode: e.target.value })}
@@ -211,6 +215,7 @@ export default function ContactPage() {
                     <textarea
                       id="message"
                       required
+                      aria-required="true"
                       rows={5}
                       value={form.message}
                       onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -220,7 +225,7 @@ export default function ContactPage() {
                   </div>
 
                   {status === "error" && (
-                    <p className="text-red-600 text-sm">{c.error}</p>
+                    <p className="text-red-600 text-sm" role="alert" aria-live="polite">{c.error}</p>
                   )}
 
                   <button

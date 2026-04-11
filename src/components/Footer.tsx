@@ -11,6 +11,7 @@ export default function Footer() {
     { label: t.nav.pricing, href: "/pricing" },
     { label: t.nav.instructors, href: "/instructors" },
     { label: t.nav.contact, href: "/contact" },
+    { label: "Journal", href: "/blog" },
   ];
 
   return (

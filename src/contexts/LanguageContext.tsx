@@ -17,7 +17,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLangState] = useState<Lang>("en");
 
   useEffect(() => {
-    const saved = localStorage.getItem("belive-lang") as Lang;
+    const saved = localStorage.getItem("nimara-lang") as Lang;
     if (saved && ["en", "es", "fr"].includes(saved)) {
       setLangState(saved);
     }
@@ -25,7 +25,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const setLang = (newLang: Lang) => {
     setLangState(newLang);
-    localStorage.setItem("belive-lang", newLang);
+    localStorage.setItem("nimara-lang", newLang);
   };
 
   return (

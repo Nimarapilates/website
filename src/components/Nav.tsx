@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Lang } from "@/lib/i18n";
+import { BOOKING_CONFIG } from "@/lib/config";
 
 const langs: Lang[] = ["en", "es", "fr", "de"];
 
@@ -23,6 +24,7 @@ export default function Nav() {
     { label: t.nav.pricing, href: "/pricing" },
     { label: t.nav.instructors, href: "/instructors" },
     { label: t.nav.contact, href: "/contact" },
+    { label: "Journal", href: "/blog" },
   ];
 
   return (
@@ -56,7 +58,7 @@ export default function Nav() {
             </Link>
           ))}
           <Link
-            href="/classes"
+            href={BOOKING_CONFIG.bsport.widgetEnabled ? "/classes#book" : BOOKING_CONFIG.bsport.baseUrl}
             className="bg-green text-cream font-medium text-sm px-5 py-2.5 rounded-sm transition-all duration-300 hover:bg-green-light hover:shadow-lg hover:shadow-green/20"
           >
             {t.nav.book}
@@ -84,7 +86,8 @@ export default function Nav() {
         <button
           onClick={() => setOpen(!open)}
           className="lg:hidden flex flex-col justify-center items-center w-8 h-8 gap-1.5"
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation menu"
+          aria-expanded={open}
         >
           <span
             className={`block w-5 h-px bg-cream transition-transform duration-300 ${open ? "rotate-45 translate-y-[3.5px]" : ""}`}
