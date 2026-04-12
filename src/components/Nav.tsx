@@ -30,7 +30,7 @@ export default function Nav() {
   const links = [
     { label: t.nav.classes, href: "/classes" },
     { label: t.nav.pricing, href: "/pricing" },
-    { label: "Studio", href: "/studio" },
+    { label: t.nav.studio, href: "/studio" },
   ];
 
   const showSolid = !isHome || scrolled;
@@ -88,7 +88,7 @@ export default function Nav() {
                 href="/careers"
                 className="block px-5 py-2 text-xs font-medium uppercase tracking-wider text-cream/70 hover:text-cream transition-colors duration-200"
               >
-                Work with us
+                {t.nav.workWithUs}
               </Link>
             </div>
           </div>

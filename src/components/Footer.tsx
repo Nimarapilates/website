@@ -40,19 +40,19 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/classes" className="transition-colors hover:text-cream">{t.nav.classes}</Link></li>
               <li><Link href="/pricing" className="transition-colors hover:text-cream">{t.nav.pricing}</Link></li>
-              <li><Link href="/studio" className="transition-colors hover:text-cream">Studio</Link></li>
+              <li><Link href="/studio" className="transition-colors hover:text-cream">{t.nav.studio}</Link></li>
             </ul>
           </div>
 
           {/* Company */}
           <div>
             <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-cream/70 mb-4">
-              Company
+              {t.footer.company}
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/contact" className="transition-colors hover:text-cream">{t.nav.contact}</Link></li>
-              <li><Link href="/careers" className="transition-colors hover:text-cream">Work with us</Link></li>
-              <li><Link href="/blog" className="transition-colors hover:text-cream">Journal</Link></li>
+              <li><Link href="/careers" className="transition-colors hover:text-cream">{t.nav.workWithUs}</Link></li>
+              <li><Link href="/blog" className="transition-colors hover:text-cream">{t.footer.journal}</Link></li>
             </ul>
           </div>
 
@@ -90,7 +90,7 @@ export default function Footer() {
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-cream/50">{t.footer.privacy}</Link>
             <Link href="/terms" className="hover:text-cream/50">{t.footer.terms}</Link>
-            <Link href="/cancellation" className="hover:text-cream/50">Cancellation policy</Link>
+            <Link href="/cancellation" className="hover:text-cream/50">{t.footer.cancellation}</Link>
           </div>
         </div>
       </div>

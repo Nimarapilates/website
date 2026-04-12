@@ -4,6 +4,7 @@ import { useState } from "react";
 import { BOOKING_CONFIG, getBookingUrl } from "@/lib/config";
 import { SectionLabel } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface BsportBookingWidgetProps {
   height?: number;
@@ -13,6 +14,8 @@ export default function BsportBookingWidget({
   height = 700,
 }: BsportBookingWidgetProps) {
   const [loading, setLoading] = useState(true);
+  const { t } = useLanguage();
+  const b = t.booking;
   const { bsport } = BOOKING_CONFIG;
   const widgetReady = bsport.widgetEnabled && bsport.id;
 
@@ -21,20 +24,18 @@ export default function BsportBookingWidget({
       <section id="book" className="bg-cream py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 text-center">
           <ScrollReveal>
-            <SectionLabel>Book</SectionLabel>
+            <SectionLabel>{b.label}</SectionLabel>
             <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-4">
-              Reserve your Reformer
+              {b.title}
             </h2>
-            <p className="text-stone mb-8 max-w-md mx-auto">
-              Spaces are limited to 8 per class. Book through our platform.
-            </p>
+            <p className="text-stone mb-8 max-w-md mx-auto">{b.subtitle}</p>
             <a
               href={bsport.baseUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green text-cream font-medium text-sm px-8 py-4 rounded-sm transition-all duration-300 hover:bg-green-light"
             >
-              Book on Bsport
+              {b.bookOnBsport}
             </a>
           </ScrollReveal>
         </div>
@@ -48,9 +49,9 @@ export default function BsportBookingWidget({
     <section id="book" className="bg-cream py-20 sm:py-28">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
         <ScrollReveal>
-          <SectionLabel>Book</SectionLabel>
+          <SectionLabel>{b.label}</SectionLabel>
           <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-8">
-            Reserve your Reformer
+            {b.title}
           </h2>
         </ScrollReveal>
 
@@ -60,7 +61,7 @@ export default function BsportBookingWidget({
               <div className="absolute inset-0 flex items-center justify-center bg-cream z-10">
                 <div className="flex flex-col items-center gap-3">
                   <div className="w-8 h-8 border-2 border-green/30 border-t-green rounded-full animate-spin" />
-                  <p className="text-stone text-sm">Loading schedule&hellip;</p>
+                  <p className="text-stone text-sm">{b.loading}</p>
                 </div>
               </div>
             )}

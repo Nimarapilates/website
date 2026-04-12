@@ -109,7 +109,7 @@ export default function ContactPage() {
 
               <div>
                 <label htmlFor="foundUs" className="block text-sm font-medium text-charcoal mb-2">
-                  How did you find us?
+                  {c.foundUs}
                 </label>
                 <select
                   id="foundUs"
@@ -117,13 +117,13 @@ export default function ContactPage() {
                   onChange={(e) => setForm({ ...form, foundUs: e.target.value })}
                   className="w-full bg-transparent border-b border-charcoal/20 px-0 py-3 text-charcoal text-sm focus:outline-none focus:border-green transition-colors appearance-none"
                 >
-                  <option value="" className="text-stone/40">Select an option</option>
-                  <option value="instagram">Instagram</option>
-                  <option value="google">Google search</option>
-                  <option value="word-of-mouth">Word of mouth</option>
-                  <option value="walked-past">Walked past the studio</option>
-                  <option value="classpass">ClassPass</option>
-                  <option value="other">Other</option>
+                  <option value="" className="text-stone/40">{c.foundUsPlaceholder}</option>
+                  <option value="instagram">{c.foundInstagram}</option>
+                  <option value="google">{c.foundGoogle}</option>
+                  <option value="word-of-mouth">{c.foundWordOfMouth}</option>
+                  <option value="walked-past">{c.foundWalkedPast}</option>
+                  <option value="classpass">{c.foundClassPass}</option>
+                  <option value="other">{c.foundOther}</option>
                 </select>
               </div>
 

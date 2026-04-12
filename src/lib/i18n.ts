@@ -7,6 +7,7 @@ const en = {
     instructors: "Instructors",
     contact: "Contact",
     studio: "Studio",
+    workWithUs: "Work with us",
     book: "Book now",
   },
   footer: {
@@ -16,6 +17,9 @@ const en = {
     followHeading: "Follow",
     privacy: "Privacy policy",
     terms: "Terms",
+    cancellation: "Cancellation policy",
+    company: "Company",
+    journal: "Journal",
   },
   home: {
     location: "Santa Catalina, Palma de Mallorca",
@@ -370,6 +374,7 @@ const es: typeof en = {
     instructors: "Instructores",
     contact: "Contacto",
     studio: "Estudio",
+    workWithUs: "Trabaja con nosotros",
     book: "Reserva tu plaza",
   },
   footer: {
@@ -379,6 +384,9 @@ const es: typeof en = {
     followHeading: "Síguenos",
     privacy: "Política de privacidad",
     terms: "Términos",
+    cancellation: "Política de cancelación",
+    company: "Empresa",
+    journal: "Diario",
   },
   home: {
     location: "Santa Catalina, Palma de Mallorca",
@@ -733,6 +741,7 @@ const fr: typeof en = {
     instructors: "Instructeurs",
     contact: "Contact",
     studio: "Studio",
+    workWithUs: "Travailler avec nous",
     book: "Réserver ma place",
   },
   footer: {
@@ -742,6 +751,9 @@ const fr: typeof en = {
     followHeading: "Suivez-nous",
     privacy: "Politique de confidentialité",
     terms: "Conditions",
+    cancellation: "Politique d\u2019annulation",
+    company: "L\u2019entreprise",
+    journal: "Journal",
   },
   home: {
     location: "Santa Catalina, Palma de Majorque",
@@ -1096,6 +1108,7 @@ const de: typeof en = {
     instructors: "Team",
     contact: "Kontakt",
     studio: "Studio",
+    workWithUs: "Arbeite mit uns",
     book: "Jetzt buchen",
   },
   footer: {
@@ -1105,6 +1118,9 @@ const de: typeof en = {
     followHeading: "Folgen",
     privacy: "Datenschutz",
     terms: "AGB",
+    cancellation: "Stornierungsbedingungen",
+    company: "Unternehmen",
+    journal: "Journal",
   },
   home: {
     location: "Santa Catalina, Palma de Mallorca",
