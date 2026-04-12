@@ -51,7 +51,7 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li><Link href="/contact" className="transition-colors hover:text-cream">{t.nav.contact}</Link></li>
-              <li><Link href="/careers" className="transition-colors hover:text-cream">{t.nav.workWithUs}</Link></li>
+              <li><Link href="/careers" className="transition-colors hover:text-cream">{t.footer.workWithUs}</Link></li>
               <li><Link href="/blog" className="transition-colors hover:text-cream">{t.footer.journal}</Link></li>
             </ul>
           </div>
