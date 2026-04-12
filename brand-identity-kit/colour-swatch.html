@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nimara Pilates — Colour Palette</title>
+<style>
+  @page { margin: 1.5cm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+    background: #FAFAF7;
+    color: #1A1A1A;
+    padding: 48px;
+  }
+  h1 {
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    font-size: 13px;
+    color: #6B6B60;
+    margin-bottom: 48px;
+    letter-spacing: 0.02em;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 24px;
+  }
+  .swatch {
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .swatch-colour {
+    height: 140px;
+    display: flex;
+    align-items: flex-end;
+    padding: 14px 16px;
+  }
+  .swatch-hex {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    letter-spacing: 0.04em;
+  }
+  .swatch-info {
+    padding: 14px 16px 16px;
+  }
+  .swatch-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .swatch-var {
+    font-size: 12px;
+    font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+    color: #6B6B60;
+    margin-bottom: 8px;
+  }
+  .swatch-usage {
+    font-size: 13px;
+    color: #6B6B60;
+    line-height: 1.45;
+  }
+  .light-text { color: #F7F3ED; }
+  .dark-text  { color: #1A1A1A; }
+  footer {
+    margin-top: 48px;
+    font-size: 12px;
+    color: #A8B8A2;
+    letter-spacing: 0.02em;
+  }
+  @media print {
+    body { padding: 0; background: #fff; }
+    .swatch { box-shadow: none; border: 1px solid #E8E4DE; }
+  }
+</style>
+</head>
+<body>
+
+<h1>Nimara Pilates</h1>
+<p class="subtitle">Brand Colour Palette &mdash; 11 colours</p>
+
+<div class="grid">
+
+  <div class="swatch">
+    <div class="swatch-colour" style="background:#EFE6D8;">
+      <span class="swatch-hex dark-text">#EFE6D8</span>
+    </div>
+    <div class="swatch-info">
+      <div class="swatch-name">Sand</div>
+      <div class="swatch-var">--color-sand</div>
+      <div class="swatch-usage">Primary light background; body default</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="swatch-colour" style="background:#F7F3ED;">
+      <span class="swatch-hex dark-text">#F7F3ED</span>
+    </div>
+    <div class="swatch-info">
+      <div class="swatch-name">Cream</div>
+      <div class="swatch-var">--color-cream</div>
+      <div class="swatch-usage">Alternate background; selection text colour</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="swatch-colour" style="background:#D2C2A8;">
+      <span class="swatch-hex dark-text">#D2C2A8</span>
+    </div>
+    <div class="swatch-info">
+      <div class="swatch-name">Dune</div>
+      <div class="swatch-var">--color-dune</div>
+      <div class="swatch-usage">Warm neutral accent; borders, dividers</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="swatch-colour" style="background:#6E8A6A;">
+      <span class="swatch-hex light-text">#6E8A6A</span>
+    </div>
+    <div class="swatch-info">
+      <div class="swatch-name">Green</div>
+      <div class="swatch-var">--color-green</div>
+      <div class="swatch-usage">Primary accent; CTAs, links, selection background</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="swatch-colour" style="background:#7E9A7A;">
+      <span class="swatch-hex light-text">#7E9A7A</span>
+    </div>
+    <div class="swatch-info">
+      <div class="swatch-name">Green Light</div>
+      <div class="swatch-var">--color-green-light</div>
+      <div class="swatch-usage">Hover states for links and buttons</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="swatch-colour" style="background:#3E5A45;">
+      <span class="swatch-hex light-text">#3E5A45</span>
+    </div>
+    <div class="swatch-info">
+      <div class="swatch-name">Sage</div>
+      <div class="swatch-var">--color-sage</div>
+      <div class="swatch-usage">Nav background; dark green accent; card hover border</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="swatch-colour" style="background:#A8B8A2;">
+      <span class="swatch-hex dark-text">#A8B8A2</span>
+    </div>
+    <div class="swatch-info">
+      <div class="swatch-name">Mist</div>
+      <div class="swatch-var">--color-mist</div>
+      <div class="swatch-usage">Muted green; subtle accents, decorative elements</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="swatch-colour" style="background:#1A1A1A;">
+      <span class="swatch-hex light-text">#1A1A1A</span>
+    </div>
+    <div class="swatch-info">
+      <div class="swatch-name">Charcoal</div>
+      <div class="swatch-var">--color-charcoal</div>
+      <div class="swatch-usage">Body text; headings; strong emphasis</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="swatch-colour" style="background:#C2A87A;">
+      <span class="swatch-hex dark-text">#C2A87A</span>
+    </div>
+    <div class="swatch-info">
+      <div class="swatch-name">Oak</div>
+      <div class="swatch-var">--color-oak</div>
+      <div class="swatch-usage">Warm brown accent; highlights</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="swatch-colour" style="background:#6B6B60;">
+      <span class="swatch-hex light-text">#6B6B60</span>
+    </div>
+    <div class="swatch-info">
+      <div class="swatch-name">Stone</div>
+      <div class="swatch-var">--color-stone</div>
+      <div class="swatch-usage">Secondary text; prose body colour; captions</div>
+    </div>
+  </div>
+
+  <div class="swatch">
+    <div class="swatch-colour" style="background:#0F0E0C;">
+      <span class="swatch-hex light-text">#0F0E0C</span>
+    </div>
+    <div class="swatch-info">
+      <div class="swatch-name">Warm Black</div>
+      <div class="swatch-var">--color-warm-black</div>
+      <div class="swatch-usage">Dark sections; footer; hero overlay base</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Nimara Pilates &mdash; Brand Identity Kit &mdash; Generated April 2026</footer>
+
+</body>
+</html>

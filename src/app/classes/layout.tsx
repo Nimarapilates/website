@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Classes",
+  title: "Reformer Pilates Classes in Palma de Mallorca",
   description:
-    "Reformer Pilates classes in Palma de Mallorca: Fundamentals, Flow, Sculpt, and Restore. All levels welcome. Small groups of 8 with expert instruction at Nimara studio in Santa Catalina.",
+    "Pilates classes in Palma — Fundamentals, Flow, Sculpt, and Restore. Small groups of 8, expert instruction, all levels welcome. Book at Nimara studio, Santa Catalina.",
   keywords: [
     "Reformer Pilates classes Palma",
     "Pilates Fundamentals Mallorca",
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://nimarapilates.com/classes" },
   openGraph: {
-    title: "Classes | Nimara Pilates",
+    title: "Reformer Pilates Classes in Palma | Nimara",
     description:
-      "Reformer Pilates classes for all levels in Santa Catalina, Palma de Mallorca. Fundamentals, Flow, Sculpt, and Restore.",
+      "Pilates classes in Palma — Fundamentals, Flow, Sculpt, and Restore. Small groups of 8, all levels welcome at Nimara studio.",
     url: "https://nimarapilates.com/classes",
   },
 };

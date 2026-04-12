@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Studio",
+  title: "Pilates Studio in Santa Catalina, Palma",
   description:
-    "Step inside Nimara — a Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Eight Balanced Body Allegro 2 Reformers, oak floors, natural light. A room designed for focused practice.",
+    "Visit Nimara — a Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Eight Balanced Body Allegro 2 Reformers, oak floors, natural light. Events and workshops.",
   keywords: [
     "Pilates studio Palma de Mallorca",
     "Balanced Body Allegro 2 Mallorca",

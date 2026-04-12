@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact Nimara Pilates Palma",
   description:
-    "Get in touch with Nimara Pilates in Santa Catalina, Palma de Mallorca. Book a class, ask a question, or find us at C/ Joan Crespí, 47, 07014 Palma.",
+    "Contact Nimara Reformer Pilates in Santa Catalina, Palma de Mallorca. Book a class, ask a question, or visit us at C/ Joan Crespí, 47, 07014 Palma.",
   keywords: [
     "contact Pilates studio Palma",
     "book Pilates class Mallorca",

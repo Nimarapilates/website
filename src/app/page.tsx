@@ -13,7 +13,7 @@ export default function Home() {
     <section className="relative h-screen min-h-[600px] max-h-[1100px] overflow-hidden vignette">
       <Image
         src="/images/hero.jpg"
-        alt="Reformer Pilates in motion at Nimara studio"
+        alt="Reformer Pilates class at Nimara studio in Palma de Mallorca"
         fill
         className="object-cover object-center"
         sizes="100vw"

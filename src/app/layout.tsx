@@ -26,11 +26,11 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nimarapilates.com"),
   title: {
-    default: "Nimara — Reformer Pilates in Palma de Mallorca",
-    template: "%s | Nimara Pilates",
+    default: "Reformer Pilates Palma de Mallorca — Nimara Studio",
+    template: "%s | Nimara — Reformer Pilates Palma",
   },
   description:
-    "Nimara is a premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes of 8, expert instruction, Balanced Body Allegro 2 Reformers. Book your first class today.",
+    "Pilates Palma — Nimara is a Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes of 8, expert instruction, Balanced Body Allegro 2 Reformers. Book your first class today.",
   keywords: [
     // English — pilates
     "Reformer Pilates Palma",
@@ -88,9 +88,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Nimara — Reformer Pilates in Palma de Mallorca",
+    title: "Reformer Pilates Palma de Mallorca — Nimara Studio",
     description:
-      "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes of 8, expert instruction, Balanced Body equipment.",
+      "Pilates Palma — premium Reformer Pilates studio in Santa Catalina. Small classes of 8, expert instruction, Balanced Body equipment.",
     url: "https://nimarapilates.com",
     siteName: "Nimara Pilates",
     locale: "en_GB",
@@ -99,9 +99,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nimara — Reformer Pilates in Palma de Mallorca",
+    title: "Reformer Pilates Palma de Mallorca — Nimara Studio",
     description:
-      "Premium Reformer Pilates studio in Santa Catalina, Palma de Mallorca. Small classes, expert instruction.",
+      "Pilates Palma — premium Reformer Pilates in Santa Catalina. Small classes, expert instruction.",
   },
   robots: { index: true, follow: true },
 };
