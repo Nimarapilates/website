@@ -10,7 +10,7 @@ export default function ContactPage() {
   const { t } = useLanguage();
   const c = t.contact;
 
-  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", foundUs: "", message: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", foundUs: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -26,7 +26,7 @@ export default function ContactPage() {
 
       if (res.ok) {
         setStatus("sent");
-        setForm({ firstName: "", lastName: "", email: "", foundUs: "", message: "" });
+        setForm({ firstName: "", lastName: "", email: "", phone: "", foundUs: "", message: "" });
       } else {
         setStatus("error");
       }
@@ -104,6 +104,20 @@ export default function ContactPage() {
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className="w-full bg-transparent border-b border-charcoal/20 px-0 py-3 text-charcoal text-sm placeholder:text-stone/40 focus:outline-none focus:border-green transition-colors"
                   placeholder="your@email.com"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-charcoal mb-2">
+                  {c.phone} <span className="text-stone/40 font-normal">({c.optional})</span>
+                </label>
+                <input
+                  id="phone"
+                  type="tel"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  className="w-full bg-transparent border-b border-charcoal/20 px-0 py-3 text-charcoal text-sm placeholder:text-stone/40 focus:outline-none focus:border-green transition-colors"
+                  placeholder="+34 600 000 000"
                 />
               </div>
 
