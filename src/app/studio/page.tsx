@@ -12,7 +12,7 @@ const studioImages = [
   { src: "/images/stock/logan-weaver-lgnwvr-emku_T7SIeQ-unsplash.jpg", alt: "Instructor working with a client" },
   { src: "/images/stock/annie-spratt-Q6vClAWRqFY-unsplash.jpg", alt: "Studio reception area" },
   { src: "/images/stock/josh-duke-WHAdrtJcrWk-unsplash.jpg", alt: "Morning light in the studio" },
-  { src: "/images/stock/roxana-popovici-cZOWYsBFHhs-unsplash.jpg", alt: "Detail of a Balanced Body Reformer" },
+  { src: "/images/stock/roxana-popovici-cZ0WYsBFHhs-unsplash.jpg", alt: "Detail of a Balanced Body Reformer" },
 ];
 
 export default function StudioPage() {

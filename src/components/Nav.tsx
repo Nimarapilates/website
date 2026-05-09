@@ -90,6 +90,12 @@ export default function Nav() {
               >
                 {t.nav.workWithUs}
               </Link>
+              <Link
+                href="/partnerships"
+                className="block px-5 py-2 text-xs font-medium uppercase tracking-wider text-cream/70 hover:text-cream transition-colors duration-200"
+              >
+                {t.nav.partnerships}
+              </Link>
             </div>
           </div>
 
@@ -184,7 +190,14 @@ export default function Nav() {
             onClick={() => setOpen(false)}
             className="block py-3 text-sm font-light tracking-wide text-cream/60 hover:text-cream transition-colors pl-4"
           >
-            Work with us
+            {t.nav.workWithUs}
+          </Link>
+          <Link
+            href="/partnerships"
+            onClick={() => setOpen(false)}
+            className="block py-3 text-sm font-light tracking-wide text-cream/60 hover:text-cream transition-colors pl-4"
+          >
+            {t.nav.partnerships}
           </Link>
           <a
             href={bookingHref}

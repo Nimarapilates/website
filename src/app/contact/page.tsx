@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { SectionLabel } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
 import { InstagramIcon, LinkedInIcon } from "@/components/SocialIcons";
@@ -215,6 +216,14 @@ export default function ContactPage() {
                   <LinkedInIcon className="w-5 h-5" />
                 </a>
               </div>
+            </div>
+
+            <div className="border-t border-charcoal/10 pt-10">
+              <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-green mb-3">{c.partnerHeading}</h3>
+              <p className="text-stone text-sm leading-relaxed mb-3">{c.partnerText}</p>
+              <Link href="/partnerships" className="text-sm text-charcoal hover:text-green transition-colors underline underline-offset-4">
+                {c.partnerLink}
+              </Link>
             </div>
 
           </div>
