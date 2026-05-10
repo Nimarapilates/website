@@ -6,7 +6,7 @@ import { BOOKING_CONFIG } from "@/lib/config";
 
 /* ── Schedule data ───────────────────────────────────── */
 
-type ClassType = "Fundamentals" | "Flow" | "Sculpt" | "Restore";
+type ClassType = "Foundation" | "Current";
 
 interface ScheduleEntry {
   time: string;
@@ -15,66 +15,65 @@ interface ScheduleEntry {
 }
 
 const schedule: Record<string, ScheduleEntry[]> = {
-  Monday: [
-    { time: "07:30", name: "Fundamentals", duration: 50 },
-    { time: "09:00", name: "Flow", duration: 50 },
-    { time: "17:30", name: "Sculpt", duration: 50 },
-    { time: "19:00", name: "Flow", duration: 50 },
-  ],
   Tuesday: [
-    { time: "08:00", name: "Sculpt", duration: 50 },
-    { time: "10:00", name: "Restore", duration: 50 },
-    { time: "18:00", name: "Fundamentals", duration: 50 },
-    { time: "19:30", name: "Sculpt", duration: 50 },
+    { time: "07:30", name: "Foundation", duration: 60 },
+    { time: "09:00", name: "Current", duration: 60 },
+    { time: "10:30", name: "Foundation", duration: 60 },
+    { time: "17:30", name: "Current", duration: 60 },
+    { time: "19:00", name: "Foundation", duration: 60 },
   ],
   Wednesday: [
-    { time: "07:30", name: "Flow", duration: 50 },
-    { time: "09:00", name: "Fundamentals", duration: 50 },
-    { time: "17:30", name: "Flow", duration: 50 },
-    { time: "19:00", name: "Restore", duration: 50 },
+    { time: "07:30", name: "Current", duration: 60 },
+    { time: "09:00", name: "Foundation", duration: 60 },
+    { time: "10:30", name: "Current", duration: 60 },
+    { time: "17:30", name: "Foundation", duration: 60 },
+    { time: "19:00", name: "Current", duration: 60 },
   ],
   Thursday: [
-    { time: "08:00", name: "Sculpt", duration: 50 },
-    { time: "10:00", name: "Flow", duration: 50 },
-    { time: "18:00", name: "Sculpt", duration: 50 },
-    { time: "19:30", name: "Fundamentals", duration: 50 },
+    { time: "07:30", name: "Foundation", duration: 60 },
+    { time: "09:00", name: "Current", duration: 60 },
+    { time: "10:30", name: "Foundation", duration: 60 },
+    { time: "17:30", name: "Current", duration: 60 },
+    { time: "19:00", name: "Foundation", duration: 60 },
   ],
   Friday: [
-    { time: "07:30", name: "Fundamentals", duration: 50 },
-    { time: "09:00", name: "Sculpt", duration: 50 },
-    { time: "17:30", name: "Flow", duration: 50 },
+    { time: "07:30", name: "Current", duration: 60 },
+    { time: "09:00", name: "Foundation", duration: 60 },
+    { time: "10:30", name: "Current", duration: 60 },
+    { time: "17:30", name: "Foundation", duration: 60 },
+    { time: "19:00", name: "Current", duration: 60 },
   ],
   Saturday: [
-    { time: "09:00", name: "Flow", duration: 50 },
-    { time: "10:30", name: "Restore", duration: 50 },
+    { time: "09:00", name: "Foundation", duration: 60 },
+    { time: "10:30", name: "Current", duration: 60 },
+    { time: "12:00", name: "Foundation", duration: 60 },
+  ],
+  Sunday: [
+    { time: "09:00", name: "Current", duration: 60 },
+    { time: "10:30", name: "Foundation", duration: 60 },
+    { time: "12:00", name: "Current", duration: 60 },
   ],
 };
 
-const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 /* ── Colour mapping per class type ───────────────────── */
 
 const classStyles: Record<ClassType, string> = {
-  Fundamentals: "bg-green/10 border-green/30 text-green",
-  Flow: "bg-oak/10 border-oak/30 text-oak",
-  Sculpt: "bg-charcoal/10 border-charcoal/25 text-charcoal",
-  Restore: "bg-sage/10 border-sage/30 text-stone",
+  Foundation: "bg-green/10 border-green/30 text-green",
+  Current: "bg-oak/10 border-oak/30 text-oak",
 };
 
 const legendDot: Record<ClassType, string> = {
-  Fundamentals: "bg-green",
-  Flow: "bg-oak",
-  Sculpt: "bg-charcoal",
-  Restore: "bg-sage",
+  Foundation: "bg-green",
+  Current: "bg-oak",
 };
 
-/* ── Class card (shared between mobile & desktop) ────── */
+/* ── Class card ──────────────────────────────────────── */
 
 function ClassCard({ entry }: { entry: ScheduleEntry }) {
   return (
-    <div
-      className={`rounded-sm border px-3 py-2.5 ${classStyles[entry.name]}`}
-    >
+    <div className={`rounded-sm border px-3 py-2.5 ${classStyles[entry.name]}`}>
       <p className="text-sm font-medium leading-tight">{entry.name}</p>
       <p className="text-xs opacity-70 mt-0.5">
         {entry.time} &middot; {entry.duration} min
@@ -96,7 +95,7 @@ export default function ClassSchedule() {
           </h2>
         </ScrollReveal>
 
-        {/* ── Desktop grid (hidden on mobile) ────────── */}
+        {/* ── Desktop grid ────────────────────────────── */}
         <ScrollReveal>
           <div className="hidden lg:grid grid-cols-6 gap-3">
             {days.map((day) => (
@@ -114,7 +113,7 @@ export default function ClassSchedule() {
           </div>
         </ScrollReveal>
 
-        {/* ── Mobile list (hidden on desktop) ────────── */}
+        {/* ── Mobile list ─────────────────────────────── */}
         <div className="lg:hidden space-y-8">
           {days.map((day, di) => (
             <ScrollReveal key={day} delay={di < 3 ? di + 1 : 0}>

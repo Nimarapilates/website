@@ -64,7 +64,7 @@ const en = {
 
     classesLabel: "Our classes",
     classesTitle: "Four ways to move",
-    classDuration: "50 min",
+    classDuration: "60 min",
     viewAllClasses: "Join us",
     class1Name: "Reformer Fundamentals",
     class1Desc: "The ideal starting point. Alignment, breath, and the fundamentals — in a space where questions are always welcome.",
@@ -114,9 +114,9 @@ const en = {
   classes: {
     heroLabel: "Our classes",
     heroTitle: "Find your method",
-    heroSubtitle: "Three programmes, thoughtfully designed. Each session led by one instructor, for eight clients — never more.",
+    heroSubtitle: "Two programmes, thoughtfully designed. Each session led by one instructor, for eight clients — never more.",
     groupLabel: "Group sessions",
-    groupTitle: "Three programmes. One studio.",
+    groupTitle: "Two programmes. One studio.",
     newHereTitle: "New to Reformer Pilates?",
     newHereText: "Foundation is where everyone begins. Designed for newcomers — each movement broken down, every question welcome.",
     seePricing: "See pricing →",
@@ -455,7 +455,7 @@ const es: typeof en = {
 
     classesLabel: "Nuestras clases",
     classesTitle: "Cuatro formas de moverte",
-    classDuration: "50 min",
+    classDuration: "60 min",
     viewAllClasses: "Únete",
     class1Name: "Reformer Fundamentals",
     class1Desc: "El punto de partida ideal. Alineación, respiración y fundamentos — en un espacio donde las preguntas siempre son bienvenidas.",
@@ -505,9 +505,9 @@ const es: typeof en = {
   classes: {
     heroLabel: "Nuestras clases",
     heroTitle: "Encuentra tu método",
-    heroSubtitle: "Tres programas, diseñados con cuidado. Cada sesión con un instructor, para ocho clientes — sin excepción.",
+    heroSubtitle: "Dos programas, diseñados con cuidado. Cada sesión con un instructor, para ocho clientes — sin excepción.",
     groupLabel: "Sesiones en grupo",
-    groupTitle: "Tres programas. Un solo estudio.",
+    groupTitle: "Dos programas. Un solo estudio.",
     newHereTitle: "¿Es tu primera vez en el Reformer?",
     newHereText: "Foundation es donde comienza todo. Pensado para quienes empiezan — cada movimiento desglosado, cada pregunta bienvenida.",
     seePricing: "Ver precios →",
@@ -846,7 +846,7 @@ const fr: typeof en = {
 
     classesLabel: "Nos cours",
     classesTitle: "Quatre façons de bouger",
-    classDuration: "50 min",
+    classDuration: "60 min",
     viewAllClasses: "Rejoignez-nous",
     class1Name: "Reformer Fundamentals",
     class1Desc: "Le point de départ idéal. Alignement, respiration, fondamentaux — dans un espace où les questions sont toujours les bienvenues.",
@@ -896,9 +896,9 @@ const fr: typeof en = {
   classes: {
     heroLabel: "Nos cours",
     heroTitle: "Trouvez votre méthode",
-    heroSubtitle: "Trois programmes, soigneusement conçus. Chaque séance animée par un instructeur, pour huit clients — jamais plus.",
+    heroSubtitle: "Deux programmes, soigneusement conçus. Chaque séance animée par un instructeur, pour huit clients — jamais plus.",
     groupLabel: "Séances en groupe",
-    groupTitle: "Trois programmes. Un seul studio.",
+    groupTitle: "Deux programmes. Un seul studio.",
     newHereTitle: "Première fois sur le Reformer ?",
     newHereText: "Foundation, c'est là que tout commence. Conçu pour les débutants — chaque mouvement décortiqué, chaque question la bienvenue.",
     seePricing: "Voir les tarifs →",
@@ -1238,7 +1238,7 @@ const de: typeof en = {
 
     classesLabel: "Unsere Kurse",
     classesTitle: "Vier Wege, dich zu bewegen",
-    classDuration: "50 Min.",
+    classDuration: "60 Min.",
     viewAllClasses: "Mitmachen",
     class1Name: "Reformer Fundamentals",
     class1Desc: "Der ideale Einstieg. Ausrichtung, Atmung und die Grundlagen — in einem Raum, in dem Fragen immer willkommen sind.",
@@ -1288,9 +1288,9 @@ const de: typeof en = {
   classes: {
     heroLabel: "Unsere Kurse",
     heroTitle: "Finde deine Methode",
-    heroSubtitle: "Drei Programme, sorgfältig gestaltet. Jede Einheit von einem Instruktor geleitet, für acht Teilnehmer — nie mehr.",
+    heroSubtitle: "Zwei Programme, sorgfältig gestaltet. Jede Einheit von einem Instruktor geleitet, für acht Teilnehmer — nie mehr.",
     groupLabel: "Gruppeneinheiten",
-    groupTitle: "Drei Programme. Ein Studio.",
+    groupTitle: "Zwei Programme. Ein Studio.",
     newHereTitle: "Zum ersten Mal am Reformer?",
     newHereText: "Foundation ist der Ausgangspunkt. Für Einsteiger konzipiert — jede Bewegung erklärt, jede Frage willkommen.",
     seePricing: "Preise ansehen →",

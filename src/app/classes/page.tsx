@@ -14,7 +14,6 @@ export default function ClassesPage() {
   const groupClasses = [
     { name: c.class1Name, level: c.beginner, description: c.class1Desc },
     { name: c.class2Name, level: c.intermediate, description: c.class2Desc },
-    { name: c.class3Name, level: c.advanced, description: c.class3Desc },
   ];
 
   return (
