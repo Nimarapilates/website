@@ -11,7 +11,7 @@ export default function ContactPage() {
   const { t } = useLanguage();
   const c = t.contact;
 
-  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", foundUs: "", message: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "", foundUs: "", foundUsOther: "", message: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -27,7 +27,7 @@ export default function ContactPage() {
 
       if (res.ok) {
         setStatus("sent");
-        setForm({ firstName: "", lastName: "", email: "", phone: "", foundUs: "", message: "" });
+        setForm({ firstName: "", lastName: "", email: "", phone: "", foundUs: "", foundUsOther: "", message: "" });
       } else {
         setStatus("error");
       }
@@ -144,6 +144,24 @@ export default function ContactPage() {
                 </select>
               </div>
 
+              {form.foundUs === "other" && (
+                <div>
+                  <label htmlFor="foundUsOther" className="block text-sm font-medium text-charcoal mb-2">
+                    {c.foundOtherSpecify}
+                  </label>
+                  <input
+                    id="foundUsOther"
+                    type="text"
+                    required
+                    aria-required="true"
+                    value={form.foundUsOther}
+                    onChange={(e) => setForm({ ...form, foundUsOther: e.target.value })}
+                    className="w-full bg-transparent border-b border-charcoal/20 px-0 py-3 text-charcoal text-sm placeholder:text-stone/40 focus:outline-none focus:border-green transition-colors"
+                    placeholder={c.foundOtherSpecify}
+                  />
+                </div>
+              )}
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-charcoal mb-2">
                   {c.message}
@@ -178,14 +196,6 @@ export default function ContactPage() {
         {/* Info */}
         <ScrollReveal>
           <div className="space-y-10">
-            <div>
-              <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-green mb-3">{c.visitUs}</h3>
-              <p className="text-stone leading-relaxed">
-                C/ Joan Crespi, 47<br />
-                07014 Palma de Mallorca
-              </p>
-            </div>
-
             <div>
               <h3 className="text-xs uppercase tracking-[0.2em] font-medium text-green mb-3">{c.emailHeading}</h3>
               <a
