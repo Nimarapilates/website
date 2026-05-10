@@ -122,17 +122,6 @@ export default function Nav() {
             </div>
           </div>
 
-          {/* Instagram */}
-          <a
-            href="https://instagram.com/nimarastudio"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="text-cream/70 hover:text-cream transition-colors duration-300"
-          >
-            <InstagramIcon className="w-[18px] h-[18px]" />
-          </a>
-
           {/* Book now */}
           <a
             href={bookingHref}
