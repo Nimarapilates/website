@@ -3,99 +3,28 @@
 import { SectionLabel, ButtonPrimary } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
 
-/* ── Schedule data ───────────────────────────────────── */
-
-type ClassType = "Foundation" | "Current" | "Depth";
-
-interface ScheduleEntry {
-  time: string;
-  name: ClassType;
-  duration: number;
-}
-
-const schedule: Record<string, ScheduleEntry[]> = {
-  Monday: [
-    { time: "07:30", name: "Depth", duration: 60 },
-    { time: "08:45", name: "Foundation", duration: 60 },
-    { time: "10:00", name: "Current", duration: 60 },
-    { time: "11:15", name: "Depth", duration: 60 },
-    { time: "17:30", name: "Foundation", duration: 60 },
-    { time: "18:45", name: "Current", duration: 60 },
-  ],
-  Tuesday: [
-    { time: "09:15", name: "Foundation", duration: 60 },
-    { time: "10:30", name: "Current", duration: 60 },
-    { time: "11:45", name: "Depth", duration: 60 },
-    { time: "15:30", name: "Foundation", duration: 60 },
-    { time: "17:30", name: "Current", duration: 60 },
-    { time: "18:45", name: "Depth", duration: 60 },
-  ],
-  Wednesday: [
-    { time: "07:30", name: "Current", duration: 60 },
-    { time: "08:45", name: "Foundation", duration: 60 },
-    { time: "10:00", name: "Depth", duration: 60 },
-    { time: "11:15", name: "Current", duration: 60 },
-    { time: "17:30", name: "Foundation", duration: 60 },
-    { time: "18:45", name: "Depth", duration: 60 },
-  ],
-  Thursday: [
-    { time: "09:15", name: "Current", duration: 60 },
-    { time: "10:30", name: "Depth", duration: 60 },
-    { time: "11:45", name: "Foundation", duration: 60 },
-    { time: "15:30", name: "Depth", duration: 60 },
-    { time: "17:30", name: "Foundation", duration: 60 },
-    { time: "18:45", name: "Current", duration: 60 },
-  ],
-  Friday: [
-    { time: "07:30", name: "Depth", duration: 60 },
-    { time: "08:45", name: "Current", duration: 60 },
-    { time: "10:00", name: "Foundation", duration: 60 },
-    { time: "11:15", name: "Depth", duration: 60 },
-    { time: "17:30", name: "Current", duration: 60 },
-    { time: "18:45", name: "Foundation", duration: 60 },
-  ],
-  Saturday: [
-    { time: "09:00", name: "Foundation", duration: 60 },
-    { time: "10:15", name: "Current", duration: 60 },
-    { time: "11:30", name: "Depth", duration: 60 },
-  ],
-};
-
-const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-/* ── Colour mapping per class type ───────────────────── */
-
-const classStyles: Record<ClassType, string> = {
-  Foundation: "bg-green/10 border-green/30 text-green",
-  Current: "bg-oak/10 border-oak/30 text-oak",
-  Depth: "bg-charcoal/10 border-charcoal/25 text-charcoal",
-};
-
-const legendDot: Record<ClassType, string> = {
-  Foundation: "bg-green",
-  Current: "bg-oak",
-  Depth: "bg-charcoal",
-};
-
-/* ── Class card ──────────────────────────────────────── */
-
-function ClassCard({ entry }: { entry: ScheduleEntry }) {
-  return (
-    <div className={`rounded-sm border px-3 py-2.5 ${classStyles[entry.name]}`}>
-      <p className="text-sm font-medium leading-tight">{entry.name}</p>
-      <p className="text-xs opacity-70 mt-0.5">
-        {entry.time} &middot; {entry.duration} min
-      </p>
-    </div>
-  );
-}
-
-/* ── Component ───────────────────────────────────────── */
+const groups = [
+  {
+    days: "Mon · Wed · Fri",
+    morning: ["07:30", "08:45", "10:00", "11:15"],
+    evening: ["17:30", "18:45"],
+  },
+  {
+    days: "Tue · Thu",
+    morning: ["09:15", "10:30", "11:45", "15:30"],
+    evening: ["17:30", "18:45"],
+  },
+  {
+    days: "Saturday",
+    morning: ["09:00", "10:15", "11:30"],
+    evening: [],
+  },
+];
 
 export default function ClassSchedule() {
   return (
     <section className="bg-cream py-16 sm:py-24 lg:py-32">
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">
         <ScrollReveal>
           <SectionLabel>Timetable</SectionLabel>
           <h2 className="font-heading text-3xl sm:text-4xl font-light text-charcoal mb-12">
@@ -103,58 +32,53 @@ export default function ClassSchedule() {
           </h2>
         </ScrollReveal>
 
-        {/* ── Desktop grid ────────────────────────────── */}
         <ScrollReveal>
-          <div className="hidden lg:grid grid-cols-6 gap-3">
-            {days.map((day) => (
-              <div key={day}>
-                <p className="text-xs uppercase tracking-[0.15em] font-medium text-charcoal mb-3 text-center">
-                  {day}
-                </p>
-                <div className="space-y-2">
-                  {schedule[day].map((entry, i) => (
-                    <ClassCard key={`${day}-${i}`} entry={entry} />
-                  ))}
+          <div className="divide-y divide-charcoal/8">
+            {groups.map((g) => (
+              <div
+                key={g.days}
+                className="py-6 sm:py-7 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-0"
+              >
+                {/* Day label */}
+                <div className="sm:w-48 flex-shrink-0">
+                  <p className="text-sm font-medium text-charcoal tracking-wide">
+                    {g.days}
+                  </p>
+                </div>
+
+                {/* Times */}
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                  {/* Morning block */}
+                  <div className="flex flex-wrap gap-x-4 gap-y-2">
+                    {g.morning.map((t) => (
+                      <span key={t} className="text-sm text-charcoal tabular-nums">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Divider between morning and evening */}
+                  {g.evening.length > 0 && (
+                    <>
+                      <span className="hidden sm:block w-px h-4 bg-charcoal/20" />
+                      <div className="flex flex-wrap gap-x-4 gap-y-2">
+                        {g.evening.map((t) => (
+                          <span key={t} className="text-sm text-charcoal tabular-nums">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             ))}
           </div>
         </ScrollReveal>
 
-        {/* ── Mobile list ─────────────────────────────── */}
-        <div className="lg:hidden space-y-8">
-          {days.map((day, di) => (
-            <ScrollReveal key={day} delay={di < 3 ? di + 1 : 0}>
-              <div>
-                <p className="text-xs uppercase tracking-[0.15em] font-medium text-charcoal mb-3">
-                  {day}
-                </p>
-                <div className="space-y-2">
-                  {schedule[day].map((entry, i) => (
-                    <ClassCard key={`${day}-${i}`} entry={entry} />
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-
-        {/* ── Legend ──────────────────────────────────── */}
         <ScrollReveal>
-          <div className="flex flex-wrap gap-x-6 gap-y-2 mt-10 mb-8">
-            {(Object.keys(legendDot) as ClassType[]).map((type) => (
-              <div key={type} className="flex items-center gap-2">
-                <span className={`w-2.5 h-2.5 rounded-full ${legendDot[type]}`} />
-                <span className="text-sm text-stone">{type}</span>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
-
-        {/* ── Note + CTA ─────────────────────────────── */}
-        <ScrollReveal>
-          <p className="text-stone text-sm mb-8">
-            Schedule subject to change. Book via our app to secure your spot.
+          <p className="text-stone text-xs mt-8 mb-8">
+            All classes 60 min · Foundation, Current &amp; Depth levels available every day · Sunday closed
           </p>
           <ButtonPrimary href="/contact">
             Book a Class
