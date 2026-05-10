@@ -15,6 +15,14 @@ interface ScheduleEntry {
 }
 
 const schedule: Record<string, ScheduleEntry[]> = {
+  Monday: [
+    { time: "07:30", name: "Depth", duration: 60 },
+    { time: "08:45", name: "Foundation", duration: 60 },
+    { time: "10:00", name: "Current", duration: 60 },
+    { time: "11:15", name: "Depth", duration: 60 },
+    { time: "17:30", name: "Foundation", duration: 60 },
+    { time: "18:45", name: "Current", duration: 60 },
+  ],
   Tuesday: [
     { time: "09:15", name: "Foundation", duration: 60 },
     { time: "10:30", name: "Current", duration: 60 },
@@ -52,14 +60,9 @@ const schedule: Record<string, ScheduleEntry[]> = {
     { time: "10:15", name: "Current", duration: 60 },
     { time: "11:30", name: "Depth", duration: 60 },
   ],
-  Sunday: [
-    { time: "09:00", name: "Depth", duration: 60 },
-    { time: "10:15", name: "Foundation", duration: 60 },
-    { time: "11:30", name: "Current", duration: 60 },
-  ],
 };
 
-const days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 /* ── Colour mapping per class type ───────────────────── */
 
