@@ -9,9 +9,11 @@ type Slot = { time: string; level: Level };
 const levelLabel: Record<Level, string> = { F: "Foundation", C: "Current", D: "Depth" };
 const levelColor: Record<Level, string> = { F: "text-sage", C: "text-stone", D: "text-charcoal/60" };
 
+// offsetPx: visual top offset relative to 07:30 (each 15 min ≈ 8px)
 const groups = [
   {
     days: "Mon · Wed · Fri",
+    offsetPx: 0,
     morning: [
       { time: "07:30", level: "F" as Level },
       { time: "08:45", level: "C" as Level },
@@ -25,6 +27,7 @@ const groups = [
   },
   {
     days: "Tue · Thu",
+    offsetPx: 56, // 09:15 = 105 min after 07:30 → 7 × 8px
     morning: [
       { time: "09:15", level: "F" as Level },
       { time: "10:30", level: "C" as Level },
@@ -38,6 +41,7 @@ const groups = [
   },
   {
     days: "Saturday",
+    offsetPx: 48, // 09:00 = 90 min after 07:30 → 6 × 8px
     morning: [
       { time: "09:00", level: "F" as Level },
       { time: "10:15", level: "D" as Level },
@@ -79,25 +83,32 @@ export default function ClassSchedule() {
         <ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-charcoal/8 rounded-sm overflow-hidden">
             {groups.map((g) => (
-              <div key={g.days} className="bg-cream px-5 py-6">
-                {/* Day group heading */}
+              <div key={g.days} className="bg-cream px-5 py-6 flex flex-col">
                 <p className="text-[0.65rem] uppercase tracking-[0.18em] font-medium text-stone mb-5">
                   {g.days}
                 </p>
 
-                {/* Morning block */}
-                <p className="text-[0.6rem] uppercase tracking-[0.15em] text-charcoal/30 mb-3">Morning</p>
-                <SlotList slots={g.morning} />
+                {/* Morning — offset simulates real clock position */}
+                <div className="flex-1">
+                  <p className="text-[0.6rem] uppercase tracking-[0.15em] text-charcoal/30 mb-3">Morning</p>
+                  <div style={{ paddingTop: g.offsetPx }}>
+                    <SlotList slots={g.morning} />
+                  </div>
+                </div>
 
-                {/* Evening block */}
-                {g.evening.length > 0 && (
-                  <>
-                    <div className="my-5 border-t border-charcoal/10" />
+                {/* Divider — always on the same horizontal line */}
+                <div className="mt-5 border-t border-charcoal/10" />
+
+                {/* Evening / Afternoon */}
+                {g.evening.length > 0 ? (
+                  <div className="mt-5">
                     <p className="text-[0.6rem] uppercase tracking-[0.15em] text-charcoal/30 mb-3">
                       {g.days === "Tue · Thu" ? "Afternoon & Evening" : "Evening"}
                     </p>
                     <SlotList slots={g.evening} />
-                  </>
+                  </div>
+                ) : (
+                  <p className="mt-5 text-[0.6rem] uppercase tracking-[0.15em] text-charcoal/20">Sunday closed</p>
                 )}
               </div>
             ))}
