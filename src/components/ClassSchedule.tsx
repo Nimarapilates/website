@@ -44,14 +44,14 @@ const schedule: Record<string, ScheduleEntry[]> = {
     { time: "18:45", name: "Foundation", duration: 60 },
   ],
   Saturday: [
-    { time: "09:00", name: "Foundation", duration: 60 },
-    { time: "10:30", name: "Current", duration: 60 },
-    { time: "12:00", name: "Depth", duration: 60 },
+    { time: "09:00", name: "Depth", duration: 60 },
+    { time: "10:15", name: "Foundation", duration: 60 },
+    { time: "11:30", name: "Current", duration: 60 },
   ],
   Sunday: [
-    { time: "09:00", name: "Foundation", duration: 60 },
-    { time: "10:30", name: "Current", duration: 60 },
-    { time: "12:00", name: "Depth", duration: 60 },
+    { time: "09:00", name: "Current", duration: 60 },
+    { time: "10:15", name: "Depth", duration: 60 },
+    { time: "11:30", name: "Foundation", duration: 60 },
   ],
 };
 
