@@ -4,15 +4,11 @@ import Link from "next/link";
 import { SectionLabel } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { BOOKING_CONFIG } from "@/lib/config";
-
 export default function PricingPage() {
   const { t } = useLanguage();
   const p = t.pricing;
 
-  const bookingHref = BOOKING_CONFIG.bsport.widgetEnabled
-    ? "/classes#book"
-    : BOOKING_CONFIG.bsport.baseUrl;
+  const bookingHref = "/contact";
 
   const packs = [
     { name: p.dropIn, price: 38, per: null, features: [p.singleClass, p.noCommitment, p.anyClassType] },

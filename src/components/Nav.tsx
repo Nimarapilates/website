@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Lang } from "@/lib/i18n";
-import { BOOKING_CONFIG } from "@/lib/config";
 import { InstagramIcon } from "@/components/SocialIcons";
 
 const langs: Lang[] = ["en", "es", "fr", "de"];
@@ -23,9 +22,7 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const bookingHref = BOOKING_CONFIG.bsport.widgetEnabled
-    ? "/classes#book"
-    : BOOKING_CONFIG.bsport.baseUrl;
+  const bookingHref = "/contact";
 
   const links = [
     { label: t.nav.classes, href: "/classes" },

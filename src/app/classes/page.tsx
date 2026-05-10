@@ -4,8 +4,8 @@ import Link from "next/link";
 import { SectionLabel } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
 import BsportBookingWidget from "@/components/BsportBookingWidget";
+import ClassSchedule from "@/components/ClassSchedule";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { BOOKING_CONFIG } from "@/lib/config";
 
 export default function ClassesPage() {
   const { t } = useLanguage();
@@ -78,25 +78,11 @@ export default function ClassesPage() {
         </div>
       </section>
 
+      {/* Timetable */}
+      <ClassSchedule />
+
       {/* Booking */}
       <BsportBookingWidget />
-
-      {/* ClassPass — only visible when enabled */}
-      {BOOKING_CONFIG.classpass.enabled && BOOKING_CONFIG.classpass.url && (
-        <div className="bg-cream pb-12">
-          <p className="text-center text-stone text-sm">
-            Also available on{" "}
-            <a
-              href={BOOKING_CONFIG.classpass.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-charcoal font-medium underline underline-offset-4 hover:text-green transition-colors"
-            >
-              ClassPass
-            </a>
-          </p>
-        </div>
-      )}
 
       {/* CTA */}
       <section className="bg-warm-black py-24 sm:py-32">

@@ -2,7 +2,6 @@
 
 import { SectionLabel, ButtonPrimary } from "@/components/ui";
 import ScrollReveal from "@/components/ScrollReveal";
-import { BOOKING_CONFIG } from "@/lib/config";
 
 /* ── Schedule data ───────────────────────────────────── */
 
@@ -157,7 +156,7 @@ export default function ClassSchedule() {
           <p className="text-stone text-sm mb-8">
             Schedule subject to change. Book via our app to secure your spot.
           </p>
-          <ButtonPrimary href={BOOKING_CONFIG.bsport.widgetEnabled ? "#book" : BOOKING_CONFIG.bsport.baseUrl}>
+          <ButtonPrimary href="/contact">
             Book a Class
           </ButtonPrimary>
         </ScrollReveal>
