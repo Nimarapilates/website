@@ -17,8 +17,8 @@ interface ScheduleEntry {
 const schedule: Record<string, ScheduleEntry[]> = {
   Tuesday: [
     { time: "07:30", name: "Foundation", duration: 60 },
-    { time: "08:45", name: "Current", duration: 60 },
-    { time: "10:00", name: "Depth", duration: 60 },
+    { time: "08:45", name: "Depth", duration: 60 },
+    { time: "10:00", name: "Current", duration: 60 },
     { time: "17:30", name: "Foundation", duration: 60 },
     { time: "18:45", name: "Current", duration: 60 },
   ],
@@ -27,21 +27,21 @@ const schedule: Record<string, ScheduleEntry[]> = {
     { time: "08:45", name: "Foundation", duration: 60 },
     { time: "10:00", name: "Depth", duration: 60 },
     { time: "17:30", name: "Current", duration: 60 },
-    { time: "18:45", name: "Depth", duration: 60 },
+    { time: "18:45", name: "Foundation", duration: 60 },
   ],
   Thursday: [
+    { time: "07:30", name: "Depth", duration: 60 },
+    { time: "08:45", name: "Current", duration: 60 },
+    { time: "10:00", name: "Foundation", duration: 60 },
+    { time: "17:30", name: "Foundation", duration: 60 },
+    { time: "18:45", name: "Depth", duration: 60 },
+  ],
+  Friday: [
     { time: "07:30", name: "Current", duration: 60 },
     { time: "08:45", name: "Foundation", duration: 60 },
     { time: "10:00", name: "Depth", duration: 60 },
-    { time: "17:30", name: "Foundation", duration: 60 },
-    { time: "18:45", name: "Current", duration: 60 },
-  ],
-  Friday: [
-    { time: "07:30", name: "Foundation", duration: 60 },
-    { time: "08:45", name: "Current", duration: 60 },
-    { time: "10:00", name: "Foundation", duration: 60 },
-    { time: "17:30", name: "Depth", duration: 60 },
-    { time: "18:45", name: "Current", duration: 60 },
+    { time: "17:30", name: "Current", duration: 60 },
+    { time: "18:45", name: "Foundation", duration: 60 },
   ],
   Saturday: [
     { time: "09:00", name: "Foundation", duration: 60 },
