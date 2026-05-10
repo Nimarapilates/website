@@ -110,11 +110,13 @@ export default function ContactPage() {
 
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-charcoal mb-2">
-                  {c.phone} <span className="text-stone/40 font-normal">({c.optional})</span>
+                  {c.phone}
                 </label>
                 <input
                   id="phone"
                   type="tel"
+                  required
+                  aria-required="true"
                   value={form.phone}
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   className="w-full bg-transparent border-b border-charcoal/20 px-0 py-3 text-charcoal text-sm placeholder:text-stone/40 focus:outline-none focus:border-green transition-colors"
