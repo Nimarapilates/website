@@ -6,7 +6,7 @@ import { BOOKING_CONFIG } from "@/lib/config";
 
 /* ── Schedule data ───────────────────────────────────── */
 
-type ClassType = "Foundation" | "Current";
+type ClassType = "Foundation" | "Current" | "Depth";
 
 interface ScheduleEntry {
   time: string;
@@ -20,12 +20,12 @@ const schedule: Record<string, ScheduleEntry[]> = {
     { time: "09:00", name: "Current", duration: 60 },
     { time: "10:30", name: "Foundation", duration: 60 },
     { time: "17:30", name: "Current", duration: 60 },
-    { time: "19:00", name: "Foundation", duration: 60 },
+    { time: "19:00", name: "Depth", duration: 60 },
   ],
   Wednesday: [
     { time: "07:30", name: "Current", duration: 60 },
     { time: "09:00", name: "Foundation", duration: 60 },
-    { time: "10:30", name: "Current", duration: 60 },
+    { time: "10:30", name: "Depth", duration: 60 },
     { time: "17:30", name: "Foundation", duration: 60 },
     { time: "19:00", name: "Current", duration: 60 },
   ],
@@ -33,25 +33,25 @@ const schedule: Record<string, ScheduleEntry[]> = {
     { time: "07:30", name: "Foundation", duration: 60 },
     { time: "09:00", name: "Current", duration: 60 },
     { time: "10:30", name: "Foundation", duration: 60 },
-    { time: "17:30", name: "Current", duration: 60 },
-    { time: "19:00", name: "Foundation", duration: 60 },
+    { time: "17:30", name: "Depth", duration: 60 },
+    { time: "19:00", name: "Current", duration: 60 },
   ],
   Friday: [
     { time: "07:30", name: "Current", duration: 60 },
     { time: "09:00", name: "Foundation", duration: 60 },
-    { time: "10:30", name: "Current", duration: 60 },
-    { time: "17:30", name: "Foundation", duration: 60 },
-    { time: "19:00", name: "Current", duration: 60 },
+    { time: "10:30", name: "Depth", duration: 60 },
+    { time: "17:30", name: "Current", duration: 60 },
+    { time: "19:00", name: "Foundation", duration: 60 },
   ],
   Saturday: [
     { time: "09:00", name: "Foundation", duration: 60 },
     { time: "10:30", name: "Current", duration: 60 },
-    { time: "12:00", name: "Foundation", duration: 60 },
+    { time: "12:00", name: "Depth", duration: 60 },
   ],
   Sunday: [
     { time: "09:00", name: "Current", duration: 60 },
     { time: "10:30", name: "Foundation", duration: 60 },
-    { time: "12:00", name: "Current", duration: 60 },
+    { time: "12:00", name: "Depth", duration: 60 },
   ],
 };
 
@@ -62,11 +62,13 @@ const days = ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
 const classStyles: Record<ClassType, string> = {
   Foundation: "bg-green/10 border-green/30 text-green",
   Current: "bg-oak/10 border-oak/30 text-oak",
+  Depth: "bg-charcoal/10 border-charcoal/25 text-charcoal",
 };
 
 const legendDot: Record<ClassType, string> = {
   Foundation: "bg-green",
   Current: "bg-oak",
+  Depth: "bg-charcoal",
 };
 
 /* ── Class card ──────────────────────────────────────── */

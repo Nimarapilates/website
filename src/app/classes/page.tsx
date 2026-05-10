@@ -14,6 +14,7 @@ export default function ClassesPage() {
   const groupClasses = [
     { name: c.class1Name, level: c.beginner, description: c.class1Desc },
     { name: c.class2Name, level: c.intermediate, description: c.class2Desc },
+    { name: c.class3Name, level: c.advanced, description: c.class3Desc },
   ];
 
   return (
@@ -44,7 +45,7 @@ export default function ClassesPage() {
                       {cls.name}
                     </h3>
                     <span className="text-xs text-stone tracking-wider">
-                      50 min · {cls.level}
+                      60 min · {cls.level}
                     </span>
                   </div>
                   <p className="text-stone leading-relaxed max-w-2xl">
